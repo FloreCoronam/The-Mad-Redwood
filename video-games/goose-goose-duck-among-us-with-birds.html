@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goose Goose Duck – Among Us with Birds? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Goose Goose Duck – Among Us with Birds?</h1>
+            <div class="article-meta">
+                Published on October 24, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/goose-goose-duck-among-us-with-birds.jpg" alt="Goose Goose Duck – Among Us with Birds?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Human interaction is a difficult thing to understand at the best of times. When Among Us blew up in 2018, it was an unstoppable phenomenon across the gaming and streaming worlds. Everyone wanted to play it with their friends, and as such it obviously become more and more popular. You couldn’t step out into the street without hearing somebody cry “Impostor!”, and it didn’t really matter if they were correct.</p>
+<p>The game highlights a curious aspect of the human mind — that nobody can truly tell truth from lie, not even those trained in lie detection (though naturally some training helps). What tends to take hold in games of Among Us is mob mentality, defined by WhatIs.com as, “the inclination that some humans have to be part of a large group, often neglecting their individual feelings in the process, and adopting the behaviours and actions of the people around them”. When a convincing argument is made, people flock onto the bandwagon, and if the Impostor is indeed caught, everyone congratulates themselves on their smarts and infallible nose for sniffing out untruths.</p>
+<p>What happens when they get it wrong, though? No apologies are made, but of course, Among Us is merely a video game. There are no real-life consequences, except maybe some hurt feelings between friends. But games often reflect the people who play them, especially those who are most invested. As they make their case, they often have no doubt in their minds that they’re right — but if proven otherwise, sometimes with concrete evidence, they backtrack. In a similar way, those who are less interested in the stakes may choose to just go with the flow, especially if the accuser is known to be smart or observant — or might just be particularly charismatic. One doesn’t have to be right to be followed.</p>
+<p>In 2021, a different (yet quite blatantly similar) game called Goose Goose Duck was released, following the social deduction boom that Among Us kicked off. Crewmates and Impostors are replaced by Geese and Ducks — for whatever reason, the Geese aren’t the evil ones in this madness. But the developers of this game added new elements into the mix, sowing the seeds of discord by adding new roles besides the aforementioned waterfowl. The Vulture is mostly neutral in the mix, aiming to consume the corpses of its avian acquaintances to win the game instead. The Dodo’s goal is simply to die by being voted out. The Medium knows how many ghosts there are even before bodies are reported or meetings are called. These are just some of the many new roles in the game, and with these additions come new complexity.</p>
+<p>Naturally, the game gets more difficult to win. Most roles are ostensibly on either the Geese’s or Ducks’ side, but really they are independent identities. Players occupying these roles have new objectives entirely, and this changes the dynamic of the game for them. Video games are ultimately goal-oriented — even ‘chill’ games like Animal Crossing: New Horizons, where the player is encouraged to improve on their island and maintain relationships with their villagers. Minecraft operates in a similar way, and even extremely niche games like Lawn Mowing Simulator attempt to reward their players with satisfaction, or just good ol’ clean “fun” — as nebulous a term as that is.</p>
+<p>With Goose Goose Duck, the players are introduced to different ways to win whenever they pick a new role to include in the game. All the familiar elements are there, but the added complexity might actually simplify things. Some men just want to watch the world burn, so the Dodo or Vulture roles would be among their favourites. Some want to be as helpful as possible to their team, so the Medium would be their pick. Some might just enjoy the classic deduction as a Goose, or the cunning gameplay required of the Duck, but those just don’t work as well when one factors in all the new roles.</p>
+<p>It&#39;s really an entirely different kind of game when these additional roles are involved, because the complexity goes through the roof. The Geese have a harder time deducing anything while Vultures and Mediums run amok, jumbling up the information. For a group of players in a room, perhaps mob mentality doesn’t have as much of a hold; with so many factors splitting opinions, and more information to confuse matters, more players might be inclined to stop caring and just see what happens. The competitive ones would find it harder to conclude anything, or convince anyone of anything, but that would make them seem more ‘sus’ — it all depends on the interpretation of others in the room.</p>
+<p>In the end, human beings can only parse so much information. How much an individual can handle varies person to person, but all in all, the fact remains that we’re all still learning. So when you’re next falsely accused of eating dead bird bodies, remember that it’s harder to convince someone you’re sane than convince them you’re crazy.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
