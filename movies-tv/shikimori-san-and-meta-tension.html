@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shikimori-san and Meta-Tension — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Shikimori-san and Meta-Tension</h1>
+            <div class="article-meta">
+                Published on October 18, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/shikimori-san-and-meta-tension.jpg" alt="Shikimori-san and Meta-Tension" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Now, it’s admittedly hard to explain the series <em>Shikimori’s Not Just Cute</em> without mentioning the obvious main appeal — if you’re not <em>into</em> Shikimori, or girls like Shikimori, there isn’t much to glean. But having narrowed the audience somewhat through that funnel of ‘female who can feasibly fight her way out of a fortress’, there’s an interesting dynamic to learn from <em>for</em> that audience, as well as <em>from</em> that audience.</p>
+<p>The main premise: Izumi, our protagonist, is borderline supernaturally unlucky, to the point where a reader might think he’s under a curse. Shikimori, his girlfriend, is supernaturally competent at most things, and thus rescues him. At the beginning of the series, especially, is where this is the clearest — a fantasy emerges, for the reader, of a partner who is always ready to rescue them and indeed is devoted entirely to them. One might call that problematic. Shikimori does not have any other interests, it seems, outside of Izumi; in fairness that goes both ways, and this isn’t especially uncommon in anime anyway. The difference between them is that naturally, Izumi wants to stop being so unlucky, and lighten the burden he feels he is to Shikimori.</p>
+<p>Here we come to the conflict (or tension, if you prefer) of the piece — that Izumi wants things to change, and Shikimori doesn’t. She is very much happy to be his Prince Charming, and of course, Izumi swoons over her often as well — on the surface, he’s loving it. As the series progresses, and more characters come into play, the dynamic shifts somewhat. Izumi’s determination to change becomes more apparent, and Shikimori doesn’t know how to react. Of course, she wishes him all the best; inwardly, though, she’s concerned. What if he doesn’t need her anymore?</p>
+<p>This is interesting character-wise, as one might have surmised already. Besides the reversed traditional gender roles (though the series in general can be iffy about this anyway), the conflicting desires between Shikimori and Izumi is one that I haven’t found often in anime. That is, conflicting tensions between romantic partners regarding something they still both like. One gets the sense that neither would be particularly bothered if things stay as they are; a <em>decision </em>to change is what changes things. A meaningful decision at that — a decision that might collapse what their relationship is built on. The point that the series tries to make, I feel, is the desire the two have for each other, even if they don’t ‘need’ each other. While staying in their relationship, the two decide to continue developing and growing independently of each other, <em>with each other’s support</em>. Considering the series ending, I feel that <em>that</em> is the ‘thesis’ of the series, so to speak. At its core, I feel that that’s a solid message.</p>
+<p>Male-female relationship dynamics aside, this introduces a conflict in the audience as well. For those who came to the series <em>for</em> the dynamic between Prince Charming and Damsel in Distress — the rescuer and rescued — things begin to change. The series shifts focus; it becomes more about the whole friend group and how they inspire each other, rather than the swoon-inducing interactions between our two favourites. Does the <em>reader</em> want that?</p>
+<p>On one hand, this kind of meta-tension is perhaps what has kept the series in middling levels of popularity. The audience drawn in by the Prince Charming vibes loses interest; the audience drawn in by a wholesome healthy relationship may not have been grabbed by the beginning of the series. The series flip-flops between these two sides of the same coin throughout, eventually deciding to stick with the second, but refusing to let go of the first. I would argue that separating these two sides of the series would be a misstep — the rescuer-rescued dynamic is reinforced by the healthy dynamic. But it’s also hard to argue that focusing on one theme is generally how the best media is produced.</p>
+<p>Regardless, from a writer&#39;s perspective, the way these various tensions play out is endlessly fascinating. Whatever the readers’ feelings may be about the series as it develops, they are sure to be challenged if they follow the meta-tension. But is that something they want? Is it something they’re willing to consider? It depends on whether the reader wants to really think about the media they consume.</p>
+<p>I, for one, would love to see more of this kind of thing.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
