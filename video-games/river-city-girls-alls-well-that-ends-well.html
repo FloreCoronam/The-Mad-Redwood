@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>River City Girls: All’s Well That Ends Well? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">River City Girls: All’s Well That Ends Well?</h1>
+            <div class="article-meta">
+                Published on May 02, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/river-city-girls-alls-well-that-ends-well.jpg" alt="River City Girls: All’s Well That Ends Well?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>As you might be able to tell from the title of this post, this is going to be about endings. Naturally, spoilers ahead, but then <em>River City Girls </em>was released in 2019, and its sequel was released in 2022, and neither are very long games. This is a sort of recommendation post, with some caveats that will become clear along the way. What you need to know is that these are 2D side-scrolling beat-‘em-up games — a mouthful of a genre term to begin with — in a retro mould that’s highly sought after these days. These games were all the rage in the late ‘80s and throughout the ‘90s, with franchises like <em>Double Dragon </em>and <em>Final Fight </em>leading the charge. <em>River City Girls </em>is a revival of one of those retro series: the <em>Kunio-kun </em>franchise, except this time you play as the previous main characters’ girlfriends who are trying to save them, and who have to beat up a lot of people on the way. Misako and Kyoko have been playable in the series before, but this game took the series in a new sparkly direction with updated visuals, but with all the classic mechanics that fans love.</p>
+<p>This all gets complicated, at least for me. Big spoilers ahead for the end of the game, which is particularly important in this case. I would recommend this game regardless, though, because it’s very charming, pretty fun, and quite accessible — it’s my first foray into this genre, and though I found it a little more difficult than I’d first thought it would be, I did okay. I think. And I had fun. Anyway, even if you read this post to the end, it probably wouldn’t dissuade you from playing the game if you were interested already, and if you weren’t, hopefully it’ll pique your interest then.</p>
+<p>Seeing that it was my first game of this kind, I didn’t really have any expectations in mind for <em>River City Girls</em> because I wanted to learn about the genre; I wanted to see what the appeal was for myself. I’ve written about this kind of thing before: about that time I tried to get into K-dramas, and what keeps people engaged while consuming media. You can find those posts  and . The point is that I had no idea what to expect going into this game, and I wasn’t disappointed. In fact, I had a great time from beginning to end, and that was down to the aforementioned charm factor. It&#39;s quite funny, in a goofy Saturday-morning-cartoon kind of way.</p>
+<p>Characters are larger-than-life, all of them, and you just take it in as you go. There’s a boss who’s a spider-themed fashion mogul. There’s an NPC who shows up and gives you quests by popping out of dumpsters, and the quests are always a little silly too. There are various recurring enemies that are completely ridiculous: from acrobatic, divebombing, pom-pom wielding cheerleaders, to yakuza members with impeccable hair, to Arnold-Schwarzenegger-in-<em>Terminator</em> cyborgs that do indeed go eAAueeghhh when you hit them. There are also various weapons you can pick up like sparkly pink electric guitars and giant tunas. And the health items are all fun: various things that teenage girls might get when they hang out after school, like boba tea and sorbets, but also burgers and discount sushi. Incidentally the shop names are pretty fun too; I particularly liked ‘Vest Friends,’ ‘Lucky Penne,’ and ‘Plaid the Impaler.’ Basically, the charm factor had me hooked.</p>
+<p>The gameplay took a little while to adapt to, possibly just because I’m generally bad at video games. I found some moves harder to pull off than others, but as is common with these games, each character has their own moves that suit their personality. I played as Kyoko (the more bubbly, slightly ditzy, girlypop one), and she had moves like volleyball spikes, a crazy corkscrewing dropkick, and a magic rainbow dab that shattered enemies with a concussive blast — a move that I treasured dearly, and one that I made sure to end all boss fights with, even if it killed me. I assume that Misako (the goth-ish, punch-first-talk-later one) has more brutal crunchy moves; from what I can tell online, that seems to be the case. After you finish the game, you unlock Kunio and Riki — the boyfriends of Misako and Kyoko respectively, and the usual protagonists of the franchise — as playable characters too, and who knows what moves they have.</p>
+<p>The story? Nothing to write home about, really, but that probably makes sense for these games. I think that you can only do so much story-wise with this game format, because the game just needs the players to move from screen to screen, with respawning enemies appearing on every screen. This is a convention of the genre; since the old technology could only load in so much at a time, developers had to separate the environment into loadable chunks. These screens will be part of larger locations, usually with a boss fight at the end, which will point you to the next location. This was the case with <em>River City Girls</em>, anyway, and that was fine. Much like, again, a Saturday morning cartoon, it’s a kind of monster-of-the-week situation. There’s an overarching plot, yes, but you just need to move from chunk to chunk. And that’s fine.</p>
+<p>It turns out, though, that the story is my major problem with this game after all. And it turns out that, uh, I’ve lied to you here and there throughout this post, because the ending [PARTICULAR SPOILER TIME NOW] reveals that Kunio and Riki aren’t actually Misako’s and Riki’s boyfriends. The two boys apparently don’t even really know the two girls, and that’s sort of the punchline to the joke. The context comes from the whole series, in which Misako and Kyoko aren’t particularly important characters at all, and only really are ‘together’ with the boys in one game. <em>River City Girls </em>even acknowledges this in a secret boss fight. If you knew that, it might be funny, I guess.</p>
+<p>I wasn’t really amused, personally, because since the plot was so simplistic, I’d really latched onto the girls’ apparent mission to save their boyfriends who they believed have been kidnapped. So I was completely on board. The girls appeared to be really, really devoted to their boyfriends too — they were going through a hell of a lot of trouble to save them, after all, and proclaiming their love out loud in the streets. It was rather sweet, in that simple kind of way. But then it turned out that the girls are just sort of… weirdos. And I guess there was sort-of foreshadowing, because earlier in the game there’s a boss who’s a sort of incel-type character, who claims undying love over a girl he doesn’t know.</p>
+<p>So then what? It just left a weird taste in my mouth, not even necessarily a bad one. I just didn’t really know what to make of it, and it seems that the Internet largely agrees — it’s been said to be unsatisfying, and there’s apparently a different ending of the game in which things turn out better. But the default ending is this weird one; an ending that took away the charm somewhat. I imagine that if I was a kid watching a Saturday morning cartoon that had this kind of ending, I’d be pissed.</p>
+<p>But maybe that’s on me, for imposing this Saturday-morning-cartoon vibe on the game in my own mind. I don’t know if it was really what the developers were going for, after all. Here I am, though, still recommending the game, because I’m going to play it again and see that other ending, and I’m going to see what the other characters’ moves are. Because I suppose, weird ending notwithstanding, art always just needs to find its audience, and <em>River City Girls </em>got me in the end. Maybe I’ll get the sequel too; I wonder how it can recover from that ending.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

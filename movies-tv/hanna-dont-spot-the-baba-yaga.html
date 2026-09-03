@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanna: Don’t Spot the Baba Yaga — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Hanna: Don’t Spot the Baba Yaga</h1>
+            <div class="article-meta">
+                Published on May 09, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/hanna-dont-spot-the-baba-yaga.jpg" alt="Hanna: Don’t Spot the Baba Yaga" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Hanna&#160;</em>isn&#39;t a movie I&#39;ve heard much about, but it’s about a little girl who’s trained to be an assassin. I’d first gotten interested in <em>Hanna </em>when I found out that it was directed by the same guy who did <em>Darkest Hour</em> in 2017, which I’d really enjoyed. I’ve also been interested in the <em>John Wick </em>franchise for a while, which is about assassins, if you didn’t know. I also discovered — when looking at the Wikipedia page for <em>Hanna</em> — that it starred Saoirse Ronan, and I’ve wanted to watch something she’s in for some time, mostly because I like the name Saoirse. After reading the description of the plot of <em>Hanna</em>, I expected a movie about assassins in which young Saoirse Ronan trains all her life for a mission, and the movie shows that mission. It turned out to be not quite that. It also turned out to be absolutely bloody horrifying.</p>
+<p>What I mean by that is that it’s very horror-coded. I’m going to use <em>John Wick</em> as a comparison, because it’s not <em>not </em>horror-coded. It’s just less so than <em>Hanna </em>is, which has jumpscares and creepy Grimm’s Fairy Tales imagery, but I’ll get to that in a minute. Some spoilers ahead.</p>
+<p>Hanna is a teenage-ish girl (I don’t think the film says how old she is, but Ronan was 15 at the time of filming) who was raised by her father — just the two of them in some snowy forest — to basically be the perfect soldier. It would be a huge spoiler to say what their backstory is, but anyway, Hanna needs to find someone (let’s call her Villain 1, though it’s more complicated than that), kill her, and then regroup with her father at an agreed-upon location: a certain address in Berlin. Hanna starts her journey in the forest cabin she’s lived in all her life, where a CIA team finds her (they’re looking for her father, to detain him in relation to his past work with them). Then she ends up killing two of these elite operatives, she’s transported to Morocco, and she escapes there too.</p>
+<p>I mention these scenes at the beginning of the movie because the music is absolutely mental. You’d expect the normal action-movie stuff, perhaps something with electric guitars and intense drums, or maybe just a urgent rhythm line of some sort; think <em>Mission Impossible </em>or <em>Jason Bourne</em>. On the other hand, the <em>John Wick </em>franchise certainly plays around with its soundtracks in creative ways: an electronic version of Vivaldi’s <em>Winter </em>features towards the end of the third film, and there’s a nightclub fight sequence in the first film set to a fairly chill RNB track, to deliberately contrast with the violence onscreen. These are intentional choices, mostly made to change the tone of the scene, adding layers. Good stuff.</p>
+<p><em>Hanna</em>, though, just wants to unsettle you. Those two action scenes involve high tension and action, yes, but the music features a wide variety of sample sources, from the sounds of sci-fi lasers to phone dialling tones. Ironically, it could very much be nightclub music; it was all done by the Chemical Brothers, after all. As the movie goes on, though, it gets wilder. There’s sounds of low metallic groaning, like you’d expect to hear when an industrial crane swings around. It reminded me a lot of the opening scene in Netflix’s adaptation of <em>All Quiet on the Western Front</em>, where there are huge electronic-bass riffs going off as tanks appear. It feels like it shouldn’t work, but it does because it’s not expected, and so it’s off-putting.</p>
+<p>There’s also some weirdness between what’s diegetic and not (ie. perceived in-world), when the background music changes in quality between regular high-quality to car-radio quality, which does fit what’s going on onscreen, but throws you off a little bit. What throws you off even more is the motif that comes around whenever a certain group of people is onscreen — it’s a cheerful tune whistled by a really unsavoury character (let’s call him Villain 2). There are diegetic questions with that too; sometimes he’s whistling, sometimes it’s just soundtrack and he’s standing around menacingly having just killed someone. There’s also a sequence where someone starts playing ‘In the Hall of the Mountain King,’ a notoriously ominous piece of music, in a place that should’ve once been dedicated to innocent fun but is now just creepy: an abandoned fairy-tale theme park. It’s like how a lot of horror movies involve nursery rhymes — the contrast between innocence and discovery with the scary unknown is, well, scary.</p>
+<p>This is a good time to discuss the childlike aspects of this movie, incidentally, because Hanna is essentially a child soldier, and she doesn’t know who she is. Hanna is a play on the trope of characters who have no social skills and/or no emotions, like Rapunzel in <em>Tangled</em>, Sheldon in <em>Big Bang Theory</em>, and my favourite: Violet in <em>Violet Evergarden</em>. That last one is probably the most similar case, in that both Violet and Hanna are raised to be violent. Hanna, for example, talks about the facial muscles involved in kissing when propositioned instead of actually doing any kissing, and springs the guy into a headlock as a panic response when they both do eventually lean in. She doesn’t know what music is, which becomes a central theme: throughout the movie she gapes in awe at the aforementioned Grieg, as well as Spanish flamenco, eager to learn about it all. She doesn’t know anyone around her age, and so she doesn’t have any friends — another subplot important to her arc is meeting a girl her age, having fun with her, and being a little rebellious. Though, Hanna also doesn’t quite understand electricity, and is frightened by an electric kettle at one point, so the question arises as to how she could be an effective spec-ops agent if this is the case. I digress. The point is that the movie keeps contrasting these two sides of her to create unease: the brutal and violent side, and the na&#239;ve and curious side.</p>
+<p>This unease is especially evident during the action scenes (bringing it back around, wahey). The <em>John Wick </em>franchise prides itself on long action scenes with minimal cuts, so that you can see all the technique being put into the fights. There’s also some realism to those fights, where John has to pause and reload, or gets hit by a stray elbow, or whatever. That’s all cool visual spectacle, but there was another side to John Wick that was sort of abandoned after the first movie: that he’s called the Baba Yaga, after a figure from Russian myth that eats children. It’s to show that he’s scary and that everyone’s afraid of him, and you definitely get that sense at the beginning of the first film. Even the main villain calls him to try and reason things out, because he knows that whatever John Wick decides to do gets done… and that’s often killing a lot of people. But once the fights start and you see John get hurt, he’s not as scary anymore.</p>
+<p>Not so with <em>Hanna</em>. There’s a fair amount of onscreen action where Hanna messes up or is overpowered, but there’s a tendency for the camera to cut away from the killing. It’s like in actual horror movies, where one by one the characters just disappear, taken by whatever monster is out there. The cinematography abides by this horror principle: that whatever you don’t see is just a little scarier. The final confrontation scene with Villain 1 is full of horror conventions: dark rooms lit in red, horror strings in the background, and even a jumpscare. It also takes place in the aforementioned abandoned theme park, so there’s all kinds of creepy set dressing — light-up plastic mushrooms, dilapidated swan boats, the lot — that sets the contrast between the children’s world and the violent adult one. There’s whimsy in a way, but everything’s grimy and gross, and bloody by the end.</p>
+<p>All that to say, it really wasn’t what I expected, but in a good way. Having only seen one film directed by Joe Wright before, which had been about Winston Churchill, this was an interesting surprise — <em>Hanna </em>was an earlier work, too. It just goes to show what you can do with films; there are so many angles to approach from, and details to play with, from music to framing to character to set design. I want to say that <em>Hanna </em>was fun, but it was quite unsettling, so I’m going to lie down now. Hopefully some whistling won’t come out of the blue.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
