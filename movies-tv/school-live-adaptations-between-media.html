@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Live!: Adaptations Between Media — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">School Live!: Adaptations Between Media</h1>
+            <div class="article-meta">
+                Published on November 08, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/school-live-adaptations-between-media.jpg" alt="School Live!: Adaptations Between Media" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>There’s always been big debates among fans of whatever story whenever the source material is adapted into other media. Usually when I hear about it, it’s a movie adaptation of a book, or an anime adaptation of a manga. Almost always, the consensus is that the source material is better for one reason or another. I’ve personally not always found that to be the case, though.</p>
+<p>School Live! is, on the surface, one of those cute-girls-doing-cute-things anime and manga series, and there was also a live-action movie that came out much later on, though I didn’t see it. Yes, the exclamation mark is part of the title, and it irks me to have a colon immediately follow it, but here we are. Also “Live” is pronounced like the verb, which also pains me, but there’s a good reason for it. Spoilers ahead, even from the first episode and chapter, because it’s one of those.</p>
+<p>It’s a slice-of-life series about a group of high-school girls, mostly, and they run a club where they live at school. Except, really, it’s a zombie story, and it gets really sad now: the girls live this lie for the sake of Yuki, one of the main four girls, because her mind has been utterly broken by the whole ordeal. So again: they live at school because they’re trapped there, but they put on the pretense of just living at school as a quirky club thing because they want to preserve the last bastion of happiness in their lives: Yuki.</p>
+<p>I found that premise fascinating when I discovered the series, so I didn’t mind the zombie spoiler. Hopefully, this spoiler has encouraged you to check the series out yourself. But yes: Yuki is blissfully unaware of the whole thing. She sees her classmates where they’re not, she doesn’t realise that the school is in disrepair and really quite blood-soaked, and none of the others have the heart to tell her about it all. That’s not the whole story though; for that, we have to introduce the rest of the gang.</p>
+<p>I’m actually going to start with their teacher, Sakura Megumi (affectionately known throughout the series as Megu-nee), because she essentially kicked off Yuki’s delusions. In short, she died defending the other girls, and that was what caused Yuki to snap. So she’s important, but not so important for our purposes right now.</p>
+<p>There’s Yuki, of course, Takeya Yuki. She&#39;s cheerful and peppy. There’s Ebisuzawa Kurumi, who is the group’s main defender; she carried a shovel around as a weapon, and is generally sporty. Naoki Miki is the youngest of the group, but the most solemn and methodical — she’s the one that really finds the gang’s encouragement of Yuki’s delusions questionable. And then there’s Wakasa Yuuri, the de facto leader of the group post-Megumi&#39;s-death. Yuuri is the reason I wanted to write this, because she’s a very interesting character, and because she’s different in the anime as compared to the manga. She&#39;s taken on a very difficult job in the group, and since she’s older than the rest, the others defer to her authority. She takes on the older sister role, and the leader role, and they&#39;re roles that she doesn’t really want. The manga gets into this further since the anime only covers one arc, so we won’t talk about her personal reasons for not wanting to take leadership — we’re just going to discuss the difficulties she faces in leadership at such a time as this.</p>
+<p>In comparison to the characters in a lot of zombie media, this group has it easy. Their school filters water from a nearby river, they have a rooftop garden to grow food, and they even have a swimming pool (there are plot reasons for this convenience; the gang discovers it all later on in some of their teacher’s old files and journal). They also have a dog, which is nice. Basically, they never have to leave the school. Yuuri, then, doesn’t really have to deal with loads of logistical issues, but as you imagine, Yuki’s condition makes things tough for everyone involved, including herself. Yuuri knows this; she knows that it’s not ideal, but she wants to make a compromise, or at least that’s what she tells Miki. Yuuri presents her argument as this: Yuki’s delusion is a gift. It’s a gift that Yuki doesn’t have to deal with the horrors of their situation, and by enjoying that gift, she gifts the others with respite from those horrors. To Yuuri, this is win-win.&#160;</p>
+<p>In terms of leadership, this is a rather authoritarian decision, although it’s not that Miki and Kurumi are bothered enough by it as to try any more protest. So this is how they proceed, until things take a turn for the worse towards the end of the show, which is the end of the first manga arc. The school is invaded by a more destructive zombie mob, the dog has been killed and zombified, and Kurumi discovers zombie Megu-nee lurking around in the basement, only to get bitten by her. Kurumi returns to Yuuri bloody and exhausted, and she’s then handcuffed to a sofa while Miki travels down into the basement to find the cures that they read about in their teacher’s files. Miki never met Megu-nee, and therefore won’t make Kurumi’s mistake — remembering their zombified teacher as the kind human she was, and not swiftly ending her.&#160;</p>
+<p>So far, so sad, but this is all standard zombie-media fare. However, Yuuri has a decision to make about Kurumi. Earlier on in the series, Kurumi makes Yuuri promise to kill her if she ever turns. Here she is now, lying on the couch, handcuffed in place, but definitely starting to turn. Yuuri then gets a knife out of a drawer; remember, Kurumi’s been the group’s primary fighter — their only fighter. Nobody else has picked up a weapon in the series thus far (except Miki, who at this point has taken Kurumi’s shovel down to the basement with her, and that’s only just happened), and this knife is locked away, so it&#39;s presumably Yuuri’s backup plan. It was in preparation for the fulfilment of her promise. Yuuri seems to have always kept the possibility of Kurumi’s injury and/or turning in mind, and presumably prepared herself to do it.&#160;</p>
+<p>In the anime, she drops the knife. She screams that she can’t do it. Miki later finds her in the room, cowering in fear as Kurumi growls and fights against her restraints. By that point, Miki has fortunately found the cure, and Kurumi is saved while Yuuri calms down. Yuki even snaps out of her delusions soon after, and the gang plan to leave the school once they discover that most of the essential equipment was destroyed in the chaos. The anime ends as they leave the school.</p>
+<p>In the manga, Miki bursts in just as Yuuri is poised over Kurumi, knife in hand, staring straight ahead with steely determination. Seeing that Miki has brought the cure, Yuuri backs off, but Miki must still tell her that it’s all okay and that she doesn’t have to kill Kurumi. For a little while at least, Yuuri seems utterly broken; she nearly killed her friend for no reason, even if it was according to her wishes. And the manga goes on for a good long while, another 50-or-so chapters — Yuuri never really recovers from this moment. More importantly, she was willing to go through with it. Anime-Yuuri wasn&#39;t.&#160;</p>
+<p>I do think that Manga-Yuuri is more interesting, but the thing is that I like both of these depictions of her. Both change her character, and both change her relationships with the others. Manga-Yuuri has a longer arc, of course, a much darker one, but Anime-Yuuri gets to remain the big sister, the reliable shoulder to lean on. Miki&#39;s character development benefits from this as well, since she’s the only character that knows about Yuuri’s darkest moment — Kurumi was incapacitated, and Yuki wasn’t there. From this springs a deeper relationship between Miki and Yuuri, albeit not a very positive one.&#160;</p>
+<p>This is the only media adaptation I can think of, personally, where I liked both the source material and the adaptation equally, though for different reasons. This revolves around Yuuri’s character in particular, but it made me reflect on the way I perceive media and how much it affects whether I like a piece of media or not. It&#39;s not like an adaptation from history. Both media involved here are fiction, and as such I feel that there&#39;s more leeway to experiment. It makes me think also of how stories are told, and why they&#39;re told, when&#160;they&#39;re told, and who&#39;s telling them. It&#39;s a bigger window into the world than stories usually are. This is usually where the paths diverge; some people will like the changes, and some won&#39;t.&#160;</p>
+<p>But is it all about&#160;liking&#160;changes? I think it&#39;s possible to still appreciate a change despite not liking it, if it&#39;s a good and meaningful one. Sometimes changes are arbitrary, or made for logistical reasons, or made to push some kind of agenda. Maybe that&#39;s not in the spirit of the story being told, in which case, I&#39;d kick up a fuss too. But sometimes they&#39;re none of those things; sometimes people just want to tell a slightly different story.&#160;So I&#39;ll certainly be reading more into the changes that adaptations make, because here, I feel that the changes have enriched my appreciation of both media involved. I don&#39;t know why the writers of School Live!: the Anime changed Yuuri, but I&#39;m glad they did, and I don&#39;t feel the need to ask them why they did it. Besides, if I didn&#39;t like it, I could always write some fanfiction or something.&#160;</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
