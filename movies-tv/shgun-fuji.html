@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shōgun: Fuji — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Shōgun: Fuji</h1>
+            <div class="article-meta">
+                Published on November 22, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/shgun-fuji.jpg" alt="Shōgun: Fuji" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I’m a bit late to the <em>Shōgun</em> train. This isn’t a new thing; I’m late to media trains all the time because I’m the type to wait till a series finishes, and then watch it at my leisure (or more realistically, watch it when I can actually find the time, and then I can binge if I like). But now that I’ve gotten on the train, I am firmly staying on it to wave katanas around and/or sit around in fabulous regal robes. The show is really strong in so many areas that I’m dying to tackle at some point — where to begin? Probably the premise is a good place to start.</p>
+<p><em>Shōgun</em> sees an English sailor, John Blackthorne, show up in medieval Japan not long after the Sengoku Jidai — a period in Japanese history where warlords all over the nation fought for power, ended (ostensibly) by the rule of the Taikō — a sort-of emperor but not really; the history is pretty complicated — who brought unity and peace for a while. After the Taikō’s<em> </em>death, an inevitable power struggle occurs, and Blackthorne is thrown straight into it. The show follows his perspective, as well as that off Toranaga Yoshii, one such warlord who claims Blackthorne as his pawn. Toranaga is loosely based on Tokugawa Ieyasu, a real Japanese warlord who basically ended the conflict. Perhaps this is a good point to list a few things, in case you, dear reader, haven’t seen the show.</p>
+<p>For those who love visual spectacle, this show is full of beautiful cinematography, detailed costuming, and even some striking (and rather violent) action. For any language/linguistics nerds like myself, there is constant tension drawn from the near constant translation scenes, since Blackthorne doesn’t speak Japanese. The interplay in the relationships between him, translator Lady Mariko, and the characters they speak to, is even more engaging. As is the clever dialogue, and the characters themselves, those characters’ motivations, and the constant overturnings of power dynamics. Even the episodes are named in extremely clever ways (I’m especially thinking of Episode 9, if you’ve seen the show already) that tie into the story.</p>
+<p>But right now, I want to talk about my favourite character: Usami Fuji. Spoilers from here on.</p>
+<p>A key theme in <em>Shōgun</em> is suffering, and there’s plenty of discussion to be had about it. The show discusses the meanings of life and death, how power causes suffering, as well as how power and meaning can arise from suffering. Plenty of philosophical discourse to be had, and plenty of suffering to go around. Everyone in <em>Shōgun</em> is having some sort of bad time, and lovely Ms Fuji is one of the first on the chopping block. Her whole life is dictated by the choices made by people around her, and that’s clear from the start — her husband does something really quite stupid, and as such he has to commit ritual suicide, or sepukku. Not only that, the couple’s newborn son is also offered up for death, in order to end the family line. This kind of thing isn’t uncommon in the society of this period of Japanese history. In fact, Fuji would have died too as part of the family, but Lord Toranaga insists that she stay alive — as clan leader, his order overwrites the order for death. He’s the kind of guy that likes to keep as many cards as he can hidden up his sleeve, in case he needs to use them at any point.</p>
+<p>So Fuji lives, but she really, really wants to die at this point; she holds a knife to her neck and everything. Lady Mariko, acting on Lord Toranaga’s behalf, convinces her to stay her hand. After some plot happens, Fuji is bound instead to act as John Blackthorne’s consort, while he begins his new service to Lord Toranaga, newly dubbed the Anjin and given a pretty big promotion (so it appears that Toranaga’s foresight in keeping cards has paid off for him). This is further awful news for Fuji though; as a consort she would have to obey her “husband’s” every order, manage the household while he goes out to do vaguely-military things, and sleep with him. <em>I’m </em>personally very happy that this last right doesn’t get invoked, and in fact Blackthorne mostly leaves her alone to perform what her duties apparently are (he’s not really sure, since he’s new to Japanese society). Regardless, it’s a rubbish situation. Not the worst that could happen in this show — she’s not being boiled alive like some other people — but still pretty bad.</p>
+<p>To be a bit reductive, Fuji does what she’s told. She and Lady Mariko constantly talk about their fates and how they’re powerless. Blackthorne occasionally joins in, as does Mariko’s husband. Everyone’s miserable. But while things don’t really take a turn for the better, there are still moments to smile about and make the best of. And this is another thing that the show tries to portray: that people tend to try to make the best of their situation, whether with solemn dedication or with celebration and laughter. Or alcohol. Or sex. It’s a mixed bag. And all this happens both in squalor and in comfort, because even the regent Lady Ochiba in her comfortable and luxurious castle is horribly burdened by years of pent-up grief.</p>
+<p>I think another big reason I like Fuji is because of the actress portraying her, Moeka Hoshi. Fuji doesn’t speak too much, so all these emotions have to be expressed via just her face and mannerisms, and there always seems to be a mix of emotions with Fuji. It’s never just sad or mildly amused; it’s sad-but-mildly-amused-and-slightly-resentful-yet-still-calm. That ‘calm’ thing seems to be the default case — perhaps her lifetime of building resilience is a boon to her in her suffering, because despite her expressiveness, Fuji rarely displays strong emotions. One gets the sense that she hasn’t found contentment despite her suffering yet, but she’s working on it every day. And she’s not the foolhardy type that <em>makes </em>a way somehow, like Blackthorne, so she waits. She bides her time. She’s finding out why she lives, and she knows that she sort of needs to be alive to do that, so she lives despite her suffering. There’s that theme again.</p>
+<p>Fuji isn’t a very important character, so for most of the second half of the show she’s a bit sidelined. The plot moves with the geography, after all, and Fuji’s duty is to stay put until the Anjin returns to Toranaga, and/or the duration of her service to him is up. Once Blackthorne returns to the village where Fuji is waiting, she tells him that she’s fulfilled her contract, so to speak. Toranaga has allowed her to leave the clan and be a nun, a pretty common thing to happen for widows and other ‘disgraced’ women of this time. Their reunion is rather sweet though — basically they wish each other good luck — but then the matter of Fuji’s dead husband and son is brought up again. She wants to keep them close to her, though really, by tradition, the ashes should be kept in their family temple.</p>
+<p>By this point, Blackthorne has learnt more about life and death. He’s less reckless, and he understands the kind of life that Fuji lives a bit more. So as one last gesture of respect, he offers to row Fuji out to a lake where they can scatter the ashes, and where he, too, can pay respects to someone. He explains that it’s his belief that “souls committed to the deep, in some way, live on forever.” And despite the language barrier, with no translator present, they understand each other. She tips the ashes into the lake, and they both find a kind of peace once their suffering has mostly ended. And yet, they know that suffering will always present itself again.</p>
+<p>I was really glad to see Fuji reappear in the last episode. That scene with the boat is the second last scene in the show; it comes even after Toranaga (mostly) reveals his grand plans, which were a huge point of tension throughout the show. I’m glad that the showrunners thought that closing Fuji’s arc was so important, because she represents a large part of the show in a purer way than most other characters can. It’s a pureness that only a side character can have — the main characters have all sorts of other themes to worry about, after all. Fuji is simple, calm, and a pleasant presence in an otherwise very intense historical-fiction drama. She embodies the suffering that all the other characters share, carries it all with a quiet dignity, and then moves on to better things. The particular theme of suffering, in this show, is <em>hers</em>.</p>
+<p>Also, I just liked it when Fuji pulled out a gun. If you haven’t watched the show, hopefully that’s got your interest.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

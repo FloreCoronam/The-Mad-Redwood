@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pok&#233;mon: A Weird Appealing Darkness — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Pok&#233;mon: A Weird Appealing Darkness</h1>
+            <div class="article-meta">
+                Published on November 29, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/pok233mon-a-weird-appealing-darkness.jpg" alt="Pok&#233;mon: A Weird Appealing Darkness" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>It’s not news that <em>Pok&#233;mon</em> is weirdly dark. Odd Pok&#233;dex entries involving kidnappings and children’s souls aside, the very concept of getting slave animals to fight each other is troubling, especially when the Mystery Dungeon games have shown us that they’re sentient enough to form societies and engage in commerce. I bet Kecleon doesn’t appreciate having to abandon their thriving store in order to be forced into combat. And not only that, various criminal organisations are always out to steal the slave animals as well, and that’s another layer of mess — not to mention the apparent Pok&#233;mon war that happened at some point.</p>
+<p>And yet when you talk to characters who can tell how much Pok&#233;mon like you, they always say that your gladiator animals like you a lot. The Happiness stat makes this an objective and observable thing; some Pok&#233;mon evolve out of Happiness, ie. their bond to their trainer. So they don’t seem to mind the fighting after all, except maybe Kecleon, who’s still got to make a living. Perhaps Pok&#233;mon are as bloodthirsty as we are. Perhaps their true desire is getting humans to ‘train’ them into fulfilling their potential to defeat others of their kind. Food for thought.</p>
+<p>It’s the sense of humour sometimes that gets me. I’ve been playing <em>Pok&#233;mon Platinum</em> recently, and in a beach resort area called Valor Lakefront some lady was just telling me that she prefers pools to the sea, since saltwater reminds her of the tears she cries after a long day of work. I suppose my character just stood around and gormlessly nodded, looking for the first excuse to get out of that conversation. Not long after that, I found my second rival in Pastoria City, fitting their face in a Croagunk standee and joking around just before an actual terrorist attack from Team Galactic occurs. Not that anyone seemed to mind the casual bombing afterwards.</p>
+<p>On the note of rivals: in the earlier games, another goal was to beat and actually defeat your rival, which isn’t very nice (though to be fair, neither were they). I never played the original 1st-gen games, but I did play both <em>FireRed</em> and <em>LeafGreen</em>, where you absolutely humiliate your rival by taking the title of Champion mere minutes after they earn it. The newer games have tried to dial down on this kind of meanness a bit. Rivals like the aforementioned Croagunk poser are more cooperative than Blue/Green/Gary Oak. The new ones are rivals in the sense that you see them as companions, competing alongside you on the same grand quest. But they seem… samey. It’s almost as if without that bond of hatred, you never really seem to love your new rivals. They’re not usually written with distinguishable personalities — usually it’s just Cool Serious One and Exhaustingly Enthusiastic One. That’s definitely how <em>Pok&#233;mon Platinum</em> feels.</p>
+<p>The newer games seem to forget the inherent darkness of <em>Pok&#233;mon</em> a bit, and I think some charm is lost there. There’s still the dark Pok&#233;dex entries, but something’s missing. The newer mechanics like Gigantamaxing feel like gimmicks, and with the increase in total Pok&#233;mon, some have been lost along the way. I’ve heard so much disappointment about Scarlet and Violet, and that’s a shame. The issue certainly isn’t that Nintendo and GameFreak have lost their spark; it’s not that the Pok&#233;mon franchise has been abandoned. I’ve heard that it’s just become a cash cow, but I don’t think we’ve hit that point yet. The franchise is still around, and it’s still wacky. The core premise of Pok&#233;mon games is still fun, but where does it go from here?</p>
+<p>My theory is that at least at first, the makers of <em>Pok&#233;mon</em> were self-aware of the weirdness and darkness. The world of Pok&#233;mon is, and always has been, a conceptual nightmare. Ice-cream, trash, key, and bell Pok&#233;mon all exist (I’ll have none of that “they’re running out of ideas” mentality here — it’s not like Muk or Ekans or Voltorb were particularly unique creative concepts). No need to ask what Ditto is, or what the Unown are, or how there are celestial Pok&#233;mon deities and all the philosophical questions that arise from that fact. And near the breeder in <em>Pok&#233;mon Platinum</em>, I happened to also talk to someone who said that nobody has ever, to date, seen a Pok&#233;mon lay an egg. Speaking of breeding, let’s not get into how a Skitty breeds with a Wailord. No need to get into the economy either, which is surely broken since Pok&#233;mon Centers offer completely free service, and it’s hard to find anyone who has a normal job. None of that.</p>
+<p>No way did GameFreak think too hard about how the <em>Pok&#233;mon</em> world functions, because why would they have to? The concept of <em>Pok&#233;mon</em> is fun. The concept of a Pok&#233;mon-centric society is broken, but fun. That’s what led to the inherent dark concepts of the Pok&#233;mon games; nobody thought about things too hard. That’s what makes the concept fun, not to mention endearing. It’s sweet, how it tries so hard.</p>
+<p>How the gameplay works mechanically is dark too, but it’s fun. The tension of hurting a wild Pok&#233;mon enough to catch it is dark in itself; you need to find a sweet spot in hurting it just enough that it’s weak and can’t fight back, but not hurting it so much that it dies (well, <em>faints</em>, but I’ve always found that tenuous). <em>That’s</em> the main gameplay loop of the games. But that tension makes the game compelling; that’s what makes you want to complete your long-term goal — your grand conquest, the battling of other trainers’ gladiator animals with your own gladiator animals, until all bow to your codified and official superiority when you become Champion (or when your bloodthirsty Pok&#233;mon <em>use</em> you to get ahead in life; food for thought).</p>
+<p>The games seem to invite you not to question these things. The Happiness stat comes to mind: you’re surely forming bonds with your Pok&#233;mon as you go along, but you’re using them to fight, and yet they seem to like you for it. But in introducing that concept, it’s an invitation to think about it. In other words, it’s a concealed, masked invitation. A coquettish kind of lampshading. I think this is what the newer games lack; everyone in the new games is really into <em>Pok&#233;mon</em> and the Pok&#233;mon world, and they won’t stop telling you about it. But looking back, you find Crying-and-Overworked Woman, and Croagunk Poser. Maybe the concept of the Pok&#233;mon world itself is more fun than the game. Maybe you need to find the coolness of the Pok&#233;mon world for yourself, instead of having the NPCs tell you about it.</p>
+<p>Continuing with <em>Pok&#233;mon Platinum</em>: I just walked into a Pok&#233;mon Center in some town I don’t even remember the name of, and there was a young girl in there, quickly revealed to be an idol performer who’d just finished a concert. And she challenged me to a battle right there in front of Nurse Joy, and she said that she’d let me into her fan-club if I beat her. And so I got my Lv. 40 Bronzong named Agamemnon to fire a Hyper Beam into her Lv. 21 Clefairy, killing it instantly. And she brought out another, and Agamemnon killed it instantly too. And all she said after the battle was “well, that’s me and my Pok&#233;mon!” and asked for more support, as well as telling me about her latest hit single. And I couldn’t help but laugh out loud about the whole thing.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead or Alive: What Now? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Dead or Alive: What Now?</h1>
+            <div class="article-meta">
+                Published on December 13, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/dead-or-alive-what-now" alt="Dead or Alive: What Now?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Well, I like the <em>Dead or Alive</em> series of fighting games. I don’t know if it’s my favourite — <em>Mortal Kombat</em> or <em>Injustice</em> might take that spot in my mind palace — but <em>Dead or Alive</em> is up there. My first exposure to the series was in a YouTube video about it; it was about how the first game in the series was made. Lo and behold, the next time I was at the local game store, I found DoA2 for the PS2 right there, ripe for the picking. And I found it pretty fun.</p>
+<p>There’s an elephant in the room here. If you’re familiar with the series, you’ll know what it is. But if you’re not, let me be the first to tell you that it’s come into question more in recent years. Frankly, it’s always been a little questionable. But let’s start from the beginning.</p>
+<p>The video gaming industry took some inspiration from the pioneering <em>Half Life</em> series, back in the 90’s when it was still getting off the ground. Among its notable innovations were plenty of physics-engine things that helped create fun physics-based puzzles. This meant that players were then able to stack objects and jump around on platforms, manipulating the environment as if it were real, and if these objects (and themselves) had real weight. It was a big step forward for the industry. <em>Half Life</em> became known, then, for physics-y things, so they proceeded to innovate further. And so, the developers worked out something else: a kind of mesh-bone-structure for in-game-models that allowed more fluid movement. They used this on some of the Antlion enemies, so that they would jiggle around disgustingly like the wormy larval creatures they appeared to be. This wasn’t the first time that this kind of thing had been done, but it was seen as the prime example that popularised it.</p>
+<p>‘Jiggle physics,’ as they came to be known, were (inevitably) applied to human anatomy. More often than not, it was (and still is) used to animate female characters’ busts and behinds. The first jiggly female video game character was apparently Mai Shiranui from the <em>Fatal Fury</em> series, back in 1992, and actually that was before <em>Half Life</em> came out. But Mai happened to be 2D at the time; <em>Half Life</em>’s innovation was a 3D version. The precedent was there, and once games moved over to 3D, the trend continued. Now, in fairness, jiggle physics have also been used for more tasteful or silly purposes, such as Mario characters’ moustaches in the more recent games (it’s subtle, but it’s there). But that’s not what it’s famous, or infamous, for.</p>
+<p><em>Dead or Alive</em>, then. The first game came out in 1996, not long before the first <em>Half Life</em>, when 3D was still really ropey. And its developers decided that its main feature would be jiggliness, so jiggly it was, and jigglier still after <em>Half Life</em> did its thing. And as the series went on, things only got jigglier — with the exception of DoA2, funnily enough. At least, when I played it, I didn’t notice any jiggliness at all. I found out later that you could go into the settings and crank the jiggling up. But later on, you wouldn’t even need to do that. DoA5 developed a separate game engine specifically for better bust-and-behind bouncing. I hear that from a technical perspective it’s actually really impressive, but I don’t understand how game development works. I can only look at the guiding philosophy behind it all: they knew what they wanted, and how to get it.</p>
+<p>Now, far be it from me to yuck anyone’s yum, but I do think this direction towards baaasically softcore porn is unfortunate. I think the game series is pretty fun as a fighting game for reasons I’ll get to in a bit, but one has to admit that you cannot play a DoA game in polite company. That’s the unfortunate bit. Come to think of it, <em>Mortal Kombat</em> can’t be played in polite company either, but then aside from the gore it has jiggle physics in it too these days. But <em>Mortal Kombat</em> doesn’t have a spinoff volleyball/peepshow-simulator game, which DoA does, so I don’t know what to think now. Even if I did appreciate some jiggliness, it’s weird to me that these characters, while oozing sex appeal, simultaneously have to beat one another to a pulp (with some more-or-less realistic bruising and bleeding effects in the later games). I don’t know anyone who enjoys seeing attractive people being harmed (thank goodness). I know such people exist, but I don’t know any.</p>
+<p>I do still think <em>Dead or Alive</em> is good because of a single, hyperfocused reason: it has a kind-of parry/counter mechanic that’s really fun. Fighting games are about reaction times, thinking on your feet, and learning a character’s moveset (or as many characters’ moveset as you like/can handle) in order to utilise it well. I’m not very good at these games for all these reasons, but the appeal remains. It feels good to pull off a combo that you’ve practised, and you begin to mesh with characters that your playstyle appears to suit, and/or whichever ones you like and just hardheadedly decided to learn the movesets of. Different fighting games have different unique mechanics that appeal to different people, and I feel that DoA’s parry mechanic appeals to me.</p>
+<p>A big reason for this is that the characters of DoA tend to use actual martial arts, especially Chinese and Japanese ones. Some characters use ridiculous magical attacks, sure, but the basic movements are recognisable (say, if you’ve watched a bunch of kung-fu movies throughout your lifetime). I’m not about to get into the debate regarding these martial arts’ <em>effectiveness</em>, especially since I’m not a practitioner of any martial art, but one has to admit that they’re at least visually interesting. In a video game, that’s pretty important. And since it’s all fiction, efficacy is less important — one shouldn’t watch a kung-fu movie to learn kung-fu, or watch a pro-wrestling match if they want a real fight. The visual aspect helps because the martial arts in question have a lot of interesting holds and grapples, and when paired with the parry mechanic DoA has, it looks very smooth. Very satisfying. Your character simply grabs their opponent’s hand as the punch flies in, effortlessly redirecting it and flipping them over instead (or some such similar reversal). At least, that’s what happens provided you pull off the parry — in my case what usually happens is my character just gets socked hard in the solar plexus. But you get the idea. Besides that, DoA doesn’t operate on a single plane like most fighting games do. It’s a 3D space in which you can move not only left and right, but back and forth (away and towards the screen). That can be fun too, but it pales to the parry thing, so I only mention it in passing.</p>
+<p>Needless to say, the main public appeal of DoA has been its ‘interesting’ visuals for quite a while, which tended to manifest in DLC and other purchases. If you need to find out (for whatever reason) what the most common fetish outfits are (or even some niche ones), look no further than the DLC list for DoA5. It’s worth noting that loads of other fighting games have parry/counter mechanics and 3D spaces — <em>Street Fighter</em> comes to mind in the first case, and Soulcalibur in the second (though that one is pretty jiggly too, so maybe you just have to pick your poison). It’s also worth noting that DoA6 has dialled down slightly on the jiggliness, due to a general view among the developers who want to enter the e-sports scene, like <em>Street Fighter</em> or <em>Tekken</em>. This is the ‘more recent’ development I was referring to near the beginning. Though not much has changed really, and plenty of DLC is still geared towards… those ‘interesting’ visual things. But what else does the franchise have going for it? The story mode is — and I don’t really like being unkind — categorically awful. The arcade modes are nothing special either. But it’s not as if there isn’t space to branch out into something more than just raw (and somewhat tasteless) sex appeal.</p>
+<p>So the franchise seems to be at a crossroads of sorts, and I, for one, can’t tell which way it’ll lean. I imagine it’ll lean towards whichever way earns it more money. Will it be the DLCs? Or will it be the e-tournament scene? I honestly can’t tell which one it would be, or which one I’d prefer. I suppose that for a while, at least, I’ll be playing DoA on my own, in my room, with the door shut. And I suppose I’ll only be buying a future DoA game if it’s on sale.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

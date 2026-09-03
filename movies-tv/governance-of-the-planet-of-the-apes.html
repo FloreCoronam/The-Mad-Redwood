@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governance of the Planet of the Apes — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Governance of the Planet of the Apes</h1>
+            <div class="article-meta">
+                Published on December 06, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/governance-of-the-planet-of-the-apes.jpg" alt="Governance of the Planet of the Apes" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I was on a long plane flight once, not long after <em>Kingdom of the Planet of the Apes</em> was released in theatres. As such, it was on the plane-TV thing, and so I thought what better time than now, while I needed to waste a few hours, to watch the whole rebooted <em>Planet of the Apes</em> trilogy, from <em>Rise</em> to <em>Dawn</em> to <em>War</em>. And in the end I found it all weirdly compelling, and apparently I was engrossed enough that the guy next to me, who didn’t even speak much English, started watching <em>Rise</em> too, on his own TV thing. I hope he didn’t find it too unsettling because we happened to be flying into San Francisco, which also happens to be where the apes go rogue in the film. In my defence, I didn’t know that when I put it on. Anyway.</p>
+<p>As usual, I’m late to the party; the trilogy was long over. I didn’t expect to be captivated by these movies about hyperintelligent apes, but then if you’re already a fan, you might know why I was in the end. The series began with a book, apparently, and is about the clash between intelligent apes and humans. It gets into themes of colonialism, race, war, and all sorts of other heavy things that you wouldn’t expect from the inherent funny nature of apes being onscreen (sometimes riding horses, no less). And yet, here I am. Some spoilers for Dawn, because I’d like to recommend this series, and I’m only going to talk about the second movie (but of course, stuff from the first movie crops up too).</p>
+<p><em>Dawn of the Planet of the Apes</em> begins with the titular apes already having built their own community in a forest near the ruins of San Francisco. Overall, ape society is starting to come together. There are established hunting parties, and Maurice the Orangutan has set up a little school, as well as lain down a basic form of law: apes do not kill apes. Simple enough. This is the beginning of my fascination with <em>Dawn</em>, because it’s very political. This is the formation of a new nation-state, a kingship under the leadership of the main ape protagonist, Caesar. That naturally entails some complications, and that’s what the rest of the film is about — there are complicated domestic and foreign policy choices that Caesar has to make.</p>
+<p>So, just to recap: this particular movie full of hyperintelligent apes is about the difficulties of leadership in a nation-state, and dealing with the complications from associated policy choices.</p>
+<p>Amazingly, Caesar turns out to be a great king. Granted, monarchies are very different from democracies, but <em>Planet of the Apes</em> (at least, in the reboot series) shows us an idealised kind of monarchy that doesn’t seem so bad. All the apes respect Caesar greatly and consent to his leadership. They also appreciate his inner circle of advisors: Koba the bonobo, Maurice the orangutan, and Rocket the chimp, who are all valued as advisors for different reasons — might, wisdom, and loyalty respectively.</p>
+<p>Caesar’s political acumen really comes out more and more as the film goes on. At the start of the film, the humans come from a community of survivors <em>in </em>San Francisco (so not <em>too</em> close by). They come to the forest, the apes’ turf, in order to try and work on a nearby hydroelectric dam, so that they can have power back home. The apes, then, don’t materially benefit at all from aiding the humans; however, Caesar sees this as an opportunity to broker an early peace for <em>future </em>interests. In terms of foreign policy, this isn’t a bad move; there aren’t any other communities in the area that either side knows of, but if the humans are aided, there arises an opportunity for an alliance against a future third threat. Not only that, the only known potential threat would be out of the way too. Like any good leader, Caesar is looking ahead, but in fairness it’s always a gamble with things like this. Commence the gambling, then.</p>
+<p>The apes and humans don’t inherently trust each other from the beginning, and while Caesar does feel that humans can be kind, most of his following disagree. Most of the domestic troubles that plague Caesar throughout the movie come from this disconnect between him and his people — Caesar has experienced human kindness, while most of his following have not (and in fact, have suffered human cruelty). And while we, the audience, are more inclined to see the rational side of things (putting aside our bias as human beings, of course) and trust the humans that come into the apes’ lives, Caesar still must listen to his people. What’s more important: what his nation thinks and feels, or compassion and an opportunity for future good that may not pay off in the end?</p>
+<p>When faced with difficult choices, all great leaders either find a compromise or find more options. Caesar at first listens to his advisors and to his community, and he does this in a staggeringly clever way: he brings the entire ape army to the human base (having sent trackers to follow the exploring party back to their home) to sit threateningly <em>outside</em> it, taking care to do this under the cover of darkness (since he doesn’t know what kind of weaponry the humans have access to). Most of these humans don’t really know just how intelligent the apes are, so he dresses up his army to be as scary as possible: war paint, javelins and cavalry, the whole hog. The humans then wake up and are horrified by the siege of simian soldiers. To top it off, Caesar shouts his announcement to them — that if the humans encroach on sovereign ape territory again, they can expect the full force of his army. Again, very clever, because the humans also don’t know if this <em>is</em> the full ape army, while the apes are now looking at everything the humans have. This puts the humans at a disadvantage (not to mention that the apes carried out successful enough espionage that they <em>got </em>to the human base). Caesar makes it seem that the apes know more about the humans than the humans know about the apes, as well as showing that the apes are prepared to retaliate or attack if necessary.</p>
+<p>It’s a tremendous show of force and classic terror tactics. This is the greatest showcase (if you haven’t watched the previous movie) of Caesar’s political acumen as a monarch. Even if you <em>have </em>watched Rise, this is the point at which I was really impressed. But regardless, things continue to escalate on both sides when the humans do indeed venture into ape territory again. Caesar, out of kindness, helps them out anyway. That’s where the real manifestations of distrust kick in.</p>
+<p>Each side has one particular character that embodies this theme of inherent distrust (which isn’t without some racial connotations). Only one of them gains real power. That’s Koba, whose backstory comes from the first movie: he was tortured more than any of the other apes in the films. He bears scars on his face from it, as well as a deep-seated resentment for all humankind. This hatred leads him to clash with Caesar, so much so that he eventually throws an armed coup, and even more incredibly, is successful. You might have predicted this if you know some trivia about Stalin, because ‘Koba’ was one of his nicknames, another of which was ‘Stalin’. That’s right — we commonly know him by a name that he <em>wanted </em>to be known by. Fancy that.</p>
+<p>There’s a concept in political philosophy/theory that Niccol&#242; Machiavelli popularised: that of the armed prophet. Essentially, to create a new government and be successful, you need both power in the form of violence (the arms, or weapons) and a prophecy (some kind of promise or ideology). Koba finds both — he acquires guns, which neither faction knows about, and acquires a prophecy in the name of succeeding Caesar, whom all the apes respect greatly. I won’t go into further detail about this because I love how it happens in the film. It’s very compelling. At least, I found it compelling while I was sleep-deprived on a plane.</p>
+<p>Again. We’re talking about a movie about hyperintelligent apes, and I’ve somehow gotten to talking about political theory. But in any case, this is further evidence that the film really understands politics; it’s not Caesar this time, but it’s all coherent theory. Anyway. Koba becomes the ideal armed prophet, apes together strong, etc etc. Watch the movie to find out what happens.</p>
+<p>On this note, I’m reminded of a letter apparently written by a chimpanzee called Consul Junior, back in 1929. It was written in response to a bunch of other weird happenings, beginning with a weird Russian scientist who arrived in London claiming that implanting ‘monkey glands’ in people would be helpful somehow. Contemporary scientists disagreed completely, and one wrote that the apes’ “cruelty and sensuality” would be inevitably transplanted along with the glands. In fact, the response letter to those claims was written by famous playwright George Bernard Shaw, protesting on behalf of Consul Junior and all apekind, that it was not apes that started the Great War only just over a decade prior, but humankind.</p>
+<p>These movies are sort of silly, yes. They take themselves very seriously, and at points that can make them quite funny. But then they use their weird ape medium to tell stories of war, of conquest, of race, and all manner of other heavy themes I already mentioned at the beginning of this post. Isn’t the power of fiction fantastic? I haven’t watched <em>Kingdom of the Planet of the Apes</em> yet, but I hope it’ll be just as madly strange, just as oddly politically coherent, and just as compelling.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

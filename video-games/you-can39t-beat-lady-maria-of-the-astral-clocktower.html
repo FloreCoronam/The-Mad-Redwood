@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Can&#39;t Beat Lady Maria of the Astral Clocktower — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">You Can&#39;t Beat Lady Maria of the Astral Clocktower</h1>
+            <div class="article-meta">
+                Published on November 15, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/you-can39t-beat-lady-maria-of-the-astral-clocktower.jpg" alt="You Can&#39;t Beat Lady Maria of the Astral Clocktower" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Lady Maria of the Astral Clocktower is a DLC boss in <em>Bloodborne</em>, a FromSoftware game. That studio’s name means<em> </em>something in the gaming world, namely “tightly-designed action games that are cruel but fair, with insanely obscure lore.” That’s the gist of FromSoftware’s reputation. Opinions may vary, but these games are hard. People take great pride in completing them, and to complete them, you have to beat loads of bosses.</p>
+<p><em>Bloodborne</em> is quicker-paced than most <em>Dark Souls</em> games, and in many ways its bosses differ from all of them. After all, when combat is redesigned, the bosses must follow. <em>Dark Souls</em> and <em>Demon</em><em>’</em><em>s Souls</em> fall into similar moulds, being the earliest games (of their kind) in FromSoftware’s catalogue. Combat in those games is somewhat cumbersome, though <em>Dark Souls III</em> deviated from that convention — it came out <em>after </em><em>Bloodborne</em>, after all. <em>Sekiro</em> sped things up and introduced a (mostly) linear story, and <em>Elden Ring</em> was a refined return to form with a new open world element, so where does <em>Bloodborne</em> lie? Again, we look to the bosses.</p>
+<p>Some have described Lady Maria’s boss fight as a graceful dance, where each combatant trades blows and dodges the other with blinding speed and precision (at least, if you’re a skilled player). I disagree; the Lady’s attacks were choppy to me — brutal, decisive, and calculated. The first time I walked into her Clocktower, I was destroyed within ten seconds. Slinging two swords over her shoulder, Maria cut off half my health bar with one downward diagonal swing, and another one ended it. It was her efficiency that struck me, like she’d decided I wasn’t worth bothering with. “This will do,” she’d muttered to herself. “No need to work up a sweat.”</p>
+<p>I eventually killed Maria and progressed to the Fishing Hamlet. Again, quite the reputation. The Orphan of Kos had quite the reputation too, from what I’d heard — ‘punishingly hard’, and ‘get ready to be dunked on.’ Well, I’d been dunked on plenty of times before, so I soldiered on. And I think that it was the Orphan’s reputation that ruined his (its?) fight for me. Once it was over, I felt nothing. It hadn’t been the clash of titans that I’d thought it would be. It’d killed me plenty of times, but none of them felt meaningful. Death, to FromSoftware games, is part of life. Part of the game. Half the battle is the boss’ reputation, so it didn’t feel so much like <em>I’d </em>fought the Orphan and won. The fight was just another obstacle on my main mission.</p>
+<p>When I played <em>Elden Ring</em> years later, I heard a lot about Malenia, and I heard a lot of familiar things — things like ‘punishingly hard’ and ‘get ready to be dunked on,’ but also ‘graceful.’ There was that word again. So, perhaps unfairly, my expectations were even higher for her fight, and so my disappointment was even greater. She gave me a hell of a fight; I lost count of how many times she killed me, but it was well over fifty, probably close to a hundred. Still, I found my general apathy towards the fight odd, because it hadn’t taken that many tries to kill Maria. What made her different?</p>
+<p>I played <em>Bloodborne</em> again at some point, possibly as a palate cleanser from the brick wall that was Malenia, Blade of Miquella. I forget the details exactly, and it wasn’t a full serious playthrough; I’d even forgotten to kill Laurence that time. But of course, that meant that I met Maria again, having grown since the last time we’d met. I’d seen the ending by that point, during my first playthrough; I’d beaten Gehrman, and the Moon Presence, and of course, the Orphan.</p>
+<p>And it was odd to me, how eager I was to fight Maria again. On my first playthrough, when I hadn’t been expecting her, I would’ve thought that she would’ve felt <em>more </em>like an obstacle in my path, like had happened with the Orphan. I’d also been keen to see everything in the game, and so I completed all the side-quests and fought everything I could. I’d seen everything that was to be seen. In other words, there’d been more check-boxes to tick off in that playthrough, and Maria had been one of them.</p>
+<p>Lady Maria of the Astral Clocktower remains the only boss I have deliberately lost to, in any game ever, just so that I could fight her some more. I suspect that she will have that title forever. I suspect that she is now the standard I have for a boss fight, and that that won’t change anytime soon. I suspect that we all have some such boss fight we hold dear, and maybe they weren’t the most difficult boss or the most innovative, but they were memorable. They were special, in their own way, and for us, they are the best.</p>
+<p>That’s Lady Maria for me. During my second <em>Bloodborne</em> playthrough, Maria had become more than a check-box on a long list of check-boxes; she had become the main mission. And I think that’s the best honour a video game boss can hope for, right? Especially since they don’t exist. Food for thought.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
