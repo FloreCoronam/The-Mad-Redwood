@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona 3 Reload: Fallible Faith — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Persona 3 Reload: Fallible Faith</h1>
+            <div class="article-meta">
+                Published on February 21, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/persona-3-reload-fallible-faith.jpg" alt="Persona 3 Reload: Fallible Faith" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Persona 3 Reload </em>is a remake of the original <em>Persona 3</em>, which came out in the 2000s. If you’re unfamiliar, the <em>Persona </em>series is a video game series based around, believe it or not, an odd mixture between Jungian psychological theory, tarot traditions, and a plethora of religious, historical, and cultural story references: from the Ramayana, to <em>Les Miserables</em>, to the Ars Goetia.</p>
+<p>If you’re also unfamiliar, Karl Jung’s theory of personality was (very broadly and reductively) that people’s personalities have multiple parts — the persona being a ‘social’ part of the personality that one would want to present to the world as a good representation of them, and the shadow being a part that one would never want anyone else to see. Hence, the persona would reflect one’s perception of their positive attributes, and the shadow would reflect one’s perception of their insecurities and weaknesses. Jung developed this theory as part of studying the unconscious and conscious elements of the human mind: the average person probably wouldn’t be aware of the contents of their persona or shadow. It’s a lot more complicated than we need to get into, frankly.</p>
+<p>Personas, in the <em>Persona </em>games, are manifestations of a person’s inner strength after their Shadows have been acknowledged and accepted. It’s a way of physically showing healthy growth, at least in implication: it’s healthy to acknowledge things about yourself that you’re not proud of. Only then can you figure out how to overcome weaknesses. So far, so good, although it must be said that Personas are most often used for combat against Shadows, which are separate and regular enemies in the games. That thematically makes some sense — Personas awaken as a result of ‘defeating Shadows’ by acknowledging them — but Personas also can, and have, been used in the series to harm human beings. It’s noteworthy also that these manifestations, these Personas, often take the form of the aforementioned religious, historical, or cultural figures. I think I wouldn’t feel great discovering that my Persona was <em>Les Miserables</em>’ Jean Valjean, or the Norse mischief god Loki, or the Abrahamic demon Belphegor — all for different reasons. Further, the games always see the emergence of a Persona as a sign of <em>positive</em> growth. Even if your persona is the genocidal Julius Caesar, or the pirate Captain Kidd, or the Archangel Michael, it doesn’t really matter. The form your Persona takes isn’t necessarily reflective of the person they emerge from, unless it’s convenient for the plot. Though you’d still have questions about the guy whose Persona is Satan, wouldn’t you? You’d just <em>have </em>to ask… though I wouldn’t, myself.</p>
+<p>All this to say, the <em>Persona </em>series is quite tied to concepts of religion and faith. And I find that odd, because the series has a clear, moralistic message about how life should be lived, albeit a completely incoherent one that fails to adhere to any kind of moral code. Incoherent as they present it, anyway (or rather, fail to present it). And despite its incoherence, the series is convinced that <em>this </em>is the right way to go about living life, even though it seems to occasionally disdain the idea of faith or belief outright. Spoilers ahead, especially for <em>Persona 3</em><em> Reload</em>. I’m going to talk about that one most because I played it recently.</p>
+<p>Generally, throughout the games (because of course, each game has its own theme, more or less), the message of the <em>Persona </em>games is this: to believe or have faith in oneself and one’s friends. The game mechanics reflect this: your friends and acquaintances are represented by tarot archetypes, which translate to what the game calls Social Links. These help power up and develop your personas as the game progresses (though they’re not aware that they’re doing this). The degree to which they aid you is represented by your deepening relationships with them; the closer you are, the more power they give you. You get closer to them by spending time with them and choosing certain responses during interactions with them. So there’s an observable and undeniable way in which your friends and acquaintances help you save the world (that’s usually what the climaxes of these games amount to). This is all basic <em>Persona </em>stuff; <em>Persona 3 Reload </em>does all this as well.</p>
+<p>As I mentioned before, time management is a big thing in these games, the logic being that one’s ‘spending time’ being with people, and balancing that with one’s responsibilities, can be tough. It&#39;s important, then, to be efficient, and unfortunately this is reflected in the Social Links. You want to get close to people as efficiently as possible, which seems counterproductive and even anti-thematic in this case. In addition, ‘being efficient’ in your Social Links means that you have to pick the ‘correct’ responses. You only have so much time to spend, and each interaction with a Social Link will usually involve some responses you have to pick; different responses affect whether your closeness with that Social Link ‘levels up’. Pick a less than favourable one, and you might not move the needle enough, meaning that instead of one meeting with them being enough to level you up, you now have to spend another time slot on them in future to level up at <em>that </em>time. So you <em>do </em>want to pick the one that nets you the most points with that person, and often this means saying only what they want to hear. Remember, despite part of the game’s theme being <em>having faith in your friends</em>, you are probably going to have to disregard their personal development in favour of getting closer to them, and the game unwittingly (I assume) incentivises this because you only have so much time to spend. So, having laid some groundwork, we’ll get into <em>Persona 3 </em>in particular.</p>
+<p>Persona 3 has a distinct edginess, as compared to the other games in the series. The original game was released at a time when the gaming industry was going through its “I’m fourteen and this is deep” phase, so it involved potentially disturbing themes of suicide, murder, abuse, divorce, and other things like that. It felt just a little gratuitous. But to its credit, it tried to tackle these themes as sensitively as it could, alongside some so-to-speak higher-concept themes like poverty, capitalism, ethics, and some fairly profound existentialist conundrums. Most Persona games tackle these themes too, but seldomly in as piled-on of a way as Persona 3; it really pushed the envelope. The main characters in Persona 3, after all, use gun-shaped tools called Evokers to summon their Personas, triggering the summonings by shooting themselves in the head (it’s more of a mental thing; nobody is harmed). And in no other Persona game is a main, playable character fatally shot. To my knowledge, at least; I must admit I’m less familiar with Persona 1 and Persona 2. But the broad theme of Persona 3 is coming to terms with death. Pretty heavy.</p>
+<p>So let’s go back to Social Links, as they related to the third game. As you might expect, the stakes feel a bit higher when you’re trying to increase your Social Link level with a friend and they’re having a tough time, especially with such heavy themes in play. So as I played <em>Reload</em>, I found it weird that most of the Social Links were… less than tastefully handled. You’ll have to tell the elementary-school child that yes, she should run away from home, away from her parents who are struggling with their marriage. Or you’ll have to tell your friend on the track team that yes, he should overwork his injured leg at the risk of never walking again. Or you’ll have to tell your horndog classmate that yes, he should get into a romantic and potentially sexual relationship with a school teacher that directly disrupts her career, causing her to have to transfer to a different school, and significantly complicates his future schooling in general. Sure, all these people eventually realise their mistakes, but that’s no thanks to you. You were a bad influence, if anything. I suppose that’s ‘me’ instead of ‘you’ in this case. Sorry about that.</p>
+<p>There’s another thing that gives me pause about <em>Reload </em>in particular, and it’s about the plot’s clash with the themes. Spoiler: the end of the game sees a death-obsessed cult appear, and the main characters are extremely harsh to those who join the cult, especially since their actions earlier in the game indirectly (but actually, quite directly) cause its rise. The main characters make a colossal error in judgement, and the end of the world comes nigh because of it, which leads to the rise of this cult. In fairness, our protagonists were deceived into making this error, but it was committed nonetheless — due to their actions, the apocalypse showed up. Despite warnings that it can’t be avoided, they decide to fight the world-ending entity anyway, as opposed to just leaving the rest of the world blissfully ignorant as to the impending apocalypse. The main thing that irks me about this is that they’re not very apologetic about it, because “how could they have known,” seeing that they were tricked? Yet they disparage all those who join the cult, despite their ignorance as to the real reason for the events, which the protagonists are aware of, and indeed caused. But let’s look at the two options: what to do in this kind of scenario?</p>
+<p>They choose to fight the inevitable. After some thought, I figured that this might be a sort of Camusian outlook. Albert Camus’ <em>The Myth of Sisyphus</em>, a seminal work in absurdist philosophy, describes a being that faces oblivion and rebels against it regardless. But I then saw the distinction: Camus’ Sisyphus <em>knows</em><em> and believes</em><em> </em>that oblivion is inevitable, and he doesn’t rebel for a chance to change things. He just fights; he finds meaning in the rebellion. Not so with the protagonists of <em>Reload </em>— they truly believe that if they just fight, things <em>must </em>be fine, because they really, really, believe they can do it. So, no, they’re not absurdists. That would’ve been too coherent. That would’ve aligned with the theme the game had established. That would’ve been a code to stick to, and which would’ve given them a semblance of a basis for their harshness towards the cult’s victims. No, we can’t have that, surely.</p>
+<p>What about the alternative? Leaving everyone blissfully ignorant is an option, and not an entirely unwelcome one. It’s quite nihilistic, sure, but it grants the world peace of mind — everything is normal until the world ends. There’s an argument to say that this is how most real-life people live their lives — entropy exists and is widely acknowledged, and the world’s ending at some point is also common knowledge, and yet people just go about their lives anyway, because that’s what people do. In fact, it’s how most of the main characters of <em>Persona 3 Reload </em>were living prior to their Personas’ awakenings. But now? No, they <em>must </em>fight, and their power of friendship <em>will </em>be enough to save the world.</p>
+<p>The irony here is that <em>this is</em><em> a kind of</em><em> faith</em>: a belief in something unproven. Despite this, some of the protagonists take the opportunity to bash the general concept of faith in their dialogue, in relation to the cult. “Believe and be saved?” one guy scoffs (incidentally, this is the guy whose Persona evolves into Caesar), unwilling to accept any of it. The gist of this last portion of the game, I think, is that it’s better to face the truth than believe a lie. I just feel that the main characters are in no position to say this, but more importantly, have no coherent alternative way of life to offer, and further, have no business in pretending they believe something deep that is actually incoherent. And further, they don’t know what the truth <em>is</em>, only what they believe is truth. Again, that’s faith; no different from what this cult believes.</p>
+<p>In essence, I would’ve liked to see just a little self-reflection from the protagonists after their huge mistake, to lend some coherence to their motivations and beliefs in the final portion of the game. And to be fair once again, they’re immediately confronted by the real possibility of a death that comes quickly and inevitably, so I can understand that they’re a bit distracted from the bases of their belief systems. But if we look at it from the writers’ perspective, there was a clear opportunity there for growth in these characters <em>which would have related to the theme</em>: believing in themselves and one another to confront the impossible, after acknowledging that they don’t know it all, and can only stand together. There could’ve been a pretty powerful message. And while the ending sort of wraps this up, I didn’t find it satisfactory.</p>
+<p>I had high hopes for this game when I bought it. I’d played <em>Persona 3 FES</em>, a rerelease of the original for the PS2, a few years ago, and never completed it because the disk got corrupted. But I did want to see how it all panned out. And when I was playing <em>Reload</em>, I spotted two portraits in the in-game bookstore that depicted, I thought, Albert Camus and Jean-Paul Sartre — giants of existential philosophy, great thinkers who wrote about the very themes that the game wanted to handle. And I was excited, because it looked like the game was heading in that kind of direction with its ending. I’d hoped that the game was going to explore these ideas. But I was sorely disappointed.</p>
+<p>I’ll finish the game anyway, though. Because <em>someone’s </em>got to embody Camus’ Sisyphus, even if the game’s protagonists won’t.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

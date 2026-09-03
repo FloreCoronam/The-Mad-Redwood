@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It’s the Little Things that Get You — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">It’s the Little Things that Get You</h1>
+            <div class="article-meta">
+                Published on February 07, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/its-the-little-things-that-get-you.jpg" alt="It’s the Little Things that Get You" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>A few years ago, I got into a game called <em>Kingdom Come: Deliverance</em>. I was interested in it because of its dedication to historical accuracy, and I wanted to see how that would affect gameplay. How would differentiating armour layers work? Would the emphasis on personal upkeep to keep oneself alive be too annoying? But also, how would the story pan out? What would it be like to play some random farmer-guy-turned-knight in medieval Bohemia?</p>
+<p>It turned out that I quite liked it. I liked managing my resources, building up from nothing. I liked the difficult combat. I liked that there wasn’t an aiming reticule on my bow, once I’d looted one from a bandit that had attacked me in the night — which, incidentally, had been pitch black, seeing as there were no random torches lighting the way. I enjoyed following the story, and all the political intrigue that was involved. I liked the romantic subplot; no spoilers, but it was… interesting, and tied into the political intrigue. It was difficult, in that way, but it was compelling. I learnt how to stay alive in this unforgiving world, doing what I could to get by, helping people with errands to earn a little money, hoping to get a cool helmet. It’s possible that I liked this helmet a bit too much. But for all that I liked about it, other things weren’t so great. Things tended to be too expensive, which wasn’t all that bad, since you could always get stuff… elsewhere. Not that I robbed anyone. I’m just saying that there were a lot of bandits around, with a lot of spare bread rolls.</p>
+<p>However, some things were too much of a problem to get past. For instance, it absolutely killed my gaming laptop. That couldn’t be helped, really, and I don’t fault the game so much for that, though I wonder if it could’ve been optimised more. The main problem, and the problem that stopped me from continuing to play the game entirely, was the save system. <em>There were limited saves</em>.</p>
+<p>This isn’t a new thing; the old <em>Resident Evil </em>games used to do this. At the time, it was partly a gameplay decision, but also partly because of technological limitations. The latter certainly isn’t an issue now; if <em>Baldur’s Gate III </em>can allow you to save anytime, <em>Kingdom Come</em><em> </em>surely can. It was definitely a purely gameplay decision, and it was a big deal before the game came out; the decision was made, the developers said, in order to increase immersion. And before I bought the game, I’d definitely been worried about that, but I figured that I could overcome it.</p>
+<p>I couldn’t. And so the game now sits in my Steam Library, untouched since early 2022 when I bought it on sale. I’d genuinely enjoyed it, but put simply, I had real-life commitments that had to take priority. I simply couldn’t play a game like that when I only had roughly hour-long chunks of free time. And I expect that other people might find the same issue. I expect that you <em>could </em>allocate special time for it, at night, for instance, even if you had young children to take care of, which I don’t. But <em>I </em>wasn’t prepared to do that, even though I’d really enjoyed the 13 hours that I’d spent on <em>Kingdom Come: Deliverance</em>. A cumbersome title, that.</p>
+<p>Let me tell you a different story, about <em>Assassin’s Creed: Origins</em>, which I had plenty of fun with, and was very<em> </em>compelled by. I played it a bit earlier, during the COVID lockdowns, so time wasn’t necessarily an issue this time. For me, it seemed to shoot itself in the foot somewhat. Because the main story was great — I was fully sucked-in. I was engaged. I was intrigued. I wanted to do more story. But the game locked its main story missions behind XP walls; you had to be at a certain level to play certain story missions. And that was what made me abandon <em>that</em> game: it wouldn’t let me do the things that I wanted to do, the things that — in my opinion — were the best things about it. Like with <em>Kingdom Come</em>, I found a big barrier to my enjoyment of <em>Assassin’s Creed: Origins</em>.</p>
+<p>But sometimes it’s not even one big barrier like that. Sometimes it’s many small annoyances. Like when I had to stop playing <em>Control </em>because the map was too confusing, but maybe that was just a me problem. I have a better story, though, one that’s more detailed. And also a story.</p>
+<p>Last November, I’d bought <em>Far Cry 5</em> for less than the price of a Happy Meal. I figured that since I’d never played a <em>Far Cry</em> game before, that was a good amount to start with. I was fully aware that <em>Far Cry 5</em> in particular doesn’t have as great a reputation as other games in the series, but I wanted to give the setting a try. So I did. And I found that at no point was I having a great time.</p>
+<p>It started with the volume. I usually have my system volume pretty low, so I was startled at the blasting of my eardrums when the game opened into the main menu. Fine — not really an issue — I just set the volume at around 30. Then the prologue continued, and I decreased it further to 20. I ended up at around 10. And then I noticed the camera sensitivity was a bit wonky, so I adjusted that too. Throughout the roughly 45 minutes of gameplay that ensued, I never really found a camera sensitivity that worked for me, and I don’t know why. But fine, whatever.</p>
+<p>I then noticed the weird perspective as the prologue continued. It’s a first-person game, a perspective I prefer less to third-person, but it wasn’t an issue. I’d played first-person games before. But I realised that my character was… weirdly low to the ground. Like I was squat-walking the whole time at around a normal standing person’s waist-level. But I knew I wasn’t actually squatting, because there was a different button to crouch with, and which sent my eyes even lower, at about shin-level. That was strange, but no matter. I soldiered on, shooting cultists, aiming mostly at their waists.</p>
+<p>The prologue ended. A cutscene played out. I customised my character. An NPC told me as I exited his bunker that I should create a resistance; just like that, without really mentioning it before, and not really indicating that he’d been doing that himself in any way. It just seemed that he’d decided that I was the Chosen One who’d kick the cultists out of his hometown. So that soured my relationship with him somewhat. He wasn’t offering to help or anything. I suppose his radio communication helped a little, but not by much — I later found that he was basically just the tutorial/exposition guy. Again, fine, and maybe he’s more involved in the story later. But I wasn’t endeared to him, and I didn’t really care about anything he had going on. This was the moment, I thought, that the game could provide me with a strong motivation to actually get out there and engage with the story. Maybe this NPC could’ve had family trapped by the cultist, and he really needed my help? That’d be a bit clich&#233;, but it would’ve been something. Nope. Just go out there and form a resistance, he said, because what else was I going to do?</p>
+<p>Fine. A map presented itself. I was then also presented with a few objectives, one of which was to find a shrine. It was relatively straightforward to find, but I also found that it was emitting some sort of vision-impairing gas — I assumed that it would be explained later. Some cultists were guarding it, so I disposed of them. At this point I found that the stealth mechanics weren’t all that great when you were crouched so low to the ground, but I managed to take down two cultists this way, before being pitched into an unceremonious gunfight with the other one. It was a very scrappy fight, involving lots of sprinting around and ducking and weaving — I didn’t find the gunplay very satisfying. My submachine gun didn’t hit as hard as it should’ve, I thought. But no matter.</p>
+<p>It was time to destroy the shrine, and I couldn’t figure out where it was. There happened to be some kind of radio tower near it, and I thought that the shrine would be within the metal cage that was there because the map marker seemed to indicate that it was. It wasn’t. It was just sort of nearby instead. I figured that I would’ve found it a lot quicker if the gas wasn’t around, but I didn’t think much of it since I assumed that the gas was important. Later I found out that it was — it was a hallucinogenic drug that the cultists manufactured, and was important to their whole deal — but for now, I picked up a bow from one of the dead cultists, and then moved on to a lake.</p>
+<p>There seemed to be some cultists strewn about, some on the other side of the lake on a sort of hillock, and others on a pier. The map told me that the ones at the pier were harassing an innocent person. I couldn’t see them though, but I decided to try some sniping with my bow. The cultists on the hillock were easier to snipe since they were clearly visible, so after dispatching them, I went over to the pier to see what was happening there. Indeed there was a man tied up, so I got rid of the guards and freed him. The Guns for Hire mechanic popped up; it seemed to be a companion system, so I recruited the man as my companion, and off we went to a house near the pier that promised treasure.</p>
+<p>At least, that’s what the minimap said. It involved a puzzle with a flooded underground bunker, which I’m ashamed to say took me way too long to figure out. That’s not the game’s fault, really, but I found something that was: my companion was running about, and I couldn’t figure out why. It turned out to be literally nothing, but by that point I’d spent a good few minutes, leaving the puzzle unsolved, to try and figure out what he’d been alerted by. A wild animal, maybe? I knew that was a <em>Far Cry </em>thing. Some more cultists? None of those interesting things. So I got back to the puzzle, and received… not really anything special.</p>
+<p>Gameplay continued. The game seemed to assure me that it was exciting, but I didn’t find that to be true. I liberated an outpost — a <em>Far Cry </em>staple — and received more objectives to do the same elsewhere. There was a taller radio tower to climb, so I did that, and that opened up the map by… a lot. Suddenly there were objective markers everywhere; where to start? There was a Guns for Hire icon promising a mountain lion companion, so naturally I went for that one. I ended up taking a helicopter there, which was quite fun, but once I got to the farm where the mountain lion allegedly was, I found a mission instead. Fair enough; I shouldn’t have expected less.</p>
+<p>Cue a pretty boring mission where I shot some people, and then carried a bag of meat over to a nearby campsite to shoot more people. With my guns, I mean, not the meat. The meat was for Peaches the mountain lion, who I had to lure back to the farm — a considerable distance away when gameplay consisted of just lobbing hunks of meat onto the ground to make a trail — at which point the beast was bestowed upon me with no fanfare or excitement at all. I tried freeing an outpost with Peaches, but it was all a bit… meh.</p>
+<p>And at that point, I uninstalled the game and requested a Steam refund. Because the game had been, so far, just going through the motions. I wasn’t excited to do anything; there was no incentive, and you’d think that the story would come in there, but it really didn’t. The cult’s motivations weren’t clear, but since it was early in the game, that wasn’t the problem. It was just that they were wishy-washy, cookie-cutter NPCs who had to be shot for no reason other than “they’re the bad guys.” Perhaps if some coherent lore was seeded here and there (pun intended, unless you aren’t familiar with the game at all, in which case this joke is a big fat nothing), I’d feel more inclined to take them down. Or if there were friendly NPCs I cared about who were being endangered by the cult, I’d feel more inclined to take them down. None of that. Gameplay and story go hand-in-hand, after all — when they work well together, they can get away with pretty much anything. <em>Dark Souls </em>is monstrously hard, but in a world where you’re canonically nothing special and facing an immense task, that difficulty makes sense. <em>Far Cry 5 </em>had no such elegance.</p>
+<p>But more to the point of the post: not only did it not compel me, story-wise or gameplay-wise, I felt constantly hampered by little inconveniences. The audio and video setting stuff. The weird crouching perspective. The slightly unwieldy map markers. The wonky NPC AI. The tedium of missions that were supposed to be fun. It was different from <em>Kingdom Come </em>or <em>Assassin’s Creed: Origins</em>, because I did get some enjoyment out of those two. In fact, I enjoyed most things about <em>Kingdom Come</em>, and quite a lot of <em>Assassin’s Creed: Origins</em> as well.</p>
+<p>But with <em>Far Cry 5</em>, there was nothing to hold on to. There was no liferaft in the ocean of little annoyances. And so all that was noteworthy about it, to me, <em>were </em>the little annoyances. So sometimes it’s the little things that get you, sure, but only within the context of having no big things to enjoy. Could a game be saved by little things that are enjoyed, perhaps? I don’t think so. I mean, I enjoyed having Peaches the mountain lion around to absolutely wreck outposts, but again, I felt nothing about the act of freeing outposts. And that was another little thing that I didn’t enjoy; if the gameplay had been fun enough, that wouldn’t have been an issue. But it wasn’t.</p>
+<p>The little things compound on other little things, I suppose. So if they’re bad, they’re worse. Hopefully one day I’ll find out if the good little things compound on each other too.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

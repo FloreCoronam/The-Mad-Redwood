@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Emblem Awakening: Beyond the Waifu — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Fire Emblem Awakening: Beyond the Waifu</h1>
+            <div class="article-meta">
+                Published on February 14, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/fire-emblem-awakening-beyond-the-waifu.jpg" alt="Fire Emblem Awakening: Beyond the Waifu" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Here we are on Valentine’s Day! In a vague attempt to seem as on-theme as possible, what I want to talk about today is related to romance, yes. If this is the first time you’ve seen the term ‘waifu,’ congratulations. If you’ve seen the term before, you know what the connection with Valentine’s Day is. And if you’re familiar with <em>Fire Emblem: Awakening</em>, even better. But don’t even worry about any of that; we’ll worry about waifus for now.</p>
+<p>I’ve never liked the whole waifu thing. I think it’s reductive in terms of the richness of character potential. Quite often a waifu has <em>one </em>defining trait, and whether that character appeals to you or not is entirely dependent on your tolerance of, or your proclivity for, that trait — as if human nature is bound by immutable and narrow archetypes, constrained by arbitrary limitations to aspects of personality. I think any character personality that can be summed up in a single word or phrase is not one worth exploring when there are so many other more complex fictional characters out there. Regardless, we all watch these hapless beings hurtle forward with reckless abandon, while we succumb to our Freudian death drive.</p>
+<p>That’s a bit harsh, so I’ll be more charitable. Often, in fairness, a waifu has a single character trait, BUT displays one <em>other </em>one — a sort of ‘character twist.’ The angry, standoffish one <em>actually </em>really cares about their friends. The shy one is <em>actually </em>really into an obscure hobby that’s maybe endearing, depending on your mileage. Or the cheerful, bubbly one is actually torn inside as to their future. So, you know, credit where credit is due — sometimes there are a whole <em>two </em>things to plunge into the depths of.</p>
+<p>As you might expect, I’ve never really engaged with the waifu-space, as it were. I understand its appeal, and why it exists. But I don’t like its shallowness. And I’d heard that <em>Fire Emblem</em>, a series that I really like, has gone down this road.</p>
+<p>Caveats. I’ve not played any of the newer <em>Fire Emblem </em>games, so I’m not going to pronounce judgement on whether this hearsay is justified. However, I’m currently playing <em>Fire Emblem: Awakening</em>, which has been credited throughout the fanbase with starting the ‘waifuification’ (a term that I read elsewhere, I assure you) of the series. And now that I’m playing it — I’m about halfway through at time of writing — I can see why that is. But I also think it’s good, actually, in the form that it takes in <em>this</em> game specifically.</p>
+<p>If you’ve never played one of these games and are unfamiliar with the series, it’s a series of strategy games. They’re set in fantasy worlds, with warriors and knights and mages, and usually depict some kind of war that you have to win. You go from level to level (also called chapters sometimes, but it doesn’t matter) and deploy your troops on different maps that have been designed so that you have to think about where you place your units. A square-grid is overlayed onto the map, sort of like graph paper, so you want to place them in strategic square-locations like forts, forests, or next to other units who might be able to cover their weaknesses, or vice versa. Maybe you want to put a heavily-armoured knight in front of your squishy, glass-cannon mage while progressing through a narrow corridor, for instance.</p>
+<p><em>Fire Emblem </em>games have also, for a long time (ie. since like the third game), have had a ‘Support’ mechanic. It’s changed form over the years, but basically you engage in it by placing certain characters together, next to each other on any map grid. If they are together for a certain number of turns — the game sets some thresholds — they earn one of those Support ranks, usually going by ranks C, B, A, and S (being the highest). They then gain bonuses for being next to each other for the rest of the game, but also grow in their relationships with each other, and you get to see their interactions in dialogue cutscenes. So you can get characters up rank by rank, till they’re really close; that is, if they don’t die at any point, because there’s permadeath in this game.</p>
+<p>These character interactions are fun and allow you to get more acquainted with the people you’ll be fighting a war with. This process can be a grind, but they’re mostly optional, and you do also get material bonuses for combat as well as these character moments. Often, too, the highest ranks of Support links involve romantic entanglements, if the characters are compatible — so that can be some extra incentive, if you’re so inclined. All this depends on the game and how the Support system works, of course, but by and large you can ship characters together to your heart’s content as long as you have the time. <em>Awakening</em>, then, ramps things up a bit: all (except, like, maybe three) of your characters can marry each other. So this is where things get waifuey (I’m coining <em>this</em> one; sorry about it). Things are also going to get massively spoilery too.</p>
+<p>For a start, you get your own avatar in <em>Awakening</em>: a self-insert character named Robin who’s the all-important Chosen One. So if you’re really into the waifu thing (ie. shipping yourself and whatever fictional character) you can do that, and if you’re into self-inserts in general, you’ll be happy too. But secondly, the plot of <em>Awakening </em>involves time travel, and interestingly, the children of characters come back from the future to help their parents win a war. In short: your shipping efforts will actually yield effects, sometimes plot-relevant effects.</p>
+<p>I found that very compelling. Sure, these characters are all set and have names and personalities — it’s not quite <em>Baldur’s Gate III</em> levels of detail regarding player choice — but they at least visibly change depending on who their parents are. Cynthia, for instance, is the canonical daughter of a pegasus knight named Sumia, so she may have greyish-brown hair like Sumia, or she may have whatever hair colour the other parent has instead (in my game, this was central-main-character Chrom). Additionally, Cynthia then inherited some of the skills that Chrom had, which turned out to make her a really strong unit in battle. Depending on the type of unit the second-generation character is, this inherited skills mechanic can be really useful for combat, so you can get really eugenicsy about the characters that you pair up if you want (I happen not to be given to such things, myself).</p>
+<p>At first, I had mixed feelings about this system. For one, if you don’t bother with the Support links, you miss out on a huge part of the game story-and-character-wise, as well as some really strong units. The second-generation characters start to appear at a certain point in the story, and you need to have certain characters be married so that their children appear. This sort of forces you to grind somewhat, which is definitely easier in <em>Awakening </em>than in some other <em>Fire Emblem </em>games, but can still be a slog even if you get the benefits from doing it (and in fairness, there’s no cutoff point as to when the important characters need to be married by). But I’m just generally against having to grind in video games since, well, we’ve only got so much time on this blue marble, all but a speck spinning in the endless void of space. Some people don’t have a lot of free time, and I think this kind of grinding is a turn-off because it can artificially extending the length of a game. Grinding shouldn’t be necessary if there’s no good reason for it, is all I’m saying.</p>
+<p>But maybe there <em>is </em>a reason in <em>Awakening</em>’s case. We can argue about what constitutes a ‘good’ reason all day, but I think it works for this game. While you can do just fine without these second-generation characters, I’d argue that you’d be missing out on some of the best writing in this game, and also a more favourable position as to the framing of ‘waifus.’ I still can’t believe I’m trying to make a serious point about something while including that word.</p>
+<p>Because the second-generation characters are already written as their own characters, they have different Support dialogues with different parents. And some of them have some depth that I wasn’t expecting.</p>
+<p>I think I started to like this Support system when I recruited a character called Severa, a mercenary with a classic standoffish tsundere personality. She’s the canonical daughter of another character called Cordelia, another pegasus knight (it happened that in my game, she’d married my Robin). More importantly, Cordelia is good at whatever she does — a kind of prodigy both in mind and combat. In her B-rank conversation with my Robin, she’d apparently tried her hand at smithing a javelin, which she’d never done before, and accomplished it perfectly. That’s the kind of character she is. And so in my C-rank Support conversation between this mother and daughter, I was drawn in as I watched (well, read dialogue where) Severa display(ed) a real bitterness towards her mother. She was never enough, it seemed, and that’s what caused her to become who she was. She became a mercenary, an infantry unit that was on the frontlines, as opposed to her mother who swooped down from the sky to pick off already-weakened enemies. She became her standoffish tsundere self because she hated being compared to perfection, and resented her mother for that perfection that, Severa thought, she would never achieve. That was the real tragedy of it, for me — it wasn’t Cordelia who made these comparisons, it was others. Cordelia apparently loved her daughter dearly in Severa’s timeline, but didn’t know how to show it due to her own character faults. And as it happens, <em>that </em>Cordelia died in battle before she could express this love the way she always wanted to. Naturally, present-timeline Cordelia is at a loss for words.</p>
+<p>I then found Gerome, a wyvern rider, son of another wyvern rider named Cherche. It happens that Cherche, like many of the characters from the present-timeline, dies during the course of the war. Gerome, then, inherits the same wyvern his mother rode. In his C-rank conversation with her, he reveals that he didn’t go back in time in order to get a second chance at winning said war; rather, he just wanted to release this wyvern into the wild, since they’re extinct in the future he comes from. At that point, he would have just given up; he believes that fate can’t be changed. Gerome is a pretty edgy character — just his sullen, masked appearance will tell you that straight away — but it appears to be because the deaths of his parents crushed him so immensely. Even as he sees their younger selves, he’s cold to them, and won’t even refer to him as his parents. And while this edginess is somewhat played for laughs, it’s still poignant. Cherche, too, has to come to terms with who her son is and why he’s withdrawn into himself in this way.</p>
+<p>Lastly, I later found Morgan, the canonical child of Robin, in an ice-cave sort of map. She also started out, in my game, as a pegasus knight, since my Robin married Cordelia. Consequently, Morgan and Severa are sisters, and it happens that they’re very different characters; Morgan is a little klutzy, a little aloof, and not all that competent in combat. That changed eventually after levelling up a few times, but the point is that she and Severa still got along, despite their immense differences. Interestingly, the usually-peeved Severa was a lot more sincere with Morgan as compared to any other character. And that was quite sweet, after all the tragedy of dead parents and the consequences of the difficulties of parenthood.</p>
+<p>I’m only about halfway through the game, and I’ve spent about 30 hours on it, having played it for just over a month. And at times it was a slog to grind the Support levels, but I don’t want to think of a playthrough where I’d paired up different characters, and missed these three interactions. I expect I lucked out somewhat — some Support links are certainly not as compelling as others. But I’m pleased with these ones, and I’m going to keep playing the game, of course. I’m certainly going to grind out some more Support conversations between children and parents, and some among siblings too… maybe even between the second-generation characters and some random first-generation ones. And I wouldn’t usually do this, so I have to hand it to the makers of <em>Awakening </em>somewhat. Somehow, I feel that <em>this</em> waifu-heavy system is alright. I can’t speak about what came in the games after it, but this seems like an acceptable level to me.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

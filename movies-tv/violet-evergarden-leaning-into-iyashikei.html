@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violet Evergarden: Leaning into Iyashikei — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Violet Evergarden: Leaning into Iyashikei</h1>
+            <div class="article-meta">
+                Published on January 31, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/violet-evergarden-leaning-into-iyashikei.jpg" alt="Violet Evergarden: Leaning into Iyashikei" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Violet Evergarden</em> is an anime series released in 2018, based on a light novel series. It depicts the eponymous Violet Evergarden, a young lady who loses her arms and a loved one while she’s a child, from fighting in a horrible war. After the war is over, and after she receives mechanical arms, she then trains to be a special kind of typist, known as Auto-Memory Dolls (the show doesn’t quite explain why). They function primarily as ghostwriters for clients who want letters written, or for whatever other clients who want things typed up.</p>
+<p>You might expect that it’s a pretty hopeful, inspirational, and emotional show, even though the mechanical robot arms aren’t questioned at all in this fairly non-fantastical world. Violet’s grief is indeed a constant presence, and since she had such a traumatic childhood, she has to learn how to express and feel emotion over the course of the show. This is accomplished via her job: meeting her clients, relating to them, and then serving as a conduit to their feelings through the letters she writes for them. It’s a neat encapsulation of the show’s compelling premise — each episode sees Violet meeting a new client and learning something, often emotionally, from them (and often them from her). Meanwhile, Violet’s relationships with the more constant/present people in her life — like her colleagues, new friends, and even some people who served in the war with her and/or knew her deceased loved one — develop too.</p>
+<p>I <em>will</em> say: this is probably one of my favourite shows, full stop. On my first viewing, I cried at some point during every single episode. Since I’m about to get into some spoilers, I’d like to encourage anyone reading this to give it a blind try. But hopefully, if you decide to read this post to the end anyway (and thank you, if so), I’ll have made a good enough case for it that you’ll want to give it a try regardless of the critique I’ll have for it… which is as follows. Yes, there’s only one. We’ll see if I have any more in future, if I decide to revisit the series for the third time.</p>
+<p>In the last three of the twelve total episodes (a whole quarter of the total runtime), the show’s plot takes a violent turn, both literally and figuratively. It turns out that insurgent forces from the recently-ended war had survived, and they must be stopped. Violet still has ties to the army, so she partially reenters the fray for one last time. This is the show’s Big Climax: the combating of these insurgent forces.</p>
+<p>Now, this plotline development isn’t entirely isolated from the rest of the show. Again, Violet still has contacts in the army: since the loved one she lost was her commanding sergeant, she has a character-motivation reason not to sever these ties. Also, the climax does still address what the show had been about thus far, before the big left turn: Violet wants to understand love, and during the plot’s climax and resolution, she does mostly find out. Over the course of the show, Violet does begin to understand love’s nuances and intricacies, and I would say that the climax and resolution of the show are still satisfactory.</p>
+<p>But did it need this out-of-left-field insurgent subplot? Without wishing to get into the details of the show (again, I’d still recommend it), I’d say no. It’s at this point that I’d like to introduce the concept of <em>iyashikei</em>.</p>
+<p>This is a Japanese storytelling term. It will be familiar to anyone who has a casual interest in anime, if not by name: basically, it’s a subgenre of ‘comfy’ stories, deriving from the slice-of-life genre that’s common in anime. <em>Iyashikei</em> itself means something along the lines of ‘healing,’ so you’re probably beginning to get the idea: it’s a subgenre that intends to ‘heal’ the audience with comfy scenarios. Nothing too threatening, everything very wholesome. That’s the key. It’s a term that’s been used to describe shows like <em>K-On</em>, <em>Yuru Camp</em>, and perhaps most famously, <em>My Neighbour Totoro</em>. Probably anything in the ‘cute girls doing cute things’ subgenre fits here, but also plenty of other things, especially children’s media. I’d argue that <em>Takagi-san</em> might belong here too (see the link in a bit to read about what that is, if you don’t know). And the concept of <em>iyashikei </em>has reached other parts of the world too: the <em>Garfield</em> comics might even count, though I suppose that depends on whether you find them amusing or not. The point is for the audience to never be in doubt that the characters will be fine, comfortable as they go about their lives, often very, very, happily. Perhaps sickeningly happily.</p>
+<p>However, this doesn’t mean that these kinds of stories aren’t free of tension or conflict. Quite often, , the tension is contained within a small-scale scenario, often over the span of one short, self-contained story: a manga/comic chapter or an episode of a show. Will such-and-such be able to find their dad the <em>perfect </em>Fathers’ Day present? Will so-and-so be able to make up with their friends over a school-related squabble? Conflicts like that can still compel an audience, even when they know that everything <em>must </em>be fine at the end.</p>
+<p>So… no, I don’t think <em>Violet Evergarden</em> needed to swerve into its violent plot direction. It’s safe to say that the show doesn’t quite follow <em>iyashikei</em> principles; on the contrary, it can be quite full-on. I cried at some point during every episode, after all, sometimes in full-bodied racking sobs (though that might just be me). Still, the fact that <em>iyashikei </em>works means that there was surely some other way that <em>Violet Evergarden </em>could have ended, and it could’ve been just as dramatic and emotional, and arguably more satisfactory. There’s nothing necessarily <em>wrong </em>with how it is now, but the sudden way that the climax is set up was, to me, very jarring. It was satisfactory, and I enjoyed it a lot, but I feel that it could have been <em>exceptional</em>. And what else should I take from this show, if not the desire to feel something strongly?</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

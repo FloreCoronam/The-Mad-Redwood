@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morality of Stealth Games — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">The Morality of Stealth Games</h1>
+            <div class="article-meta">
+                Published on January 24, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/the-morality-of-stealth-games.jpg" alt="The Morality of Stealth Games" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Plenty of video games give the player two options, in terms of approaching situations. The first is stealth, and the second is to just go in guns-blazing, often literally. Depending on the type of game you’re playing, you’ll often be encouraged to choose one approach or the other. This is usually what tends to happen when a game tells you that you can “play the way you want to play.” Of course, more recently this has changed a bit — <em>Cyberpunk 2077 </em>and <em>Baldur’s Gate 3</em> are just two examples of games in recent memory that open things up more.</p>
+<p>Part of this is because games (or rather, their developers) have become more willing to blend genres as the industry has progressed. The <em>Wolfenstein </em>series, for instance, began as a simple, action-packed, and somewhat silly first-person shooter. It later evolved to have more story, even a grim and heartwrenching one, with <em>Wolfenstein: </em><em>The </em><em>New Order </em>in 2014 and <em>Wolfenstein</em><em> II</em><em>:</em><em> The New Colossus</em><em> </em>in 2017. 2019’s <em>Wolfenstein: Youngblood </em>reintroduced some schlocky humour to the series, and there was even a VR <em>Wolfenstein </em>game that same year. All these games mixed and matched tones, gameplay mechanics, and all manner of other development choices.</p>
+<p>Other games, though, try to stay the same. The studios behind them might be confident in knowing <em>why </em>their games are liked, and therefore don’t want to change those popular aspects too much. The <em>Dishonored </em>series, for instance, knows what it’s about: stealth games where you play as one of a few supernatural assassins in a steampunk world. And that was that. The first game was released in 2012, and the second, released in 2016, was very similar, as was a standalone expansion released the next year. Arkane Studios, the developer of the games, knew what its audience wanted. While new mechanics were introduced over time, and odd quirks were ironed out or improved on, the core of the games stayed the same.</p>
+<p>But here we have to return to the opening paragraph of this particular post, on the topic of stealth and video games. Arkane Studios made an interesting choice in this regard, because it suggested stealth as the ‘correct’ way to play <em>Dishonored </em>games, expecting the player to engage in stealth while providing both stealthy and chaotic options.</p>
+<p>I’ve chosen the word ‘chaotic’ there intentionally, because the two <em>Dishonored </em>games thus far have made use of a chaos system (I’ll get to <em>Death of the Outsider</em> later). Since you play as a supernatural assassin, things can get pretty chaotic. Chaos was measured as a sort of hidden stat, calculated in the background based on how chaotic or stealthy the player was at the end of each level. The maps you play on in each level are meticulously and thoughtfully designed to get the player to think about their approach, so the hope is that you’d be careful as you play. There are multiple ways in which the games encourage the stealth approach over the chaotic one; I’ll focus on the first game.</p>
+<p>First, the story. <em>Dishonored </em>takes place in Dunwall, the capital city of a vast steampunk empire. You, the player, are thrown into a city that is chaotic already, seeing that the Empress was just murdered in the midst of an outbreak of rat plague. Since you’re nominally on the side of the empire, you don’t want things to get more chaotic than they are already. I’ll return to this point later though, since it wraps things up.</p>
+<p>Next, there’s the actual gameplay. Generally, things are easier to handle when there’s less chaos anyway. But more importantly, seeing that the maps are designed so well, the player would find many options open to them. There wouldn’t be just one entrance to a building, for example; perhaps you’d want to find a path of least resistance, so to speak. Besides this, there are many tools at your disposal that help with stealth, ranging from supernatural abilities like time-bending and teleportation, to gadgets like sleep darts. Another aspect of gameplay to consider is the way the chaos system is deployed: the more chaos you accumulate level by level, the weirder and more difficult things can get. The aforementioned rat plague causes people either to die or become ‘weepers,’ zombie-like figures that<em> appear more often</em> as your chaos level increases. Sometimes these weepers are important characters you may have seen earlier in the game, newly and grotesquely transformed, which can be… unnerving.</p>
+<p>Going back to story, your personalised chaos level is also influenced by how you deal with your assassination targets, which may not even involve assassinating them. Sometimes you can give their unconscious body to their stalker, just to name one wild example, but there are many other options that don’t involve their murders, but still complete the level. These decisions may or may not have story consequences later on. And the ending you get, most importantly, depends on your chaos level. I mean, I’d consider it a dereliction of duty to not assassinate your assassination targets if you’re an assassin, but apparently this is fine.</p>
+<p>All this being said, the game provides you with other tools that increase your chaos level, like guns. And razor-wire mines. And a plethora of more direct or destructive supernatural abilities, like wind blasts that deflect projectiles or devouring-rat-swarm summoning. So arises an odd (at least to me) dichotomy. Even odder because <em>Dishonored </em>seems to equate the stealth-chaos scale with a kind of moral scale; the stealthier you are, the better. And this is clear because if you’re not stealthy, you get the bad ending.</p>
+<p>This is sort of because the story immersion is brought to the forefront (at least, this is my theory). The game wants you to inhabit your character, who doesn’t want further chaos in the city/empire, and wants to return things to normal. As such, he would want to be as secretive as possible about his endeavours, especially when the city is out for him (he’s supposed to be dead, after all). But notably, this comes at the expense of the principle of player choice. If you happen to be someone who is really interested in the <em>Dishonored </em>world, but can’t quite have fun with stealth, then too bad.</p>
+<p>Gamers who like stealth were clearly the main audience here. I have to wonder though — why include the guns and bloodthirsty abilities at all, then? Other than story reasons, what gameplay reasons could there be for this decision? My best guess is that this attempts to invite said dichotomy into the player’s mind: in picking one or the other, the player must find a balance in how they play, which is a compelling kind of tension, especially since stealth games can be quite tense already. When a stealth infiltration goes sour, perhaps the player is forced to quickly adapt, which is not an ideal situation. That’s compelling. However, this balance is not rewarded — since the good ending can only be obtained with low chaos, you’re more likely to just reload a save than try to adapt on the fly. Sitting in a loading screen is less compelling than most other things, I find.</p>
+<p>You can’t please everyone when you design your game, of course. It’s perhaps better to design a game with a particular audience or objective in mind, so that the design is polished and refined in service to those goals. I just find it odd that one would choose to alienate some players <em>in</em><em> this </em><em>way</em>; it can feel a bit targeted or judgemental. It calls a mind to a general debate in the gaming community: stealth being posed as the more cerebral and fulfilling approach to a game, and chaos being posed as the opposite. And while points can be made for and against both, neither can be fundamentally wrong. Neither, I think, should warrant a bad ending in any video game.</p>
+<p>At this point, I’d like to laud the <em>Hitman </em>series, which is very similar to the <em>Dishonored </em>one. You play as an assassin, though a modern-day and non-supernatural one, and you have to navigate through cleverly-designed levels to find and eliminate your target. This series also involves stealth, using a numerical points-based scoring system to rate the player’s performance instead of a chaos level. However, this is as far as ‘judging’ goes; the story chugs along regardless of what the player does. As long as the level is completed — meaning the target is eliminated — the games don’t particularly care. At the same time, the games provide the player with all kinds of chaotic ways to off their targets, including but not limited to kicking a toilet onto a target’s head, ejecting a target out of a fighter jet seat and into the sky, and reprogramming a surgery robot to stab a target multiple times.</p>
+<p><em>Hitman </em>games lean into the silliness too: there are precariously-hitched overhead pianos, disguises that make you look like a large chicken, and suburban houses with comically-creepy murder basements closely connected to a muffin-baking business. Again, the games don’t care how you get the job done. If you care about points, you’ll bother with stealth, but if you don’t care at all about the points, more power to you. Besides this, the chaotic kills can be spectacularly difficult to set up, sometimes requiring more work than finding a discreet sniping spot or sneaking into a kitchen to poison a target’s food. Arguably, you could play <em>Dishonored </em>any way you liked too, if you didn’t care about the story or ending, but there’s more of a loss with that than with arbitrary numbers in a score system.</p>
+<p><em>Hitman</em> calls into question the whole dichotomy of stealth and chaos, which makes me even more confused about <em>Dishonored</em>’s approach. And while I can’t say <em>Dishonored </em>has done things badly, its design can, in turn, call into question many aspects of game development. That’s not necessarily the kind of thing that the player wants to think about while they’re trying to enjoy a game. In the end, nothing’s preventing anyone from trying to get into either of these game series. But if you’re a fan of teleporting behind security guards to shank them in the back of the knees, rather than creeping around the rafters and through dusty vents, I wouldn’t recommend you try <em>Dishonored</em>.</p>
+<p>I’m reminded of a different game, not a stealth game, called <em>Tacoma</em>. It’s set on an abandoned space station, and you play an engineer-type character who wants to find out what happened on it. You have an augmented-reality device, and at the beginning of the game you plug in a data-transfer device into a wall; you’ve got to start somewhere, you know. What you’re supposed to then do is leave the data to transfer automatically and go wander around, doing various tasks and piecing together clues, which then speed up the data transfer. <em>Or</em>, you can stand there for nine hours until the data transfer finishes.</p>
+<p>This is a suboptimal way of finishing the game, obviously. There’s no game at all, and you miss the whole story, with all the intrigue that that promises. But if you do this, you get an ending nonetheless. It’s a reward of a kind, not a punishment. And that’s why I’ve brought it up here: you can argue that there are better and worse ways to play a game, but one shouldn’t be punished for just <em>trying</em>, right? Well, I guess it depends on who’s in charge.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
