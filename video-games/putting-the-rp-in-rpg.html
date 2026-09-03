@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putting the ‘RP’ in ‘RPG’ — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Putting the ‘RP’ in ‘RPG’</h1>
+            <div class="article-meta">
+                Published on June 06, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/putting-the-rp-in-rpg.jpg" alt="Putting the ‘RP’ in ‘RPG’" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>‘RPG’ stands for ‘rocket-propelled grenade.’ Wikipedia defines an RPG as a “shoulder-fired anti-tank weapon that launches rockets equipped with a shaped-charge explosive warhead.” A ‘shaped-charge’ is an explosive ‘charge’ shaped such that the destructive energy is focused in a particular desired way. In the RPG’s case, the goal is to penetrate thick metal armour, most likely on a tank (or a similar armoured vehicle). You’ll probably be familiar with the most famous RPG launcher: the RPG-7, which was originally designed by the USSR in the 1960s, but is still used today due to its simplicity, effectiveness, and hardiness. Oh, but as a side note, ‘RPG’ also stands for ‘role-playing game’ in video game terms.</p>
+<p>Alright, well, I’m actually talking about <em>Kingdom Come: Deliverance</em> this week, in which the ‘RP’ would refer to the main character of that game: young Henry of Skalitz, a peasant in medieval Bohemia. I’m sure he would’ve given anything for a rocket launcher during Sigismund of Hungary’s uprising against King Wenceslaus IV, but maybe some mods could sort him out fairly quickly.</p>
+<p><em>Kingdom Come: Deliverance</em> and its sequel are known for trying to be as realistic and as historically accurate as possible. Incidentally, I’ve written a little about this , from the angle that I really couldn’t handle the game having limited saves (I’ve since gotten over this annoyance with a mod). Anyway, ‘realism’ has certain connotations in the video gaming world — it usually means you’ll have to manage your stats as dictated by real-life habits, like eating and sleeping. Some games like <em>ARK: Survival Evolved </em>even make you manage your character’s digestion habits, and if you don’t, you might just crap yourself while you’re just trying to go about your day. <em>KC:D </em>doesn’t quite go that far, though it does make you take care of more basic needs: Henry’s health, stamina, energy, and nourishment. And it imposes other limitations on you too, depending on what you have Henry do. If you drink too much, you’ll have to deal with being drunk — which lowers your Speech/Charisma stats as well as your general motor capabilities, meaning people will react to you more negatively — and having a hangover next day. Or, if you don’t take regular baths, you’ll get townsfolk being horrified by the grime and/or dried blood covering your person, depending on what mischief you’ve been up to. On a broader scale, you’ll need to manage how people perceive Henry in different towns; a good deed raises reputation, and a crime decreases it, as you’d expect.</p>
+<p>Games that do this kind of thing are certainly interesting. Having constant micro-tensions to worry about does make you consider your choices more, and that becomes especially interesting when the game offers you grey-area choices (moral or not) with direct and indirect consequences. For example, there’s a side quest fairly early on in <em>KC:D</em> where Henry has to get some jobs for a group of refugees, but there are only so many jobs to go around. These people have different qualifications and personalities, but may also have different circumstances that Henry would want to consider. Perhaps Person A needs a job the most since they have a sick family member to care for, and they’re already in debt with the apothecary because of it. Although Person B needs the job too, and maybe they seem to be less suited for it after all… but then a close friend recommended them, and you wouldn’t want to insult your friend, would you? Person C may offer you a better reputation with a certain armoursmith, who could then be willing to give you a discount whenever you go there in future. Person D may threaten you with violence if you don’t give them the job, though you could always shank them in the night while nobody’s looking to dispel such a threat… but what would the town think of you then? Unless you could get away with it?</p>
+<p>Compelling, no? I find it compelling, anyway. The point for this post is, though, that role-playing as Henry might only go so far. In such a quest as above, you might want to consider your choices thoroughly, but the benefits take different forms. If you were to meta-game a certain way — picking the choices that make the game easier for you, the player — then you’d definitely pick Person C from the list above, since cheap armour may come in handy. Meta-gaming a different way, though, maybe you’d pick Person B since they were recommended by a certain close friend that you might be interested in romancing. But then maybe you want to role-play fully as Henry the Gallant Knight, who helps the needy and the outcast, so you pick Person A.</p>
+<p>When a game presents you with choices, you still have agency as to <em>how </em>you make them; your motivation is yours, and your objectives are yours. If you want your Henry to be a sort of medieval Batman figure, serving up vigilante justice wherever you like, so be it. You could even be shouting “SWEAR TO MEEEE” into your headset all day, every day, as you lay about bandits with your sword. . But there, you’ve definitely identified and <em>decided on</em> a role. What if you’re not sure about the role you want to play in a role-playing game?</p>
+<p>Which brings me to a sort of sticky point, because much like in real life, sometimes you don’t know what your motivation is. Maybe you want to do a certain out-of-character thing just this once because it’s funny, or you feel that it’s important to your playstyle, or you just really, really want a cool sword because it could really fit the aesthetic that you’re going for, and you’ve looked it up, and there’s no other way to get it in the game except by killing some guy in his sleep. I’m not saying that last situation is pertinent to my playthrough, but I’m also not not saying that.</p>
+<p>What really got me to think about all this is a DLC that I got with the game when I bought it initially, called <em>From the Ashes</em>. In this DLC, somehow young Henry of Skalitz becomes the Bailiff of a ruined village called Pribyslavitz (and he really is probably around 16-27 years old depending on who you ask — really too young for anyone to become an authority in any town, surely). Henry is tasked by the local lord, whom he ostensibly answers to and has built a rapport with, to rebuild Pribyslavitz as a functioning village. So you go around inviting people to rebuild, work and live in your new village, and you go around getting the right supply chains in place so that necessary building materials reach your town. There are some choices that are better than others, depending (as usual) on what you may or may not have done in the game already. Maybe you met someone a while ago who could run your trading hub, or perhaps one town’s livestock supply is better than another town’s. Plenty of difficult choices are involved, like how much you pay your building manager, or what you build first so that the town can sustain itself as soon as possible.</p>
+<p>Cue the main problem: my Henry is quite poor, because he spent quite a lot of money getting cool armour, and because he didn’t really think about what the DLC would entail before starting its first quest. Frankly, I didn’t know what the DLC involved; I thought it’d be a regular side quest like any other. And so my Henry suddenly needs quite a lot of money quite quickly, because it turns out that rebuilding a village almost from scratch costs quite a lot of money, and until the village starts earning some money back, quite a lot of money is having to come straight out of my Henry’s pocket.</p>
+<p>My Henry is a mixed bag. He’s nice wherever possible and favours diplomacy over violence, but knows how to handle himself when violence is unavoidable. My Henry was doing alright, money-wise, even having spent all that money on new kit, but then he could afford it back then. In terms of what my Henry needed — his basic needs like food and a bed to sleep in — he was covered, and there was no need to steal. But now, my Henry has a village full of people who need to be paid for the work they’re doing, and my Henry needs to maintain the supply chains he’s set up because the trading shop is only now starting to gain any revenue at all. My Henry was then stuck in a tricky spot.</p>
+<p>So. I — <em>not</em> my Henry — went looking for tips online that have told me how the game’s economy and traders work. And so now, my Henry — <em>not </em>me (well, indirectly me) — is breaking into weaponsmiths and armoursmiths and apothecaries at night to steal items. My Henry then puts those items into a certain trader’s ‘inventory chest’ that the game didn’t want me to know about — hidden behind a particular very-hard-to-lockpick door — which breaks the economy somewhat. Basically, that ‘inventory chest’ is precisely what it says on the tin: it’s how the game tracks the aforementioned trader’s inventory. If you sell him stuff, it goes in there; if you buy stuff from him, it comes from there. Every few days, the trader resells any items you sell him, and the money he gets from the resales goes straight into that same chest. If you put the items into said chest directly, he ‘resells’ them for more money than you would get from selling those items to him normally. So by going into the Forbidden Room and putting stuff in the chest directly, and then coming back a few days later to steal the money, my Henry is now doing better, and the village of Pribyslavitz is happy (and none the wiser).</p>
+<p>I must say, I didn’t expect my playthrough to go this way. I like to avoid exploits like this as much as possible, so that the game remains more immersive; in essence, I do like role-playing a character. But what’s my Henry to do now that this line has been crossed? Now he’s torn between worlds, having now received information that he never should have, <em>but </em>for roleplay reasons: to be a responsible Bailiff for the township that he’s been placed in charge of. It’s a weird mix, and I don’t know how to feel about it.</p>
+<p>There’s no conclusion to this tale, really. Pribyslavitz continues to develop, slowly but surely. As of writing, the tavern’s going to be the next thing to be built, and hopefully one day my Henry will get to build a forge, and a bakery, and whatever else comes after that. By then, the village will be sustaining itself. And none of the villagers will ever know about my Henry’s secret: the dark knowledge from beyond the world he knows that haunts his every move, the unknown voice that told him to unlock that door and break into that inventory chest, the secret that broke my exploit-free playthrough, and that broke my Henry’s scope of existence. Pribyslavitz continues to develop, slowly but surely, in the light of <em>my </em>choice. Not Henry’s.</p>
+<p>So am I still playing a role, or is a role now playing me? I don’t know. That tavern will be beautiful, though; I’m sure of it.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

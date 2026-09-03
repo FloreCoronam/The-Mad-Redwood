@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Apothecary Diaries: Drama-Writing and Painted Faces — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">The Apothecary Diaries: Drama-Writing and Painted Faces</h1>
+            <div class="article-meta">
+                Published on June 20, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/the-apothecary-diaries-drama-writing-and-painted-faces" alt="The Apothecary Diaries: Drama-Writing and Painted Faces" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>The Apothecary Diaries </em>is a manga series that is adapted from a light novel series, and which now has an anime adaptation of its own (which has just gotten its second season). There are three manga adaptations: the main one, a reinterpretation known as “<em>Maomao’s Notes</em>,” and another spinoff manga featuring a side character’s perspective. I hadn’t heard of any of these until a few days ago (as of writing), but decided to check the main manga out upon a friend’s recommendation. It was described to me like this: it’s the story of a young girl named Maomao who’s forced into a food-testing job in the inner courts of an ancient-China-adjacent fictional nation, who applies her expertise in medicine, herbs, and poisons to surviving court life. Also, there’s a prominent romance subplot with a beautiful eunuch.</p>
+<p>Real talk, though: if you’re not familiar with ancient Chinese court drama, all you need to know is that it’s indirectly brutal. It’s full of mind games and cruel strategy, much like <em>Game of Thrones</em>, but infinitely more passive-aggressive. It won’t do to simply send assassins in the night to murder your court rivals — you need to make sure you’re untraceable <em>and </em>not breaking any social taboos. It’s not actually a social taboo to murder your rivals if you have plausible deniability, but that can be too tricky. It’s much easier to trick your rivals into, say, wearing the wrong dress at an important event, after which they very well may be forced out of court in shame, and thus your problem is solved without any bloodshed or expended coin. This is especially important in the Inner Court, where the Emperor’s family resides and where his many many wives/consorts/concubines live too, maintained by eunuchs (no other men are allowed within the Inner Court walls). The Outer Court is where most of the actual government administration happens, and which is also very intriguing/relevant, but is not the primary focus of this manga.</p>
+<p>That’s because <em>The Apothecary Diaries </em>chooses its niche very carefully. Poison is a very handy tool in this kind of setting. Poisons of all kinds exist: the classic immediately-fatal poisons are certainly part of the story, but there are also poisons that slowly kill a target over a year. There are also simple, regular substances which may become dangerous in large amounts, like perfumes, cosmetics, and even medicines. But <em>The Apothecary Diaries </em>is also especially interested in normally-harmless substances that could induce miscarriages and abortions, which are extremely important in inner court life. Maomao is assigned to serve one of the Emperor’s four main Consorts: ladies whose jobs are simply to bear heirs to the Emperor. These four ladies are therefore incredibly important to the nation, as well as the Emperor more directly — sometimes for purely personal or sentimental reasons, but more often due to the necessity for healthy male heirs in the imperial hierarchy.</p>
+<p>So, already, <em>The Apothecary Diaries </em>sets its stall out early. The first few chapters introduce the reader to the main concept: Maomao solves mysteries with her smarts and knowledge of all sorts of substances, in an almost monster-of-the-week-esque format. There’s always a mystery, and the mysteries often relate to one another: first, Maomao might detect a poison in some food, but where might it come from? Who might have prepared it? Who might have the <em>knowledge </em>of how to prepare it? And what would be the motive? Due to the interconnectedness of certain subplots, the tension is always maintained. Which is good.</p>
+<p>Further, the artwork is very detailed, taking what could be a rather mundane anime-drawing-style and turning it into something grander — befitting the setting of an imperial court, and also emphasising the importance of small details in the story it wants to tell. Dialogue is mostly serious, with some light comedy elements (always prioritising the grave tone that the manga prefers to maintain, but occasionally dipping into levity where appropriate). It’s a detective story, basically, but in an unconventional environment and tone. That’s key to the story’s success.</p>
+<p>Attention to detail is very important to detective stories, which is what makes <em>The Apothecary Diaries </em>work. The detailed artstyle and serious tone emphasise the need for the reader to be noticing things as the story goes along. This mixes very well with the intricate nature of court life: from an in-fiction character level, <em>everyone </em>is noticing and paying attention to <em>everything</em>, because that’s how you survive court life. Those who just bumble along end up being used as pawns in the grand plans of others, or end up forced out of court, or end up dead. A detective story in this kind of setting, therefore, works because seeing so many various details being explained later with a grand and clever reveal is quite satisfying. For these reasons, I want to bring up something that’s <em>usually </em>a problem in drama writing, that <em>The Apothecary Diaries </em>gets away with.</p>
+<p>Dramas need to be high-tension. That’s the nature of the genre. At some level, all stories need some tension or conflict to be interesting at all, but dramas have the difficult job of making those tensions primarily arise from the characters’ interactions with other characters. Dramas need to make sure that the readers/audience focus on and care about the characters in order for them to be invested in what the characters do and how they interact with others. Therefore, the characters themselves<em> </em>need to be interesting, and that can involve any number of factors. The writer has many tools at their disposal: perhaps some characters should have conflicting personalities, which make them inevitably clash whenever they meet for any reason. Perhaps some characters have the same goal, forcing them to compete, and perhaps they have differing motivations that inform that goal, complicating things further.</p>
+<p>Put this way, it all sounds fairly simple, but it can get very difficult very quickly because you have to integrate all these factors with the plot, and writing a plot is a very different beast to deal with (and which comes with its own conventions and difficulties). This is true of all storytelling, not just dramas, but dramas in particular have a problem. I’m thinking of you , <em>Descendants of the Sun</em>, but plenty of dramas do this.</p>
+<p>Perhaps the simplest way to manufacture tension is with <em>misunderstandings</em>. Two characters might interpret a conversation in different ways, for example, which then lead them to do certain things (ramping up the plot tensions), or may think worse of the other (ramping up character tensions). These are mainly plot-driven storytelling devices, in that they are often introduced to move the plot along — most probably, when something needs to happen for another part of the story to make sense, or to foreshadow something else important later on (as might be important in a detective story, for example). Remember that dramas, however, want character-driven storytelling devices, because their focus is on character interactions. Besides dramas, storytelling conventions state (inasmuch as any ‘writing law’ can be ‘stated’) that character-driven tensions and conflicts are always more interesting than misunderstandings, because those tensions and conflicts feel more organic. If Character A likes Character B, say, it makes sense for Character A to try to approach Character B because it contributes to their goals. It feels less satisfying to the reader/audience if the two were simply brought together by a third party, because the reader/audience would want to see <em>how </em>Character B tries to achieve their goal.</p>
+<p>As you can see, manufactured plot-driven misunderstandings, by contrast, are thus usually arbitrary and ultimately unsatisfying (and can denote lazy writing). ‘Plot-misunderstandings’ seldom involve characters’ motivations and goals — rarely do characters <em>want </em>to misunderstand something. An intentional “I’m going to choose to interpret things <em>this </em>way” is one thing; a genuine “what were they on about?” is another. Soap operas especially do this kind of thing a lot, which is part of the appeal, and is part of how they’re made — soap-opera writers don’t usually get a high budget to work with, or a lot of time to write their stories. But this kind of thing is why soap operas are usually considered ‘lowbrow’ or ‘trashy’ entertainment. It’s not about story — it’s about outrageous conflict that retains viewership, and misunderstandings are a big part of that.</p>
+<p>No ‘writing laws’ are sacred, though. In fact, it’s arguable that plot-misunderstandings <em>can</em><em> </em>make things more interesting, since — as mentioned earlier — a writer can use them to ramp up tension in whatever way might be necessary for an interesting story, character-wise or plot-wise. In fact, I’m about to argue that <em>The Apothecary Diaries </em>handles misunderstandings well, proving that it can be done. However, it’s done very carefully and with great precision.</p>
+<p>In <em>The Apothecary Diaries</em>, everyone is on high alert trying to understand what’s going on, and how to use the information that they have towards their own ends. Plenty (though not all) of the characters are also hiding behind different masks — to use Jungian terminology, and to finally explain the title of this post (hooray!) — depending on who they’re dealing with. Thus, if someone misunderstands something, it could be because they’re missing some context, or because of their personality, or because of their limited social status, or because someone is intentionally trying to mislead them — it could be any one of these. And, crucially, <em>The Apothecary Diaries </em>still abides by one of the golden ‘writing laws’: that of “Chekhov’s Gun,” which is especially important for detective stories. This ‘law’ states that if a gun is introduced in a story, it must be fired by the end; basically, it means that setups must receive some payoff. Presented information must be relevant in some way. Be it crucial information or a red herring, there must be some closure as to <em>why</em> the information was introduced to the reader/audience at all. Needless to say, the ‘grand reveal’ of most detective stories necessarily utilises this tool all the time.</p>
+<p>My main (yet minor) gripe with <em>The Apothecary Diaries </em>is with the pacing: the episode-esque format doesn’t really stick around, and it’s replaced with a deeper plot that integrates many subplots in order to explore Maomao’s backstory. In other words, a grander, more all-encompassing plot is introduced and fed into by many other ‘episodes’ which seem unconnected at first. This isn’t necessarily an issue, and in fact, is usually a good sign for detective stories, especially since the manga attempts to address the question of <em>why </em>Maomao in particular is the main character. It’s a sign that the story is trying to grow. However, the detail-focused nature of the manga can sometimes lead the reader to fixate on anything and everything, thereby sometimes ‘presenting’ information that might not be there. And sometimes red herrings aren’t quite as conclusive as they could be: occasionally a subplot thread takes so long to be resolved that the reader might forget about it. The story thus occasionally slows down in an odd way, in such a way that there can be confusion about which plot threads are still relevant. This doesn’t happen often, but happens enough to be notable — I’m thinking of roughly around Chapter 20, when plot circumstances significantly change, but where the plot also meanders a bit. The story takes a more expansive turn after that point, where most of the potential issues mentioned above arise.</p>
+<p>See for yourself, perhaps, dear reader, and draw your own conclusions as to whether it works for you. My best advice is to just go along for the ride, and <em>The Apothecary Diaries </em>is certainly a good ride, regardless of its issues. As mentioned, the above gripes aren’t major ones, and largely the detective aspect of the story can be quite clever. The minor problems don’t take a lot away from the quality, is what I’m trying to say.</p>
+<p>Although, you should know that I’m talking about the one written by both Natsu Hyūga (the main author of all the adaptations except the anime) and Itsuki Nanao, as illustrated by Nekokurage, because that really wasn’t made clear to me upon recommendation. The wiki gets real confusing real quick.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
