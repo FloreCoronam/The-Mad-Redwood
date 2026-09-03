@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mods: New Games From Old — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Mods: New Games From Old</h1>
+            <div class="article-meta">
+                Published on April 25, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/mods-new-games-from-old" alt="Mods: New Games From Old" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I usually don’t mess with mods because I like video games as crafted experiences. If some developers release a game a certain way, I like to consider the reasons for why that may be; perhaps they cut or added content for good reason. For instance, a cut minigame in <em>GTA: San Andreas </em>that was discovered still hidden in the game’s code led to a massive scandal, and also led to the game being outright banned in Australia. Probably, the developers of that game had been pleased with the decision to remove it. Probably also, though, they would’ve been more pleased if they’d removed it from the code entirely.</p>
+<p>Mods are fan-created content — where fans may or may not be thinking about a game’s improvement, and/or may or may not care about a game’s original design philosophy. Put simply, quality control isn’t in any way implemented, and whatever a modder says, goes. After all, it was some modders who discovered the aforementioned ‘Hot Coffee’ scandal. So if you’re an average Joe looking to download mods, you’ve got to sift carefully through all kinds of things — from quality-of-life mods to new content or entirely new mechanics. But chances are that you’ve got your own reasons for looking. Maybe you want to replace all the giant spiders in <em>Skyrim </em>because you’re arachnophobic, or maybe you just find uninhibited roaming Thomas the Tank Engines amusing. It’s up to you.</p>
+<p>I started playing <em>REPO </em>about a month ago, and my journey with it has been rather interesting. I naturally compared it to <em>Lethal Company</em>, a different game released towards the end of 2023, which is very similar. The premises of the two games are very similar: enter a monster-filled location, ransack it for valuables to meet a quota, leave, buy upgrades, and repeat (with increasing quotas as the levels go on). They’re both multiplayer-focused, with proximity-chat features that impact the players’ communication capabilities and add to the tension. In terms of differences, <em>Lethal Company</em><em> </em>crews comprise humanoid figures in boiler suits, while <em>REPO </em>crews are composed of robot-creatures that look a bit like the Android OS mascot. But there are some major differences which do impact gameplay and which make them fairly different games, so I’m going to compare them before we get to how the mods are relevant. Admittedly, I haven’t played <em>Lethal Company</em> since 2023, so maybe some things are different now, but I can only write what I know.</p>
+<p>First: <em>Lethal Company </em>doesn’t give each player their own map, while <em>REPO </em>does. In <em>Lethal Company</em>, the map remains on the getaway vehicle, which means either that each player has to come back to the vehicle for more clarity in direction, or that one player has to stay in the vehicle and guide their team through a walkie talkie — one of the available purchasable upgrades. <em>REPO </em>changed this somewhat by supplying maps, but a major reason for this, I suspect, is how it does map layouts. While both games use procedural/random generation for its locations, constantly changing the layout of maps while keeping some themes, <em>Lethal Company </em>has additional ‘outdoor’ sections that players must frequently traverse. You get out of your vehicle and have to make your way through the outdoors before finding the actual buildings to loot. It also tries to keep things interesting by having some special outdoor-only-type monsters, which are usually too large to be indoors, and which can definitely add to the scare factor — giants that try to pick you up clean off the ground are quite scary, you know. <em>REPO </em>does away with all this and parks you right up to the building. It gives each player a map that they can pull out at any time, as well as a free and limitless torchlight, which arguably are quality-of-life changes. It’s hard to be scared when you’re just confused, after all, which was sometimes an issue with <em>Lethal Company</em>’s large outdoor areas.</p>
+<p>Next, the two games have entirely different looting/weighting systems. <em>Lethal Company </em>opts for a more traditional video game model, where players have a limited number of inventory slots, and limited carry capacities. Items have different weights depending on what they are — usually it’s the bigger things that are heavier — and you can only carry so much before you become overencumbered, thus slowing you down (not great when you’re in a monster-infested building and want to get out alive). Also, you need to get all the loot back to the getaway vehicle because you only get the cash when you reach the shop between levels, to sell your loot there. Outdoor monsters can still mess with your vehicle, possibly destroying some stuff in the process, so that’s fun. <em>REPO </em>switches this up completely by setting up stash-points at randomly-generated locations throughout the map. You get a cart to push around like a shopping trolley instead of an inventory — though there’s a small inventory for equipment/upgrades — so you collect loot in your cart as you go along to wherever the next stash-point is. The loot never goes into your inventory. Instead, you have to pick stuff up and manually manoeuvre it all around, taking care not to damage any loot. Damaged stuff decreases in value, and you do have a quota to meet, so you’d better not accidentally smash anything. Making things harder is the fact that quite a few items like TVs and grandfather clocks are too big or heavy to pick up — either you buy strength upgrades or get your friends to move them with you.</p>
+<p>That leads us to the available upgrades: <em>REPO </em>allows each player to permanently (for that run) upgrade their own stats like strength, speed, and maximum health through the shop/upgrade system. In the shop, you can also buy useful equipment: weapons like pistols, shotguns, grenades, and baseball bats, as well as items that make looting easier like drones that give items invulnerability, so that you can just throw a radio downstairs without breaking it. <em>Lethal Company </em>has equipment too — tasers and jetpacks, for example — but offers upgrades only for the getaway vehicle. You can unlock the ability to teleport players back to the vehicle for a speedy getaway, for example, but players can’t increase their maximum carry weight or anything individual-specific like that. However, these individual upgrades in <em>REPO </em>allow for approximations of different builds: one player might be the designated strongman, while another might specialise in speed and stamina to lead monsters away from the rest of the group, leaving them free to transport fragile loot.</p>
+<p>A more minor difference is that <em>Lethal Company </em>has a time system, while <em>REPO </em>doesn’t. When it gets dark outside, the frequency of monsters spawning becomes higher, so you don’t want to get back to your getaway vehicle too late. And time passes pretty quickly in <em>Lethal Company</em>, so you’ve got to get a move on. The time factor does increase tension, but also often limits the amount of loot you can get away with. <em>REPO </em>instead does something that is, I think, rather clever: once you’re finished with your looting and stashing, you still have to get back to your vehicle, but after the last stash-point is cleared, all the monsters respawn at once. I’m not sure if they also get more aggressive during the mad dash to get out of the building, but it certainly feels that way.</p>
+<p>Lastly, we have the actual monsters, and these are particularly pertinent. I realise that we haven’t really gotten to talking about <em>REPO</em> mods yet, but this is all important groundwork. You’ll see why.</p>
+<p>Both games certainly have their fair share of unique monsters, which complement the gameplays of their respective games. For instance, <em>Lethal Company </em>has the Coilhead, which must always be looked at — a Weeping-Angel-type scenario. That means that they’re extremely difficult to deal with when you’re alone, which can be a problem if you have a good amount of loot on you and a Bracken — a shadowy monster that tends to approach from behind with the goal of snapping your neck and dragging your corpse away — is sneaking up on you. There are also blind monsters like the outdoor Eyeless Dog, which hears particularly well. This prompts players to remain quiet and not freak out when a Dog is around.</p>
+<p><em>REPO </em>does the same thing, using gameplay mechanics to influence its monster designs: the Huntsman is also blind and very sound-sensitive. He also has a gun, which <em>Lethal Company</em>’s Nutcracker also does — <em>REPO </em>decided to combine the ideas. Another type of borrowed monster is <em>Lethal Company</em>’s Hoarding Bugs: giant cockroach-like monsters that pick up loot and scurry away with it, hampering the players’ looting efforts. <em>REPO</em>’s Rugrat monsters similarly steal loot but are more aggressive: they hurl the loot that they pick up at players, which can be particularly dangerous if it’s a large item they pick up. Not only would they inflict more damage were you to be hit, but the item itself would also be damaged, if not destroyed entirely.</p>
+<p>Needless to say, it seems that <em>REPO </em>learnt a lot of things from <em>Lethal Company</em>, which preceded it. The developers behind <em>REPO </em>were able to benefit from and improve upon a premise, rather than creating one from scratch. I’m sure <em>Lethal Company</em>’s developers drew inspiration from plenty of places too, and I wouldn’t be surprised to hear if this kind of team-horror-looter game existed already in some form before <em>Lethal Company</em>; admittedly I don’t pay too much attention to team-multiplayer games in general. <em>REPO </em>caught my eye because my friends had once convinced me to play <em>Lethal Company</em> with them, which lasted for all of a month. By contrast, a month through playing <em>REPO</em><em> </em>together, they seemed to be still going, and so I decided to join them.</p>
+<p>Then about two weeks later, they suggested adding mods. This made me wary, because it was exactly what happened with <em>Lethal Company </em>— albeit in a shorter space of time — when they’d started getting bored of it. Introducing mods is a good way to spice up a gaming experience, after all, but not even the mods had held their interest in <em>Lethal Company </em>for long, and so that’s why they had abandoned it (and I was forced to abandon it too, though I hadn’t tired of it yet, because it’s the kind of game that you have to play with other people, and finding other people to play with wouldn’t have been worth it).</p>
+<p>But as I mentioned earlier on, there’s a balance one has to strike with mods; intention must be considered. What happened with <em>REPO </em>was very different. What happened was that a new game was created. Essentially, it came down to a few mods: two that added a semiautomatic medium-range gun and the Huntsman’s rifle to the shop, and another that made Huntsmen drop their guns when killed. The latter only applies to that encounter: if a Huntsman is killed on Level 7, for instance, the gun can be picked up and used only on Level 7. We also added some cosmetics mods, which aren’t really relevant, though I must confess that a bad blonde wig, false eyelashes, lipstick, and a dress that shows off my robot character’s new buxom figure have all become very important to me. The important thing, though, is the new game — which we’ve taken to calling <em>Resident EPO</em>, because it’s very much become a <em>Resident Evil </em>game instead — is just a <em>different </em>game. It’s not a worse game, or a ruined game, or a game that’s gotten too easy; nor is it a better game. And this is because when one of my friends was tasked with compiling a modlist for our group, he indeed took intention into account: we didn’t want to make the game easier. We just wanted something <em>different</em>, something that was still scary and tense, and that was still challenging. And so <em>Resident EPO </em>was born.</p>
+<p>The key is that monsters, when killed, drop ‘cores’ — fragile magenta-coloured orbs that have loot value, ie. they can be cashed out at stash-points along with all the rest of the regular loot. Monsters intermittently spawn and despawn in any given level, and since there’s no time limit, going hunting is a legitimate strategy, but it’s <em>not enough</em>. Regular loot is still very much necessary because you can only kill a monster thrice before it stops dropping cores; you can’t hunt for profit indefinitely. Besides, guns aren’t cheap, and if the group of players is large, you’re going to need to buy quite a few if you want to survive later levels. Important also are strength upgrades — which naturally also cost money, and prices increase as levels increase anyway — which allow you to aim better, because aiming any weapon to begin with is deliberately clunky. With these weapons, you <em>can </em>take out even a Trudge monster — huge lumbering creatures that can kill you instantly — with relative ease, but only if you’re careful. There’s still a healthy amount of hiding and staying quiet necessary.</p>
+<p>Remember, though, that there are already guns in the game, though not terribly useful and frequently unwieldy: there’s a pistol and also a shotgun. Theoretically, <em>Resident EPO </em>is already present and a valid way to play <em>REPO</em>,<em> </em>even without mods. But these mods brought out fuller potential in the game for an entirely different playstyle — one that, I think, could even be incorporated into the vanilla (unmodded) game. The Huntsman rifle and P90 are both balanced in their own ways. The rifle — while particularly accurate and suitable for long-range shooting — is rather long physically, and as such is hard to use in tight corridors. Conversely, the P90 semiautomatic gun is smaller, more manoeuvrable, and contains more ammunition, but is very hard to be accurate with unless you’re really close up. As you can see, they sort of complement each other; it’s a combination that you might find in, say, a <em>Resident Evil</em> game.</p>
+<p>There’s a question of intent involved when picking mods, but also, potentially, an exercise in thinking like a video game developer. I think that’s a useful headspace for the average gamer to engage with, because if you’re interested in something, it’s often enlightening to find out more about it: the hows and the whys and the whats, and even the whos that are involved. Who knows? Maybe you’d want to become a modder or a developer yourself after such an enlightenment, but if not, it’s still a way of further engaging with your interests from different and deeper perspectives. And that’s just healthy.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
