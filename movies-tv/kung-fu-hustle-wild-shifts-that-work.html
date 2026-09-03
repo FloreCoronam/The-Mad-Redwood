@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kung Fu Hustle: Wild Shifts That Work — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Kung Fu Hustle: Wild Shifts That Work</h1>
+            <div class="article-meta">
+                Published on October 10, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/kung-fu-hustle-wild-shifts-that-work.jpg" alt="Kung Fu Hustle: Wild Shifts That Work" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Kung Fu Hustle </em>is a very, very odd movie, but also a very, very funny movie, but also has its emotional moments. It’s also an action movie, and it’s a wuxia action movie. And that’s a confusing mix, especially if you don’t know what wuxia is (which we’ll get to in a minute). The point is that it’s baffling at almost every stage and you really don’t know what’s going to happen next, but the movie pulls it off. You’re not really going “huh?”; you’re going “oh, I guess we’re doing this now,” but in a good way. You’re sort of excited to see what kind of wild nonsense will happen next.</p>
+<p>A big part of this is just what wuxia <em>is</em>. It’s a genre of Chinese martial-arts-adjacent fiction that’s full of fantastical elements. It’s also semi-historical fiction, in that often these stories take place in a fictionalised ancient China. A standard wuxia plot involves a tragedy befalling the protagonist (ie. the inciting incident), and the protagonist has to undergo several trials (usually involving learning new martial-arts moves and techniques from various masters) in order to better the world he lives in somehow. Those worlds often reference real locations in China and real time periods. For instance, <em>The Legend of the Condor Heroes</em> — a famous wuxia novel, one of a trilogy that’s still being translated into English — takes place during the real historical conflicts of the Song and Jin Empires.</p>
+<p>These martial-arts techniques are based in actual Chinese martial-arts principles like qi (or chi) and pressure points, ramped up to basically magical levels. Expect techniques called things like “The Nine Sword Strokes of Dugu” and the “Three Extreme Palms.” Those are more orthodox ones; they can get pretty weird. Important also is the ‘code of xia’: think the medieval knights’ code of chivalry or the samurais’ bushido. It’s a sort of moral code emphasising several virtues. So imagine an Arthurian knight’s-tale, except with occasional magical elements and a lot more description of the actual fights, with the aforementioned emphasis on martial-arts techniques. You get people flying through the sky, swords clashing as the wind rushes through their luscious long ponytailed hair. You get people spinning a sash of golden bells around to confound but also incapacitate their opponents. And you get people attacking with ‘jade bees.’ As you might imagine, when these descriptions combine with the magic and sometimes comically outlandish techniques, you get some pretty weird stuff. Wuxia, though, tends to take itself very seriously, and <em>Kung Fu Hustle </em>clearly doesn’t.</p>
+<p>So let’s dig into the plot of <em>Kung Fu Hustle</em>; many spoilers ahead, though even if you read all this, you should still see the movie for yourself. It’s a wild ride, with many wild shifts.</p>
+<p>The film starts in a relatively grounded place: a criminal gang called the Crocodile Gang is terrorising 1940s Shanghai. They’re ousted by the Axe Gang in the opening scene, which depicts some pretty graphic violence: someone’s leg is cut off, and a woman is shotgunned in the back. Immediately, though, in a montage sequence of gang crimes, the leader of the Axe Gang — Brother Sum — is shown leading a cohort of gang members in a dance number. You get shots of bloody corpses, victims of the gang, interspersed with shots of them merrily dancing along, completely straight-faced. So the film sets up its stall early: things are going to get weird, and things are going to get comical through that weirdness.</p>
+<p>We’re then introduced to Pigsty Alley, a slum-apartment setup, and its inhabitants. We see the residents going about their morning: a barber washing his hair at a random tap in the courtyard, a manual labourer carrying heavy sacks of something or other, a tailor setting up shop, a noodle-shop-owner kneading dough, and a bunch of other shenanigans involving the Landlord and Landlady of the area. The Landlord is weird, lecherous, and keeps getting beat up by his tyrannical wife because of it; she, on the other hand, berates the tenants mercilessly for not much reason at all. An odd energy, to be sure, but great fodder for some comedy antics to ensue. They continue as we’re introduced to Sing and Bone, a pair of shysters who try to pose as Axe Gang members in order to get a free haircut for Bone, but their scheme doesn’t work. Sing is confronted by the other tenants, and he challenges various people in the crowd to a one-on-one fight to ‘prove’ his toughness. He challenges a random lady first, who causes him to spit blood with a single punch. He tries challenging a short-looking man, who actually turns out to be extremely tall — he was just inexplicably sitting on a stool amidst the crowd. Sing then tries a bespectacled man whom he thinks will be a weakling, but who turns out to be incredibly buff. Lastly, Sing calls out a child, who… also turns out to be incredibly buff. It’s a weird scene, but the comic timing, convenient absurdity, and <em>Home Alone </em>energy of Sing and Bone carry it off.</p>
+<p>The shysters are then chased out of Pigsty Alley, though not before Sing pretends to send a signal to his ‘fellow gang members’: he tosses a lit firecracker over the perimeter wall. It happens to land on an Axe Gang lieutenant, who isn’t amused, and proceeds to call for backup. Not even five minutes after Sing’s comedy capering, we get a scene where the Axe Gang has sent dozens of members to beat up the residents, and harrowingly we see a mother and little child doused in gasoline, about to be set alight. The Axe Gang’s attack is stopped by three men who are secretly martial-arts masters: the manual labourer, tailor, and noodle-shop-owner from earlier. This is a decently-long, fairly conventional Hong-Kong-style martial-arts scene featuring actual kung fu techniques. Pretty good action stuff.</p>
+<p>Then we cut back to what Sing and Bone are up to: nothing much. They’re just dwelling on their misfortunes, and Sing reveals his tragic backstory: as a child he was sold a $10 kung-fu manual about the ‘Buddha’s Palm’ technique, tried to use it to save a mute girl who was being bullied, and was beat up and humiliated as a result. He then resolved to be a bad guy, hence how he is now, because they always seem to come out on top. In an odd sequence, he and Bone get ice cream from a random vendor and then run off without paying for it. Really emotional music plays as he and Bone get on a tram, laughing maniacally at the vendor through its rear window. Again, tonally all over the place. But you’re just nodding along, because it’s sort of funny, in a stunned-disbelief way. Sing’s mouth is dripping with vanilla ice cream as he continues to laugh, and you just watch.</p>
+<p>A while later, the Axe Gang sends assassins to kill the three kung-fu masters, who — unbeknownst to the gang — are being made to leave. As they’re leaving though, the assassins arrive with a guzheng: a large stringed musical instrument. And now the wuxia madness starts: as the instrument is played by the pair of assassins, magic swords fly out of it, killing the labourer first. The other two masters figure out what’s going on and fight back, but kung-fu can only do so much against actual magic. So then the Landlord and Landlady show their hand. The Landlord is a master of tai-chi, to such a degree that he can levitate and move his body so fluidly that he simply can’t be hit. The Landlady has a deafening scream technique called the Lion’s Roar, enabling her to hit the assassins with a sonic blast of such force that they’re blown back a good few feet and their clothes are stripped off. The assassins crawl off, badly hurt, as the magic couple threaten Brother Sum into leaving; he was watching from his car. The Landlady even makes a Bruce Lee reference to prove her point; more tonal whiplash.</p>
+<p>At this stage, you’re reeling. Actual magic has been introduced; there wasn’t much indication so far that <em>this </em>was the kind of movie you were watching. But here we are. Just before the assassin scene I just described, there was a brief scene where the Landlady chases Sing, both at comic superspeed — they get Road-Runner-style leg-wheels, and there’s car engine sounds, and it’s all very funny, but you assume it’s <em>just </em>for comedic purposes. And the scene is certainly funny, but you don’t then expect it to be foreshadowing that the Landlady is magic, and, as it turns out, so is Sing. Because that scene seems to fulfil the purpose the audience figures it was there for, they don’t expect that to be subverted further later on, with an extra, and sort of weirdly clever, layer.</p>
+<p>But now we continue: the Axe Gang hires Sing — who demonstrated expert lockpicking skill earlier in the film and has now driven off Bone for being a burden to him — to break someone out of a prison/asylum. This man is simply known as The Beast, and the audience once again nods along, having heard the guzheng assassins mention him earlier: he’s the strongest fighter in the world. Sing succeeds (and there’s a weird reference to the blood-lift in <em>The Shining</em> here, which is also weird and unexpected), and the Beast turns out to be a dishevelled, bespectacled old man with thinning hair, dressed in an undershirt, shorts, and slippers. And yet, we immediately get a scene where he ferociously fights the Landlord and Landlady, thirsting for a fight that will actually be a challenge to him.</p>
+<p>I want to introduce the concept of power-scaling now: it’s a storytelling device where characters are shown to be more powerful than others by way of defeating previously established powerful characters. In <em>Kung Fu Hustle</em>, we started with the Crocodile Gang, which was beaten by the Axe Gang, and then an army of Axe Gang members was beaten by the three masters, who were then beaten by the guzheng assassins, and who were then beaten by the Landlord and Landlady. Now, the Beast <em>just </em>about beats them; at the very least, they’re seen to struggle immensely against him. But here we also have Sing, who has a crisis of conscience and tries to help them, whereupon he’s pummelled — seemingly to death — by the Beast. Of course, he comes back later, fighting the Beast again in Pigsty Alley, and defeating his secret Toad Leap technique by the power of the Buddha’s Palm.</p>
+<p>The film, however, ends with Sing and Bone reunited and running a sweets shop. Sing also reunites with the ice-cream vendor, who turns out to be the girl he tried to rescue when they were both children. It’s a very sweet ending, and it comes out of nowhere; the romance subplot was present here and there during the film, but only barely. Most of the second half of the film is just wuxia fights where floors are cracked and buildings are smashed up by magical powers. Again, the tone is all over the place, but you’re just goggling at the screen.</p>
+<p>The thing is, though the events of the plot are outlandish and bizarre, it hangs together and is coherent enough. Events do lead to other events in a logical sequence; the bizarreness comes from the nature of the wuxia elements, for the most part. Even then, the power-scaling element gives the audience a sense of progression to hang onto: “I know that guy is powerful, but who knew that this could be the result of this other weird thing happening? Why is the Beast’s throat swelling up like a frog?” The audience is naturally asking these questions, but because one thing is leading to another in a sequence, you just about hold on. And at the same time, you’re still sort of smiling. You’re staring wide-eyed in disbelief, but you’re also smiling. There’s a deliberateness to the madness that’s amusing.</p>
+<p>Also, if you’re already familiar with wuxia and martial-arts films, especially Hong Kong kung-fu films, then that smile will get wider. There are so many references and easter eggs that you can’t even count them. Some are more niche than others — the Landlord and Landlady reveal themselves at one point to be the fated lovers from the <em>Condor Heroes </em>trilogy that I mentioned earlier, Yang Guo and Xiaolongn&#252;. The Lion’s Roar is also a reference to that trilogy, as is the Buddha’s Palm and even the Toad Leap. But some are more obvious and even random: on his deathbed, the noodle-shop-owner (incidentally and weirdly, his name is Donut) makes a Spider-Man reference. So the references form another comedy layer for you to enjoy, if you’re in the know. So <em>Kung Fu Hustle </em>is a mixed bag, but a very fun one. It’s got some <em>Home Alone </em>energy, it’s got some <em>Dragon Ball </em>energy, and it’s just a solid physical comedy.</p>
+<p>And honestly, I just wanted to end on a fun one that I like. This post marks a year of weekly posts. I’m glad to have done this consistently for a year, but it couldn’t last forever; I’ve got other commitments. So things are going to be posted here only when I can find the time to write something, frankly. It’s been fun, and it’ll continue to be fun, I’m sure.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

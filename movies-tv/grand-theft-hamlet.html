@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Hamlet — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Grand Theft Hamlet</h1>
+            <div class="article-meta">
+                Published on September 19, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/grand-theft-hamlet.jpg" alt="Grand Theft Hamlet" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I think that title sort of speaks for itself, in a way, but not as much as I think it should. It’s a perfectly serviceable title and does exactly what it should as a title — I’ve written about . “<em>Grand Theft Hamlet</em>” captures your attention immediately and gets you to wonder: what on earth is this about? That’s because of a juxtaposition between two things: <em>Grand Theft Auto</em>, a rather violent video game series that often satirises modern American society/culture, and <em>Hamlet</em>, a Shakespeare play featuring murders within a royal family and various existential questions like “why do we keep living?” In short: it’s a big contrast between what seems to be a low-brow thing and a high-brow thing. <em>Grand Theft Hamlet </em>seeks to unite that gap.</p>
+<p>I’ll tell you what <em>Grand Theft Hamlet</em> is, finally: it’s a documentary written by Sam Crane, his wife Pinny Grylls, and their friend Mark Oosterveen, directed by Grylls, about their journey trying to organise a production of <em>Hamlet</em> within the video game <em>Grand Theft Auto </em><em>Online</em>. It takes place during the UK COVID-19 lockdowns of 2021. Crane and Oosterveen are both actors, and were struggling to find work at the time, resulting in the harebrained idea to stage a proper production of a Shakespeare play in an online game. The whole thing is a machinima piece — the whole movie is shot within the game. But it’s won quite a few awards because it’s simultaneously <em>just </em>about this production and so much more than that.</p>
+<p>It begins with a normal gaming session between Sam and Mark. The pair stumble across an in-game open-air theatre by chance, running away from the in-game police, and decide to recite a few lines from <em>Hamlet</em> for fun. As expected, other random players interrupt, but it’s the beginning of an idea. Sam invites his wife Pinny — a director, but not a gamer — to document the unfolding of their new plan: to hold auditions and get some strangers on board. But amidst that, Pinny and Sam talk about their life: they’re both struggling with coping with the pandemic, and they talk about the kids, and they’re “so sick of Hackney.” They both want an escape; so does Mark, who had just lost his last blood relative, and had recently attended the funeral. So they all want an escape, and they all want to offer an escape — a productive escape — to others who might need it.</p>
+<p>Their first ‘prospect’ went by the username of “djphil”: a literary agent and <em>Hamlet </em>lover who saw the group’s audition ad and got on her nephew’s <em>GTA Online</em> account to have a go at being in a play. But it quickly turns out that real life calls her away. There’s a brief fallow period, but more auditionees eventually show up at the appointed time, which the group is delighted about. They come from all walks of life: from the actual voice actor for Pharah in <em>Overwatch</em>, to historical cooks and disgruntled retail workers. Some love Shakespeare, and some know nothing about him. And they find their Hamlet: a guy Mark knows in real life named Dipo.</p>
+<p>So Sam and Mark begin organising rehearsals. Special emphasis of course is lain on Dipo as Hamlet, as they try to find a flow with in-game avatar emotes and line deliveries. They look for in-game locations to have the scenes in, changing an in-game company name to Elsinore to provide a lobby backdrop, and finding a subway station for the opening scene. And then it turns out that Dipo can’t be Hamlet after all — he’s found a real-life job, and the time commitment to that won’t allow him to be a big part of the project. Of course, Sam and Mark are happy for him but are simultaneously dejected themselves. They’d like work too, of course, and at the same time a major wrench has been thrown into their distraction-project. The two argue: Sam’s ready to give up, but Mark isn’t. And so they resolve to go on, though unsure about what might happen. Dipo is recast as Laertes instead, and Mark convinces Sam to take the role of Hamlet.</p>
+<p>At this point, the film takes a dramatic turn in combining high-brow and low-brow worlds: Sam wanders around on his own, in-game, reciting Hamlet’s big speech in Act 3: “to be or not to be.” Sam’s lost touch with why the project should even go on, and that’s what this speech is about: wanting to give up, and wondering whether it’s worth it to persevere. As Mark puts it: is it better to soldier on despite adversity, or to just end it all on one’s own terms? This important soliloquy is delivered amongst destitute NPCs in an in-game slum area, and it isn’t delivered again in its entirety. <em>This </em>is how Sam, Mark, and Pinny decided to show this important speech in this film — arguably the most famous part of <em>Hamlet</em> isn’t even delivered as part of the production. At least, not as we see it.</p>
+<p>So then what? The group soldiers on, having now cast all the roles. Even those who couldn’t play characters are useful in some way: one fun-loving guy known as ‘ParTeb’ takes the role of security, gunning down any strangers who might interfere with rehearsals. Other strangers show up just to watch in silence, perhaps intrigued that the project even exists, and some show up to help out: driving blimps and becoming the de-facto stage manager. The aforementioned blimp becomes an important part of the play — the plan is to do a scene on top of the blimp as it flies, and the scene ends with someone dropping into a pool atop a skyscraper. Pretty elaborate stuff; certainly no real-life <em>Hamlet </em>production would try that. And things start looking up.</p>
+<p>But all that takes a toll. Pinny finds that Sam and Mark have become obsessed: foregoing sleep in order to brainstorm and work on the project, and Sam’s even forgotten Pinny’s birthday. Real life still exists; the distraction can’t be everything, however beautiful it is. We see Sam agree to step away, to spend time with Pinny and their children. I wonder what must have gone through their heads as they edited that footage.</p>
+<p>But the production itself is next on the slate. Everyone gathers on the appointed day, excited to see the fruits of their efforts. It’s livestreamed too, with Pinny serving as the camera and Mark serving as stage manager and voice to the audience. The production begins on a beach, with the new opening scene taking place aboard a yacht instead of the subway station from before. And it’s not a production without hitches. Amusingly for everyone involved, the blimp carrying the cast and crew crashes — forcing the play to a halt while everyone makes their way back to Sam’s Hamlet sitting at a fire, ready to do his big speech. But nobody cares; everyone laughs it off and simply gets back to the play, eager to do their part. Once the production has concluded, the crew heads to an in-game nightclub to celebrate, and the film itself closes with footage from one of the real-life award ceremonies that it won.</p>
+<p>It&#39;s a really sweet story, in the end, and that’s why I think the title — while perfect — does do the film a disservice. It’s a very human story, and it happens to exhibit exactly what <em>Hamlet </em>is about. It’s as <em>experientially </em>close, I feel, as <em>Hamlet </em>can get to a modern young person’s mind, especially since they’re likely to have gone through COVID lockdowns too. At the same time, it showcases the opposite of what <em>Grand Theft Auto </em>would have you believe about modern society: that it’s devoid of worth and utterly corrupt in various ways. That may well be true, but somehow <em>Grand Theft Hamlet </em>shows how people come together, despite imperfections and difficulty. Both things can be true at once, and this film really makes that clear. I think that’s a great message, don’t you? Who knew that such a message could be delivered through a film heavily featuring a guy in a rather revealing yet grotesque alien suit.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

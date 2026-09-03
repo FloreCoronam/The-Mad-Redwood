@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pok&#233;mon Concierge: More Iyashikei — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Pok&#233;mon Concierge: More Iyashikei</h1>
+            <div class="article-meta">
+                Published on September 26, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/pok233mon-concierge-more-iyashikei.jpg" alt="Pok&#233;mon Concierge: More Iyashikei" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>A while ago I wrote about the concept of <em>iyashikei</em>, in a post about the . <em>Iyashikei </em>isn’t a concrete genre or subgenre term; lots of people would define it differently. What’s definite is that <em>iyashi</em> on its own means ‘healing,’ and <em>iyashikei </em>(roughly ‘healing-type’) is usually used to describe a subgenre of Japanese slice-of-life media that has ‘comfy’ vibes, where the audience/reader is ‘healed’ by the wholesomeness and calming nature of the content. The subgenre is characterised by low-stakes conflict and characters who are sympathetic and supportive — especially to the protagonist. <em>Iyashikei </em>media promises that whatever happens, things are going to be okay in the end, somehow.</p>
+<p>Not long ago, I came across a scholarly article from 2009 about what the author, Paul Roquet, calls “ambient literature.” Roquet refers to the <em>iyashikei </em>subgenre not only in terms of media or art; he references a “healing boom” in 1990s Japan which developed as a response to natural disasters and terrorist attacks. People needed comfort, and <em>iyashikei </em>things seemed to be the answer. Roquet found this approach somewhat paradoxical, in the sense that <em>iyashikei </em>media could be just a form of escapism that doesn’t solve the problems one faces, but helps one pretend that they don’t exist — unhelpful for any ‘true’ healing. However, he also cites a psychiatrist who found that his patients found “optimism and brightness” through the literature of Yoshimoto Banana, a notable ‘ambient literature’ or <em>iyashikei </em>writer who led the way in its establishment as a media subgenre.</p>
+<p>Many years later in 2023, when <em>iyashikei </em>as a subgenre is now an established Japanese media staple, <em>Pok&#233;mon Concierge</em> was released as part of an animation collaboration. The Pok&#233;mon Company and Netflix Animation teamed up with dwarf studios (it’s supposed to be all-lowercase, yes) to create a stop-motion <em>iyashikei </em>Pok&#233;mon experience: the story of a young adult named Haru, burnt out from work. Her life seems to be a series of unfortunate events, culminating in her boyfriend of 6+ years dumping her over a text. Day after day she struggles, and so she quits her job to find a new, very different one. The series starts as Haru begins with her new job at Pok&#233;mon Resort, which seems to be half holiday resort and half Pok&#233;mon daycare. Her job there is to be the ‘concierge,’ ensuring that both Pok&#233;mon and their human trainers enjoy their time at the resort.</p>
+<p>It&#39;s a little sad watching Haru as she begins her <em>iyashikei</em> journey, and you really see the subgenre’s appeal shine through. Haru has to <em>learn </em>to value herself and her own work; she starts with her new role of concierge in a place of anxiety and inadequacy. The resort concierge supervisor, Ms Watanabe, tells Haru to simply spend her first day at the resort enjoying it as a guest would, and while Haru certainly gives it a go, she can’t quite believe that she deserves to enjoy anything — she’s sure that she’s being tested. Later that night, she resolves to make a report about her day to present to her boss the next morning, the way she imagines a ‘good worker’ should. Ms Watanabe shows her that this isn’t necessary; she just wanted to see Haru laugh. It’s a real breakthrough for Haru when she does. Work is work, but that doesn’t mean that all work must be soul-crushing.</p>
+<p>Each episode shows a similar lesson being learnt: essentially, that there can be sunshine in life along with the rain. Haru learns that she needs to learn to let go of the things she can’t control. She learns that she doesn’t need to compare herself with others in order to be ‘impressive.’ She learns that approaching people (or Pok&#233;mon) from their point of view brings out their potential. She learns to ask others for help, and how to have confidence in her own skills and experience. She even learns to move on and forgive her ex.</p>
+<p>However, like I mentioned earlier, <em>iyashikei </em>is supposed to feature low-stakes conflict. The things that happen to Haru on the resort are could certainly be described as ‘low-stakes’: they include finding a life-preserver ring for a Magikarp that can’t swim well, helping a shy Pikachu and its energetic owner to get along, and figuring out how to mentor a new trainee who’s a lot older than her. You’ve probably noticed, though, that due to her personality, Haru finds these sources of conflict very serious indeed. As such, she’s the perfect <em>iyashikei </em>protagonist: her worries can be allayed without being invalidated. Often the conflicts are resolved due to teamwork — the help and sympathy of others — which is simultaneously uplifting and intriguing.</p>
+<p>I’m thinking of one episode in particular, episode 5: in which Haru’s concierge coworkers (and Ms Watanabe) are away. Sanitation worker, caterer, and general handyman Tyler has to go pick up goods to restock the resort’s food supplies. Alisa, a part-time worker whom Haru looks up to, is already away to attend her sister’s wedding. Ms Watanabe is returning from a business trip, but bad weather is keeping her stuck elsewhere. So Haru goes about with her duties: first she has to welcome two electric Pok&#233;mon to the island. Then she has to prepare food for the Pok&#233;mon, and then there’s a vegetable patch to tend. Then she has to style a Pok&#233;mon’s fur, and that doesn’t go very well. She finds herself overwhelmed very quickly, until she gets the Pok&#233;mon to help with her tasks. Things look up from there, and then the island loses power — for whatever reason, the other staff ask Haru to take care of it. And the sun is already setting.</p>
+<p>She gets the Pok&#233;mon to help again: she’s learnt the ‘lesson’ that the episode wants her to learn. First she tries getting some flying Pok&#233;mon to flap their wings at the windmill, to try and get it to turn. No dice, so the gets the electric Pok&#233;mon to help — a fairly obvious solution, you might think. It doesn’t end up working though, and she has to give up. Defeated, she returns to the main complex of the resort, bemoaning her situation and musing aloud about how her colleagues would have solved the problem easily. It’s already dark out, but upon laying eyes on the main resort complex, Haru sees light. She finds out that the various Pok&#233;mon there are lighting up the resort in their own ways: the fire Pok&#233;mon are providing ample light for everyone including the guests, and everyone is relaxed enough to all fall asleep in the main courtyard area. Haru then awakens to Alisa calling out to her; everyone is back.</p>
+<p>I find this episode interesting in particular because Haru <em>definitely</em>, objectively fails here: she failed to ‘fix’ the situation. Perhaps the lesson here is enough: that Haru learnt to depend on others, and though things didn’t work out, she still has that to hang onto. But I think this is the biggest indication (in this series) of the issue that Paul Roquet saw in <em>iyashikei</em>: that it’s a little <em>too </em>escapist, and it promises something that can’t be guaranteed: that everything will definitely be fine and that people are sympathetic. I can certainly imagine the guests of a luxury resort absolutely losing it if the power were to go out for the duration of their stay. But perhaps what this episode really wants to say is that it’s okay to fail: you’ll live.</p>
+<p>As mentioned, <em>Pok&#233;mon Concierge </em>came out in 2023: many years after Roquet made those observations about <em>iyashi </em>culture. The genre has had plenty of time to develop, and I think it’s certainly moved forward — it’s made steps in a truly ‘healing’ direction. <em>Pok&#233;mon Concierge</em> has real, helpful lessons embedded in every episode, and it doesn’t bother being subtle about it. It says that it doesn’t matter how hurt or burnt out you are about life; there’s always a way out, even if that way out is clumsy or a slow process. Some days you make great strides in positivity, and sometimes you can only muster enough strength to crawl forward, but you can move towards positivity regardless. Like with , healing can take place no matter what, one short episode at a time.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
