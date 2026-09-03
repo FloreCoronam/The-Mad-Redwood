@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Hate Among Us — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">I Hate Among Us</h1>
+            <div class="article-meta">
+                Published on August 15, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/i-hate-among-us.jpg" alt="I Hate Among Us" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>For the few who don’t know, <em>Among Us </em>is a social deduction game that was released in 2018, gaining popularity first on the popular streaming platform Twitch in 2020 during the COVID pandemic, and then later on the phones and computers of approximately everyone in the world. Its ‘social deduction’ basically goes like this: all players play Crewmates aboard a spaceship with the objective of doing tasks and repairs, but there’s always at least one Impostor among them (hence the name) who just wants to kill all the regular Crewmates. The Impostor(s) must carry out their grim work without being discovered by the others, because everyone has the power to call a vote in order to expel someone out of the spaceship. Thus, the Impostor(s) must pretend to be Crewmates, and therein lies the ‘social deduction’: the Crewmates must figure out who the Impostor(s) is/are before it’s too late.</p>
+<p>I played <em>Among Us </em>like everyone else in 2020, and even a little in 2021, because the lockdowns lasted for quite a while where I lived. I, like many others all over the world, engaged in heated debate with my peers — holding a portion of power over the life and death of my fellow Crewmates. I never did very well as the Impostor, but I never did very well as a Crewmate either, though for different reasons that I’ll elaborate upon soon. And though I always played with friends (ie. no strangers), I found <em>Among Us </em>rather draining. You can see why I’ve titled this post in the way that I have. I only continued playing it because social interaction was crucial in those dark, covidious times, but upon reflection now, perhaps I would’ve been better off without it. At the very least, I could’ve gotten some social interaction via other means than <em>Among Us</em>.</p>
+<p>As the Impostor, you must lie to your fellow brethren. The idea is that you must convince them that you’re on their side using clever manipulation and resourcefulness. You have extra powers that the Crewmates don’t: chiefly the ability to travel through air vents, traversing much distance in little time, so you also want to use these powers to your advantage. Also helpful is information and knowledge you eventually build up about the game itself the longer you play: the layout of the map, for example, or how certain tasks work, or where the Crewmates are. Perhaps if everyone except one person is in the East section of the map, you might easily be able to vent over there, kill them, and then be back before anyone’s the wiser. Even better if a Crewmate sees you on the West side, because you can them use them as a ‘witness’ to your upstanding Crewmate nature.</p>
+<p>What I noticed very quickly is that you don’t need to do that at all. You don’t need to be clever. You just need to convince your peers to turn against one another. And that requires some skill, sure — some fast-talking wit, maybe, or even some simple charm and flattery — but it’s less skill than you’d think. It’s even easier if you play with friends — people whom you know, and whose personalities you’re familiar with. If your good friend Bob is susceptible to cheap flattery, you could for instance turn him to your side by ‘agreeing’ with his reasoning about who the Impostor might be. If Melanie is cagey about everybody, you could exploit her fears about Joey, whose logic about his innocence is a little shaky. People like to think that they’re more sensible and rational than they really are, including you, but if you understand that, you’re already at an advantage.</p>
+<p>These aren’t unfamiliar ideas; all kinds of power in the real world are maintained through manipulation of all kinds, and especially manipulation of people against other people. These aren’t even new or complicated ideas either: Plato and Aristotle wrote about this kind of thing ages ago. Fundamental parts of Plato’s <em>Republic</em>, Hobbes’ <em>Leviathan</em>, and of course Machiavelli’s <em>The Prince </em>tackle this subject; in fact, <em>The Prince </em>is basically a handbook for manipulation. If you become skilled at manipulating people’s emotions and even logic, you can turn any situation to your advantage, let alone in <em>Among Us</em>, regardless of you’re a Crewmate or an Impostor.</p>
+<p>Of course, that would be quite a distasteful thing to do: to manipulate people just so that you can win a video game. But where is the line drawn? In a social deduction game, the line between the game and real life is considerably blurred. These two versions of reality are necessarily intertwined, so your transgressions are only as bad as people notice. If you can get away with your tricks, your friendships should remain intact. And different people will have different opinions about what’s acceptable behaviour in one of these games anyway. Some people would view skilful manipulation of the emotions of others as simply another dimension of a social deduction game.</p>
+<p>That may be so, but the fact that <em>Among Us </em>is a video game invites a different problem: one of choice and accountability. <em>Is </em>it just part of the game to lie and manipulate? On one hand, yes: the fact that the role of Impostor exists and is necessary for the game to function proves it. If so, then perhaps a player shouldn’t need to take responsibility for their actions. On the other hand, the <em>degree </em>of deception and manipulation involved is up to the players: are they keeping it just within the game, or extending to the real-life people behind the screen? Because in the latter case, some accountability should probably be present: if real feelings are hurt, an apology would be nice regardless of if it’s <em>necessary</em>.</p>
+<p>I certainly don’t think it’s <em>necessary </em>to<em> </em>apologise for how one plays a video game — or engages in any kind of entertainment that affects other real-life people — after the fact. But wouldn’t it be nice if one did anyway, out of kindness and care? “<em>Sorry, I didn’t realise you wanted to pick up that power-up</em>.” “<em>Sorry, I stole your kill there</em>.” I think that <em>Among Us </em>discourages that kind of compassion, because nobody’s going to care about that while the game is ongoing and everyone’s shouting at one another. In order to win, you shout back and present <em>your </em>case, and you let mob mentality take over. And you manipulate people, of course.</p>
+<p>It is admittedly unfair to single out <em>Among Us </em>in particular because this is true of all social deduction games, and to an extent, every activity one can possibly engage in; one can let compassion win in every situation. I’d just hoped that this game’s high profile would make for a good title and help with SEO. At the same time, though, it’s the game that made me realise all these things that I’ve mentioned in this post. I was deeply saddened that at a time when the world needed social interaction the most, a video game based on vitriol became a leading voice in the environment of the Internet.</p>
+<p>However, it’s because of this fact that it could become something more. It’s in suffering that kindness is noticed the most. So you may never win a game of <em>Among Us</em> by being kind, but you can take away a message about the importance of kindness. And that’s what I decided to take away from the game back in 2020.</p>
+<p>Is it ironic, then, that I’ve titled this post in the way that I have? Perhaps, but if it made you read all this, I hope you’ve taken away something else from this post — I think it’s unlikely that you’ll remember that I hate <em>Among Us </em>more than the other things I’ve said. Was that a kind of manipulation as well? I wonder.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

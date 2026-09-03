@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What’s in a Name? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link active">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">literature</span>
+            <h1 class="article-title">What’s in a Name?</h1>
+            <div class="article-meta">
+                Published on July 18, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/literature/whats-in-a-name.jpg" alt="What’s in a Name?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>If I’m honest, I don’t know where “what’s in a name” comes from. It’s either some American ‘50s sitcom or Shakespeare, I’m sure. I could look it up, but I figured it’d be funnier if I just floundered around and speculated; whether that pays off or not, I’ll leave to you. Anyway, this week’s post is about writing fiction — how do you name a character? I’d suggest that there are two stages to this process, though they both can get fairly involved and tricky. And neither is as clearly defined as I’d like.</p>
+<p>Before that though: the short and simple answer is that there are, of course, no rules. You can name your child anything, after all, and the naming itself has no effect on their personality later on, unless they choose. Nominative determinism <em>could</em> be observed after<em> </em>a person grows to fit that concept, but it’s safe to say that there’s no tying connection between a person and their name, especially because people tend to be named before they even know what’s generally going on. Besides, nominative determinism doesn’t work quite so well with fictional characters. Having an undertaker called Robin Graves in your story is all well and good, but you might set your reader off to think about plot threads that aren’t there.</p>
+<p>Of course, there’s the option to just name a character after whatever name you happen to like. But a cursory glance at any name gives you a first impression about the person it belongs to, and so there are interesting choices that an author may want to capitalise on. ‘Maximillian’ might make you think of someone fancy, or perhaps at least that their family may be (or have been) well-off. Even different forms of the same name make you think of someone differently: ‘James’ may not raise any eyebrows since it’s so common, and neither might ‘Jim,’ but they do feel a little different. ‘Jimothy’ would probably raise some eyebrows for completely different reasons, but may also probably give you a similar impression that you might get with ‘Maximillian.’</p>
+<p>Hence, the first thing to consider when naming your characters can be the tricky and nebulous concept of assigning a ‘vibe’ to the character, and naming them according to that vibe. You could call a cheerful character ‘Sunshine,’ for example, though that may be a little too on-the-nose; even gimmicky. And this is the most tricky thing about ‘vibes’: different people draw associations between different things. I once created a child character who was quite cute and innocent, and I found that ‘Joyce’ fit the bill. But others told me that it sounds like an ‘old-people name’ instead. ‘Lily’ may be very pretty, but also has an association with death in some cultures, which may especially sour the intended vibe.</p>
+<p>There’s some objectivity that remains, perhaps. Remember that ‘Kiki’ and ‘Booba’ thing that went around the internet a few years ago? Certain collections of sounds do seemingly give off universal ‘vibes,’ and you can certainly investigate sounds and names linguistically for that purpose, really digging into the phonology and morphology. That seems like a lot of effort, personally, and I wouldn’t recommend it, but you could certainly get into that degree of depth if you wanted. Tolkien certainly did, and I’m no Tolkien, so go for it if that interests you.</p>
+<p>A different and important thing to remember is that your reader probably doesn’t know your character as well as you do, especially at different stages of your story. For example, they won’t know that Sunshine is actually only outwardly cheerful but inwardly depressed until a certain point in the plot (which you probably already know about through your story planning). In this case there’s some irony to it, and maybe that’s something you can work with. Then again, maybe too on-the-nose still: it’s a sort of eye-roll level of plot/character twist. Your reader may find the reveal a bit amateurish for this reason, and you probably don’t want that. There are ways around this, of course: maybe Sunshine’s parents expected a lot from her in childhood, and she learnt to hide her darker emotions because of that, feeling that she was unable to express herself in any way other than outward joy. Maybe that could be interesting; there are always ways around writing rules, and there may be a specific set of circumstances in your story which may make a choice like this work.</p>
+<p>But the safe route seems to be something fairly neutral, keeping in mind that characters ideally have layers. Continuing with the example of this suppressed-emotions character, let’s try adding more layers then: as you might expect, she’s fairly reserved. Perhaps she’s a little more brash around her friends, but she’s still shy. And let’s add the demanding personalities of her parents back into the mix. Maybe ‘Phoebe,’ for a little classical reference (Phoebe means something like ‘bright’ in Greek, revisiting the ‘Sunshine’ idea)? Or perhaps ‘Genevieve’ is less pretentious, though still rather elegant, and still implying a more affluent background. And of course, ethnicity and nationality can come into play — ‘Murasaki’ or ‘Chitra,’ for instance. You have access to all these factors and angles as an author, depending on what kind of story you want to tell (and therefore what you want your character to represent or their purpose in your story). Making certain choices over others can really enhance the simple matter of naming.</p>
+<p>Let’s go deeper to the second stage I was talking about at the beginning: what about what characters may think of their own names, or what they call themselves? Someone whose name is ‘James’ but who introduces themselves as ‘Jim’ <em>does </em>imply something about them. Same thing with a ‘James’ who introduces themselves as ‘James,’ but <em>later</em> insists that you call them ‘Jim.’ The former may be generally easy-going or casual, and the latter may only be like that with close friends. You’d have to get to know these two hypothetical Jameses to really know what the case is, because — once again — people have layers, and characters should too. ‘James’ may want to be ‘Jim,’ and ‘Phoebe’ may want to be ‘Bebe.’ In fact, maybe Phoebe as we described her may not want to be ‘Phoebe’ at all. The possibilities are endless.</p>
+<p>But maybe Phoebe’s friend James calls her something like ‘Big Ears.’ Here, the author can explore another different dimension — where personalities are even more involved. You can name a character through the prism of a <em>different character’s</em> personality, not just the character themselves, much like with real life. And again, all this can have layers. Perhaps James is calling Phoebe ‘Big Ears’ affectionately and James just likes teasing people he’s close to — and maybe Phoebe is into it. Or maybe James is just being unkind because he’s jealous of Phoebe, and he only finds self-confidence in trampling the confidence of others. As you can see, we get different aspects of both characters’ personalities here.</p>
+<p>You can also use names to emphasise a particular tone. This is especially true in settings where heavier worldbuilding is required: fantasy and sci-fi come immediately to mind. If you have a dark academia setting with a serious tone, you’ll need names like ‘Lynette’ and ‘Bertram’ and I guess ‘Maximillian’ to really hammer the atmosphere home. ‘Jim’ wouldn’t really feel right in such a setting, and unless it was an important detail (maybe for a plot twist?), it could be distracting to the reader. And a distracted reader isn’t going to sweat the details that you <em>do </em>want them to pay attention to.</p>
+<p>I’ll admit that often I just find pretty names to keep for later, in the hope that I’ll assign them to a character when I need a name for them. And there’s still some utility to that — as I mentioned at the beginning, you can definitely name characters without wanting to mean or imply anything. But I believe that when writing fiction, interesting choices must at least be considered, so if you really feel like a certain character in your cast should be named ‘Octavian,’ go for it. Though bear in mind that, if the rest of your cast comprises ‘Martin,’ ‘Tom,’ and ‘Samantha,’ it might stand out just a little.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

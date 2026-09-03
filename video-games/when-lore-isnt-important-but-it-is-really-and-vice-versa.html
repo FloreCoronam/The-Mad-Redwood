@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Lore Isn’t Important (But It Is, Really), and Vice Versa — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">When Lore Isn’t Important (But It Is, Really), and Vice Versa</h1>
+            <div class="article-meta">
+                Published on June 27, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/when-lore-isnt-important-but-it-is-really-and-vice-versa.jpg" alt="When Lore Isn’t Important (But It Is, Really), and Vice Versa" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I’m comparing <em>Rainbow Six: Siege </em>and <em>Fragpunk</em><em> </em>lore today, because I recently got into <em>Siege X</em>, since it’s free. This may seem to be an unfair comparison. <em>Siege X </em>has existed for a decade under the regular <em>Siege </em>name, and boasts a rich cast of characters as well as the original <em>Tom Clancy </em>books as source material. Meanwhile, <em>Fragpunk</em><em> </em>is a brand-new game with brand-new lore. As such, I’m only going to be comparing the <em>presentation</em> of lore, so that both sides get an even shake — except both choose the least interesting way to present lore in a video game, that being large chunks of text.</p>
+<p>Whatever the case, it’s not even close. <em>Siege </em>is leaps and bounds ahead writing-wise, and it’s not even due to the occasional cinematics that <em>Siege </em>shakes things up with. In fact, we’re eliminating them entirely from judgement: we’re only going to judge the text. Both games don’t make the player engage with their lores, so that whoever isn’t interested can ignore it entirely. There’s no ‘story mode’ as such in these games. All the aforementioned text is located within menus, under where the games’ character profiles are — under “Operators” and “Lancers” respectively. So that’s where we’re going to be looking.</p>
+<p>A little background first, though. Both games are hero shooters, a genre of competitive multiplayer team-based shooter games that are usually in the first-person perspective. <em>Siege </em>arguably places more emphasis on tactics, often being called a tactical shooter instead. I only mention this, though it’s not relevant to this week’s topic, because ‘hero shooter’ has a slightly more pejorative connotation, in that they’re usually brightly-coloured and cartoony, thereby bringing a connotation of childishness (think <em>Overwatch </em>or <em>Valorant</em>). I don’t particularly care about the distinction myself — some games want to take themselves more seriously, and that’s fine.</p>
+<p><em>That </em>part is relevant because <em>Siege </em>certainly takes itself more seriously than <em>Fragpunk</em>, and that works its way into the presentation of lore. There are pros and cons to this, and that <em>is </em>also relevant to our concerns, but I’ll get to that. What you need to know for now is that <em>Siege </em>takes place in a largely ‘grounded’ reality, in which the fictional international counterterrorist spec-ops organisation of Rainbow employs operatives from real countries all over the globe. Meanwhile, <em>Fragpunk</em><em> </em>takes place in an alternate, fictional, and ‘larger-than-life’ reality where its operatives include giant lizard men with anime hair and blue aquatic-humanoid creatures with horns. There isn’t a comparison to be made at this stage, because I’m not about to get into any debates about the superiority of more ‘grounded’ media versus fictional media. Besides, we’re about to see that <em>Siege </em>is a little less ‘grounded’ than might first appear anyway. The point is that both kinds of lores/stories have their pros and cons, and anyone who claims that, for example, grounded stories are always better than zany ones, is a charlatan. So we’re going to take the types<em> </em>of lore that <em>Siege </em>and <em>Fragpunk</em><em> </em>have respectively as their creators have chosen, and not cast judgement yet.</p>
+<p>What we can judge is how the two games choose to present their lore, according to the kind of lore they have: those being ‘largely grounded’ and ‘larger-than-life.’ We’re going to judge the two based on what their creators set out to do. Some people somewhere decided that these games would include screens of text to deliver their lore, so some effort must have been put into those decisions, right? <em>Overwatch </em>doesn’t bother, and nobody cares, so these decisions must be significant.</p>
+<p>Let’s start with <em>Siege</em>. Under the “Bio” section of all the game’s Operators, there are four sections of text. The first is a brief quote from the characters themselves, which is usually quite edgy, but fits the game’s serious tone. After that there’s a short biography written in the third-person, usually describing the Operator’s in-world previous engagements and training. Next there’s a ‘Psychological Report,’ given by other playable Operators or a nonplayable character who exists within the structure of Rainbow itself, usually the ‘Director of Rainbow.’ Lastly, there’s a ‘Device Evaluation’ or ‘Ability Evaluation,’ describing the Operator’s unique in-game device/ability (eg. that laser-gate thing from above), also written from the perspective of a playable Operator. So far, so fictional game-world ‘lore files.’</p>
+<p>I’m going to choose a section of lore from my favourite <em>Siege </em>character, Operator Choi Bo-Ram, codenamed “Ram,” because she has an insane bulletproof mini-battle-tank that has multiple sawblades attached to it, which ‘rams’ through thin walls and rips up wooden floors. Here, we see that <em>Siege </em>isn’t as grounded as it pretends it is — other weird things include human-sized bipedal robots that are as mobile as regular human beings are, as well as hard-light forcefields that block doorways. But we’re going to stick with Ram, because I enjoy playing her very much, but mainly because her “Bio” entry is, I would say, quite weak due to its genericness (for a military operative). Here is her Psychological Report:</p>
+<p><em>&quot;Given the sparse intel we were able to collect from Specialist Bo-Ram “Ram” Choi’s past with the Tarantula Unit, I needed to see her in action to determine whether she could fit the bill. What happened at Tower was tragic and something we can&#39;t allow to happen again, but if we can extract a single positive from that day, it&#39;s Ram joining </em><em>Redhammer</em><em>. Her unblinking resilience in the face of extreme duress makes her a perfect fit.&quot;</em></p>
+<p><em>&quot;Ram explained to me how women in the Korean military can only enter at a very high rank, then laughed and said she expects the same treatment in </em><em>Redhammer</em><em>. While we only have one Captain, she exudes leadership. A big sister vibe, really. Been awhile since I had one of those, so I’m not hating it.&quot;</em></p>
+<p><em>&quot;She’s dialed in on the field to a very high degree. I envy her focus, whether it’s during a mission or in downtime when she’s got her headphones in and sketching charcoal.&quot;</em></p>
+<p><em>&quot;In our line of work there’s a lot of, shall we say, “forced redundancy,” and if the axe falls on me one day, it’ll be good to know I’ve got a ready, willing and 100% capable replacement in Ram.&quot;</em></p>
+<p><em>— Captain Jordan “Thermite” Trace, </em><em>Redhammer</em><em> Squad Leader</em></p>
+<p>Now, to <em>Fragpunk</em>. This game similarly has character-information pages of text, except there’s a slight issue: the menu to get there isn’t intuitive. It’s behind a dogtag icon that shows your Lancer’s progression level; it’s not obvious that it’s clickable. But once you get past that, you get your character information — step by step. You have to unlock most of the Lancer lore via progression, ie. playing more of that character and earning XP, and there are three lore-snippets called ‘stories’ to unlock and see. But you get a basic ‘biography’ profile for free.</p>
+<p>This is why I brought up the thing about hero shooters earlier: that they don’t care too much about lore delivery, because their target playerbase isn’t usually interested. Players would more likely look through Fandom and wiki pages if they were interested, and incidentally <em>Fragpunk</em><em> </em>Lancer lore isn’t easily discoverable on the <em>Fragpunk</em><em> </em>Fandom page — I had to redownload the game just to have a look, and I definitely hadn’t unlocked many ‘stories.’ I don’t know why this unimportant and rarely-sought-after information is locked behind progression, but my best guess is that this aspect of <em>Fragpunk</em>’s design, too, follows the overall design philosophy: that of withholding things to make them seem more valuable. It’s the most basic principle of economics: withhold supply, and with some strategic persuasion, an item’s value will hopefully increase.</p>
+<p>Except in <em>Fragpunk</em>’s case, the value of these unlockable lore-snippets remains low. They’re just not very good. Here’s one of the better ones for the Lancer Hollowpoint, a.k.a. Tatyana Milevska:</p>
+<p><em>BIOGRAPHY: After Eastvale framed her for a botched mission, Tatyana absconded with their prize project: the sniper rifle Meteora. When a pursuit team intent on recovering the weapon confronted her, she emerged victorious</em><em>. It was one against forty. Fun Fact: Technically, she works for Broker… but only technically. </em></p>
+<p><em>STORY 1: </em><em>While </em><em>Hollowpoint</em><em> was the exclusive tester of “Meteora”, she also looked for polar bears and sea lions on the ice field, then made lovely pencil drawings of them. </em></p>
+<p><em>STORY 2: Based on observations of </em><em>Hollowpoint</em><em>, she seems to hold a certain aversion to team action. She is accustomed to working alone. However, she does not show any strong resistance to working with Broker. </em></p>
+<p><em>When someone criticizes her for not being a team player, </em><em>Hollowpoint</em><em> “convinces” the backbiter at gunpoint to strip naked and hang upside down from the roof of a building for the rest of the night. </em></p>
+<p><em>This has been confirmed on video by the evaluation team, and the video has been archived. </em></p>
+<p>I didn’t unlock Story 3, so who knows what that says, but I doubt it would change my mind. Notice the difference in tone and style between Hollowpoint’s entry and Ram’s entry, but more relevant is the contrast in content. Both use a rather indirect style of delivering information, but one has so much more substance than the other?</p>
+<p>What does Hollowpoint’s entry tell the reader about her? Perhaps that she’s antisocial and very intense. She acts as she sees fit, to a frightening and very competent degree, but she has a soft spot to her that she won’t show others. It’s also implied that she has a nuanced relationship with another Lancer, Broker, though its nature is unspecified. It’s a kind of characterisation-through-anecdote approach, which isn’t a bad thing by any means, and in fact is a strong component of effective storytelling in general (to <em>show </em>and not <em>tell</em>). But what about her past?</p>
+<p>On the other hand, Ram’s bio page tells the reader a lot about her background, especially in the actual ‘biography’ session, but also through implication — in other words, also showing and not telling. Remember when I said that Ram’s Psychological Report is generic? In part, that might be because of her personality: she’s reserved and mysterious. She doesn’t talk about herself, so probably it would be hard to evaluate her. The only glimpse of Ram’s personality that comes through is that she laughs when thinking about an inequality that’s just a fact of life for her, and there’s plenty to read into that, certainly. Still, as a lore entry, it’s quite weak. The other operators’ Psychological Reports are more interesting: they talk about their deeply-held beliefs, their hobbies, and about playing pirates with their children.</p>
+<p>Might not Hollowpoint be the same as Ram? Might she also be the kind of person to just keep to herself? On the surface level, yes — she certainly would seem that way, based on the above biography profile alone. The game itself, though, would disagree, because in-game she makes quips and engages in banter (incidentally, the writing isn’t fantastic there, either). So is it one or the other? Where’s the consistency? I mean, not all the <em>Siege </em>lore entries are good — Rook’s Device Evaluation is notably weak — but there’s <em>some </em>substance to them, at least. And <em>some </em>of them <em>are</em> actually good, which can’t be said for <em>Fragpunk</em>. It helps that <em>Siege </em>operators are more likeable overall, playing with their children and such, while <em>Fragpunk</em><em> </em>Lancers are using their teleporting powers to enforce copyright infringement on their personal brand, threaten people to strip at gunpoint, and other fun things like that.</p>
+<p>But why is this important at all? Why am I bothering to discuss the presentation that these two games offer in terms of lore? Once again, multiplayer games usually care less about lore, though they certainly build extensive lores anyway. Why should any of this matter?</p>
+<p>The obvious answer is that, naturally, none of this matters massively. These are video game worlds that nobody cares about that much, and in truth, I don’t care that much either. But within the scope of the video game industry, <em>Fragpunk</em><em> </em>gives me a foreboding feeling. It speaks to a lack of passion or effort — that even in making a game in a genre that doesn’t care too much about lore, and even after picking the laziest way to deliver lore, the creators decided to just not bother. There’s an argument to say, of course, that this is a smart business decision: why put effort into something that most people will never read? A counterargument might be that you would at least want to cover your bases. If a business website has a typo somewhere, even in a seldom-visited page, it can still hurt the business’ reputation. <em>Somebody </em>has to care about these things, especially if someone decided they should be done at all. Again, <em>Overwatch </em>doesn’t feel the need to have its lore dumps be in the game itself. If <em>Fragpunk</em>’s<em> </em>and <em>Siege</em>’s creators decided to have lore, there should be an effort to at least deliver it well.</p>
+<p>More concerning to me, however, is the locked-off lore thing. Even while <em>Fragpunk</em><em> </em>drops the ball on its lore, it still wants you to earn the ‘privilege’ of seeing it. To completely and unabashedly commodify even something that most people don’t care about, <em>and</em> that really isn’t very good… that’s quite something.</p>
+<p><em>Fragpunk</em><em> </em>is free. They have other ways to make money, of course; the game wouldn’t be free otherwise. Video games aren’t made purely out of passion by any means, and there isn’t an expectation for them to be. That’s just the world we live in. But <em>Siege </em>is free too, and it takes a similar economic model to <em>Fragpunk</em>, except <em>Siege</em>’s writing indicates that somebody at least cared about this a little bit, and that’s a Ubisoft game we’re talking about. I think a modest expectation that some care be taken is acceptable, and looking at <em>Fragpunk</em>, I daresay such an expectation is warranted. I certainly can’t see myself lowering my standards for video games to such an abysmal degree that even locked-off inconsequential text is acceptable practice, because I still want to be playing good video games — crafted with at least some thought and care — ten years or more down the road. And no amount of lizard men with anime hair should distract us from what seems to be happening.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

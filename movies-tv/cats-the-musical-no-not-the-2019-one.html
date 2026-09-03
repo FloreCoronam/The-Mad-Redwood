@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats: The Musical (No, Not the 2019 one) — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Cats: The Musical (No, Not the 2019 one)</h1>
+            <div class="article-meta">
+                Published on July 04, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/cats-the-musical-no-not-the-2019-one.jpg" alt="Cats: The Musical (No, Not the 2019 one)" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Look — no matter how you look at it, it’s hard to explain the musical <em>Cats</em>, even without addressing the 2019 movie version. Enough has been written about that version already, and I don’t feel that I should bash it without having seen it, even if it <em>is</em> bad. The version I want to talk about instead is the 1998 movie, which I <em>have </em>seen. Certainly, this is the first time where I think I should summarise the topic of the week in its entirety before attempting to say anything <em>about </em>it. I’ll have to give it a shot, so just bear with me. You’re going to have to suspend your disbelief quite a bit.</p>
+<p>Okay. So, the first thing you should know is that <em>Cats </em>is based on a children’s book of poems about a group of whimsical cats, written by T.S. Eliot, so expect a lot of weird stuff. The second thing you should know is that the 1998 film is a shoot of a stage performance. Essentially, the musical was put on as a proper stage production, they shot <em>that </em>with film cameras, and cut it together into movie length. It comes to just about 2 hours, instead of the regular nearly 3-hour normal stage production version which you’d get if you saw it on Broadway or similar. Why is this second point relevant? Because it <em>feels </em>different from a movie: it’s just a stage production, but where a director can guide your eye and do fun camera tricks like shaky-cam to enhance your experience.</p>
+<p>Okay. The plot of <em>Cats</em>, in quick and reductive terms, is that there’s a group of cats called the Jellicle Cats, and every year they gather for a Jellicle Ball, where one of them is chosen to go to the Heavyside Layer — basically cat heaven, as far as I can tell — and be reborn. The musical is basically a pitch competition for various cats to be chosen. Some, as you’ll come to see, are more deserving than others, but amazingly <em>Cats </em>seems to have a message, and addresses many themes.</p>
+<p>Okay. So, first, the Jellicle Cats introduce the concept of the Jellicle Cats in the film’s first big number. They don’t actually explain what they are too well, which is sort of important to the eventual message, as you’ll later figure out. A cat called Munkustrap is the main ‘spokesperson’ at this point, who first recommends an industrious ‘gumby cat’ called Jennyanydots, who trains mice and cockroaches to be useful around the house, and she also apparently trains them in tap dance. Very impressive stuff; perhaps a worthy candidate for sending to heaven. Following Jennyanydots is the unfortunately-named Rum Tum Tugger: a rockstar cat and sexual menace who unceasingly gyrates his hips and rubs up against all the female cats that he can. It doesn’t seem that he cares that much about the Heavyside Layer.</p>
+<p>And then Grizabella the Glamour Cat rocks up unannounced and seemingly uninvited, hoping to be considered for rebirth. She’s an old cat who’s feeble and ill-groomed, and all the other cats shun her. Instantly, the film gets incredibly sad — she has a haunted and regretful look about her, and all her attempts to interact with the other cats are met with distaste. She leaves, dejected.</p>
+<p>Next up is Bustopher Jones: a ‘man-about-town’ cat who looks like he’s wearing a tuxedo, has a monocle, and carries a big long spoon as a cane (it’s also used as a golf club at one point). He eats a lot, and that’s his personality. Not a great candidate, and he doesn’t seem to be that interested anyway, so we quickly move on to the petty-crime duo of Mungojerrie and Rumpleteazer who bust in for… some unspecified reason. These two are probably the most kid-friendly so far; they just have a dance number, then they’re sort of confronted by the other cats, and then they’re chased away.</p>
+<p>Still with me so far? Great. Old Deuteronomy shows up next: he’s the patriarch and elder figure of the Jellicle Cats, and <em>he </em>does the choosing. Even Rum Tum Tugger respects him, and the whole group falls about fawning over their great elder as the Jellicle Ball kicks off. Oddly, to open the Ball, Munkustrap leads an in-universe play about an in-universe Jellicle folk story: when two dog gangs were chased off by the ‘Great Rumpus Cat,’ who appears in the film in some kind of techno-S&amp;M superhero costume. Occasionally, the Rum Tum Tugger will want attention so he’ll just waltz into the play and interrupt it, playing a bagpipe or something. The good news for you, dear reader, is that this is probably the most confusing part of the film, and now it’s over. It’s just some worldbuilding stuff that tells you a little about the Jellicle Cats, which continues as the actual Jellicle Ball officially begins with a spectacularly intense (and really quite sexual) dance sequence. Y’know, theatre stuff. Throughout this sequence, the Jellicles Cats try again to articulate what Jellicle Cats are, and they sort of fail again.</p>
+<p>Okay, we survived all that. Cue Grizabella showing up a second time, and still being shunned. She tries to emulate the other Jellicle Cats’ dancing, but fails because of her age and feebleness. It’s very sad, again. But she sings a little this time, and Old Deuteronomy is there to witness it, so he starts to think about what ‘happiness’ is and what the conditions for the Jellicle Choice should really be. Is it one’s ‘Jellicle-ness,’ or <em>who </em>one is inside? One of the younger cats, Jemima, sings about this to make sure the audience is following. To add to this, a different elderly cat is introduced: Gus the Theatre Cat, who used to be a famous actor but who now suffers from palsy. His caretaker Jellylorum sings about him, and he joins her as he relives some memories before getting overcome with emotion about his glory days. Again, incredibly sad.</p>
+<p>So we quickly move on! Here’s the highly-energetic Skimbleshanks the Railway Cat, who (sort of) makes sure the trains run on time. But then we quickly move on again — a wanted criminal cat called Macavity (who’s been foreshadowed twice at this point) crashes the Jellicle Ball and kidnaps Old Deuteronomy. Are you thinking that things have suddenly escalated very quickly and violently, without any warning? Well you’re probably right, so here’s another musical number to calm you down: two other random cats called Demeter and Bombalurina sing a jazzy number about who Macavity is, describing him as “the Napoleon of Crime” and “the Monster of Depravity,” so that’s reassuring. Old Deuteronomy is probably safe, then.</p>
+<p>Except it doesn’t matter, because Rum Tum Tugger quickly recommends that the group look for ‘Magical Mr Mistoffelees’ (I’m 90% sure I’ve spelt that right), who’s a magician, so get Old Deuteronomy back. So the magician just easily magics Old Deuteronomy back. There; we’ve resolved the peril. A wizard did it.</p>
+<p>And now Grizabella returns one last time. This time, Old Deuteronomy beckons her forward, and the Jellicle Cats let her into their presence. She sings about the happiness and hope that come from memory, as opposed to the bitterness and sadness that she and Gus felt earlier in the film. Jemima joins her with some more hopeful lyrics — the two sing about ‘daylight’ as opposed to the ‘moonlight’ from Jemima’s earlier song — and Old Deuteronomy welcomes Grizabella onto a large tyre. The two are lifted upwards, and Grizabella ascends to the Heavyside Layer alone on a staircase to heaven that appears. Old Deuteronomy then addresses the remaining Jellicle Cats, singing about acceptance. Nobody should be shunned, he says… unless they’re dogs? It’s unclear.</p>
+<p>So, that’s the film. Have you lost your mind? I have. And yet, <em>Cats</em> is a successful musical that’s seen thousands of productions, won many awards, and arguably kicked off the phenomenon of large-scale, wide-appeal ‘megamusicals.’ What’s the story there, then? How can something so conceptually insane appeal to so many people?</p>
+<p>On the theatre side of things, <em>Cats </em>is very impressive. As mentioned before, the original stage production is nearly 3 hours long, which is a lot to ask from the performers. I have no dance background, but all the dancing in <em>Cats </em>looks very intense and difficult; I can’t imagine anyone doing all that for nearly 3 hours, let alone in weird furry (and probably quite uncomfortable) costumes. Speaking of the costumes, they’re very striking and surely iconic, which helps. The music is a major factor as well, of course. As an example: Skimbleshanks’ number alternates between both 13/8 time and 4/4 time, difficult for both dancers and musicians alike to follow, especially when they all need to be completely in sync. Further, the cast assembles a makeshift train prop onstage with big spinning bike wheels and umbrellas and such. It’s all very involved.</p>
+<p>That’s the main thing, I think — the effort. It really doesn’t look like anyone can phone anything in on a <em>Cats </em>production. All the performers look very focused and, crucially, <em>into </em>the production. You simply can’t do 24 consecutive fouett&#233; turns, while dressed as a cat, in a half-baked manner. You simply can’t paw over your fellow performers in a weirdly sexual way, while dressed as a cat, in a half-baked manner. You simply can’t portray an old woman’s haunted grief over the loss of her former life and the complete, unfair ostracisation she faces daily in a half-baked manner. Genuinely, all of Grizabella’s and Gus’ scenes made me tear up. Of course, the tears quickly evaporated once the hip gyrations reappeared, as they often and reliably did.</p>
+<p><em>Cats </em>is weird. <em>Cats </em>is inexplicably sexual. <em>Cats </em>varies widely and jarringly in tone. <em>Cats </em>combines all kinds of difficult and technical art forms. <em>Cats </em>is and does all these things. Art’s just like that — someone has a vision for a way to <em>express </em>something, and then it comes to life, and often it’s weird. You get video games where your player character can urinate on mushrooms. You get paintings that increase in value when put through a paper shredder. You get music pieces that comprise a few minutes of silence. All of it means something to someone.</p>
+<p>I don’t really know what <em>Cats </em>is supposed to express. But I laughed, and I cried, and I gaped in disbelief, so I’m happy. Give 1998’s <em>Cats </em>a go, is what I’m trying to say.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

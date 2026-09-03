@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Bodies: The Height of Difficult Romance Writing — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Warm Bodies: The Height of Difficult Romance Writing</h1>
+            <div class="article-meta">
+                Published on July 25, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/warm-bodies-the-height-of-difficult-romance-writing.jpg" alt="Warm Bodies: The Height of Difficult Romance Writing" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Warm Bodies </em>is a horrible name for a movie that isn’t some form of smut (and is quite horrible even if it <em>were</em> some form of smut). It’s also a 2013 zombie movie that’s supposed to be an adaptation of Shakespeare’s <em>Romeo and Juliet</em>, except Romeo is a zombie and Juliet isn’t, and Romeo eats Paris’ brains. Are you on board yet? I sure was — I’ve been on board with this premise for years, but I’m only getting to it now. The main reason I was interested is that it <em>is </em>a romance story between a zombie and a human, and I wondered if such a story could be pulled off at all. Vampires are usually the fictional beings where passion persists in death; the zombie, instead, represents death in its relentlessness. <em>Warm Bodies </em>presents a monumental challenge for a romance writer, implications of necrophilia <em>and </em>necrophagy <em>and </em>cannibalism aside. So let’s start at the beginning.</p>
+<p>The romance has to begin with a meeting, right? How do a zombie and a human meet? Usually in some sort of horde attack, and that’s exactly what happens in <em>Warm Bodies</em>. Here is when ‘R’ — our Romeo stand-in who can only remember that his name once started with R — meets Julie and Perry, our Juliet and Paris stand-ins, who are on a classic zombie-fiction medical-supplies-run with a group of other survivors. Not content to just riff on <em>Romeo and Juliet</em>, though, this movie wants to riff on classic American high-school romance conventions. Since Perry is not really being nice to his girlfriend Julie, he immediately gets his comeuppance in this zombie attack, and R takes a great big bite of his arm.</p>
+<p>This is a good time to introduce the main thing that this film does to put a unique spin on zombie fiction: in <em>Warm Bodies</em>, there are two kinds of zombies, though both need to consume living flesh. There are ‘corpses,’ who are just the regular zombies, and there are the ‘boneys,’ who are more skeletal. What separates the two is how much <em>hope </em>that the zombie still has for becoming humanlike again. Corpses still seem to have minds — they just deteriorate over time — but while they’re still ‘young’ corpses, they still have the desire to do things that are more ‘human,’ like listening to music and interacting with other corpses… or humans. Only when a regular ‘corpse’ loses all hope do they rot away and become a boney. So it turns out that zombies can be ‘cured,’ as long as they haven’t reached that skeletal stage. And it seems that the more ‘human’ things corpses engage in, especially interactions with other persons, the less they need to consume living flesh… but it turns out that eating brains in particular bring corpses memories of the person whose brain it is.</p>
+<p>So, back to R sating his grim appetite, now that you have some important context. R’s inner monologue claims that he doesn’t <em>want</em> to eat people, but he must — not only to quell the dark hunger, but also because he wants to feel more human. He already listens to music in his ‘home,’ but he wants something more. So by eating Perry’s brains, and thereby gaining Perry’s memories, he learns the name of the attractive lady in front of him: Julie. R then sees that there’s no way out of the room for Julie since the horde is still about, so he takes her with him, making her pretend she’s a zombie to escape.</p>
+<p>Now, in terms of the romance, this is sort of going okay. I mean, the writers are doing a lot to endear the audience to their zombie protagonist, in spite of the colossal challenge. R has saved Julie’s life, sort of. Never mind that he came with the same horde that caused her endangerment, and never mind that he ate her boyfriend. Maybe not going so great after all, and it definitely gets worse once R brings her to his home, an abandoned airplane by the airport that he hangs out at. Their being there isn’t too bad at first: it’s a safe place to hide out at, just for the night. But R gets weird about it very quickly — he wants to keep her around, sort of because he just wants more ‘human’ stuff in his existence, but also sort of because he likes her (though it’s never explicitly addressed whether gaining Perry’s memories contributes to this). His narration tells us that he thinks this is a date. So in order to have her stick around a little longer, he makes excuses that it’ll take a few days for the various zombies everywhere to ‘forget’ Julie.</p>
+<p>At this point, it was clear to me that this film is a metaphor for people who struggle with social interaction, or who struggle to fit in with their fellow human beings, and who find it difficult to get out into the world. R craves human connection; through Julie, he finds it, and he can’t give up this chance to be human again (though he doesn’t know it’ll turn him back into a human). By the end of the movie he <em>is</em> an actual human being again, and he’s greatly involved in a movement that sees people like him — zombies — also finding their humanity again through finding connections with others, whether or not those connections are romantic. The ‘humanisation’ process starts slow, and they’re all a bit awkward, but with enough work and hope their hearts start beating again. The film’s core message, so to speak, may well be that human interactions and love are the things that give people life: a very sweet and uplifting message, to be sure.</p>
+<p>But remember: this is a romance story between R and Julie. The way that the film’s uplifting message gets across is primarily conveyed <em>first </em>through the relationship between R and Julie, which <em>is</em><em> </em>portrayed as a<em> </em>romantic one, so it’s quite important for this romance to work. So, does it?</p>
+<p>I think your mileage will vary; to me, it was quite sweet at times, but rather uncomfortable at others. R is made to feel too ‘special,’ I think, which may or may not be helpful for any audience members who struggle with social interaction — you’re probably not going to find someone like Julie. Certainly on the romance-front, <em>Warm Bodies </em>feels like a product of its time, where girlfriends are made out to be a bit too motherlike in their romantic relationships, and it can be a little laddish. But I’ll give R a pass, though, seeing that he does have a pretty good excuse for struggling to express himself: he’s a zombie, for goodness’ sake. And it really does seem like he’s trying his best to not be weird, even if he achieves various degrees of success.</p>
+<p>So let’s be charitable: maybe Julie is just like this, and this is the kind of romantic relationship that she wants. And if you <em>are </em>charitable — and I didn’t have much trouble being charitable — it’s quite sweet. Julie really does seem to find her situation amusing after all. She tries to escape once, but it turns out that R was right about the danger, so the two return to the airplane and look for ways to waste time. They go on a drive, and she even lets R drive despite his severely impaired motor functions (pun intended). They try different sunglasses. They try a dance. She becomes comfortable enough with him to hold hands. It’s not that Julie gets nothing out of their relationship; she gets to satisfy her adventurous spirit, which her dad won’t let her engage with, and which she didn’t really get with Perry either. And you get the sense that she sort of likes taking the lead in this way, so good for her. Man, her dad certainly would <em>not </em>approve of this brain-eating bad boy.</p>
+<p>More importantly, the film doesn’t take itself very seriously. The writers understand that they’re working with a ridiculous concept, but they don’t overwork the tone to be too tongue-in-cheek and annoyingly cringey. Instead, they’ve kept it quite silly in a high-school romcom way, hence the “getting rid of the bad boyfriend” and “my dad would kill you” allusions. Further, I like that they lean into the silliness of this being a <em>Romeo and Juliet </em>adaptation — I’m pleased to say that my notes for this film include the following statement: “STOP EVERYTHING, there’s a where-art-thou-Romeo window-at-night scene.” The comedy definitely ramps up from that point on, when Julie’s best friend enters the picture, and the scene of R’s makeover was a particular highlight. Yes, it turns out that “Pretty Woman” playing while a zombie gets foundation applied to him is quite funny.</p>
+<p>Any low points? Needless to say, the worldbuilding isn’t great. For example, it’s claimed that corpses are slow and only the boneys can run, but then sometimes corpses run if the plot requires some peril. But again, the film knows it’s ridiculous, so you don’t really think about it. And you don’t think about how many human beings would really be okay hanging out with corpses. It’s simplistic, sure, but simplistic in a way that high-school romcoms tend to be. I personally couldn’t really get over the fact that R and Julie kiss near the end, especially because Julie doesn’t completely know that he’s turned human yet at that point, and really especially because of the multiple scenes where R just chews on some brains, and it’s really mushy and gross, but maybe that’s just me. I’m sure that some people wouldn’t really be thinking about that as they watch Julie and R get together.</p>
+<p>So in the end, I think the writers overcame the challenge. As doomed romance concepts go, somehow this movie has got some rather sweet moments, and it’s fun. It’s fun in the same way that <em> </em>was fun. There’s no shortage of weird, doomed romance concepts in the world, but maybe there should be a part of us that wants it all to work out, or maybe there shouldn’t. Somehow, <em>Warm Bodies </em>is alright, even with its slightly uncomfortable tinges of necrophiliac implications. Well done, everyone.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

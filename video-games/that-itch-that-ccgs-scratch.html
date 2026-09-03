@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That Itch that CCGs Scratch — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">That Itch that CCGs Scratch</h1>
+            <div class="article-meta">
+                Published on September 05, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/that-itch-that-ccgs-scratch.jpg" alt="That Itch that CCGs Scratch" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>A CCG is a ‘collectible card game,’ defined on Wikipedia as “a type of card game that mixes strategic deck building elements with features of trading cards.” They’re also called TCGs, or ‘trading card games,’ because there’s no set deck of cards like you’d get in a classic card game like poker or something. You collect your own cards, and then you use them to build your own decks, to play matches with other players. Hence, two players can battle with completely different cards — victory is declared via the mechanics that those cards represent (and tell the player about). Rules and mechanics, of course, vary based on the game, but you’ll probably recognise the names some of the famous ones: <em>Yu-Gi-Oh</em>, <em>Hearthstone</em>,<em> </em><em>Magic</em><em>: The Gathering</em>, and even <em>Pok&#233;mon</em> has its own TCG. But never mind all those good ones: I’ve gotten into <em>Shadowverse </em>instead.</p>
+<p><em>Shadowverse</em> is a very-anime-style CCG that’s similar to <em>Hearthstone </em>in the sense that it’s completely digital. It’s a video game, and as such it’s under this page in the blog, though a physical version has been released in recent years. You and your opponent start with 20 Defense, and you use your cards to whittle your opponent’s Defense down to 0, at which point you win. Your cards include ‘Followers’ (cards that represent units with their own health and damage stats), ‘Spells’ (cards that activate effects or mechanics), and ‘Amulets’ (cards that have timers which decrease as turns go on; once the countdown runs out, usually a Follower or Spell appears on the field). Cards cost ‘Play Points’ to put down on the playing field, and each player only has a limited amount, from 1 to 10. You start on Turn 1 with 1 Play Point, and each turn adds 1 more, so you can play higher-cost cards as you go on. Followers can also ‘Evolve,’ making them more powerful and often activating more effects and mechanics. For instance, the Evolution of a Follower may add a Play Point to your Max Play Points that turn, giving you an edge over your opponent going forward.</p>
+<p>Now, dear reader, at this point you’re probably either: (1) spacing out, or (2) nodding along with a vague sense of intrigue, though still confused. Admittedly it’s hard to explain the rules and mechanics of any CCG concisely, and my writing probably isn’t helping massively. But what I wanted to get across with that previous long paragraph is that these games are by definition rather complex. Game designers who want to make a CCG must figure out how to craft compelling mechanics, let alone compelling mechanics that would help <em>their </em>CCG stand out amongst and compete against other CCG games. But more importantly, they have to balance all the cards and effects against one another so that nothing’s too game-breaking, <em>and</em> figure out how to make different kinds of ‘builds’ for players to get a grasp of. Inevitably, different kinds of decks will form that focus on different mechanics.</p>
+<p>For instance, in <em>Shadowverse</em>, there are eight different ‘Craft’ decks. ‘Dragoncraft’ focuses on boosting your Followers’ stats and quickening the rate at which you gain Play Points. ‘Shadowcraft’ adds an additional resource — ‘Shadows’ — gained by the ‘deaths’ of your own Followers, which can be used to activate other effects and sometimes summon more Followers to the playing field. ‘Swordcraft’ goes all-in on summoning, featuring many Followers that summon other lower-stat Followers while boosting them with stats and effects. And within these ‘Crafts’ there are further subtypes of decks: you can find ‘Ramp Dragoncraft’ decks and ‘Wrath Bloodcraft’ decks and even a‘Dazzling Stars Forestcraft’ deck. I don’t even know what that last one entails.</p>
+<p><em>Shadowverse </em>has a sort of low-brow reputation amongst CCGs, mostly because of its tendency in recent years to throw balance out of the window — there are a lot of ‘meta’ and ‘broken’ cards in circulation, certainly. Further, the fact that cards can only be gained through randomised ‘packs’ has raised issues about gambling, especially when microtransactions (paying real money for in-game currency) are involved. Not a great combination, where you can pay real money for a better chance to get unbeatable cards. An issue also has been its artstyle; as with a lot of anime things, viewer discretion may or may not be advised. None of these things are particularly novel or noteworthy in the video game industry, for better for worse, so how and why would someone get into and start playing a CCG?</p>
+<p>Well, I only got into <em>Shadowverse </em>because a friend wanted to play it with me. But I could see the appeal pretty quickly, and that appeal is the scratching of an itch that the title of this post refers to: the itch to <em>learn</em>. Some people enjoy learning more than others, but when you find something you want to learn and a method by which you can learn it, there’s nothing quite like it. People like learning in a very granular way: you just try things, bit by bit, and then some things click. Then you build on what’s clicked, and hopefully other things click. And you just keep going. That’s just how learning works, but the key is that some things have to click even while you’re starting out — if you find that nothing’s clicking, you’re likely to just give up.</p>
+<p>I think that a good CCG gives a new player just enough reward and has just enough variety to keep people going while they learn. A new player to <em>Shadowverse </em>might figure out, say, only ‘Swordcraft’ at first. They might build an okay deck, play a few practice matches, and get a win or two. That helps them figure out how <em>Shadowverse </em>works as well as how ‘Swordcraft’ works, probably earning them more wins. They then learn how to fine-tune their deck to complement their playstyle, and then maybe they’ll be confident enough to try a different kind of deck: ‘Runecraft,’ perhaps. And then the cycle almost begins anew, because there are so many different kinds of deck to build. That, to me, is the strongest appeal of CCGs. There’s no end to the learning, because there are so many avenues of learning. And it’s also fun to discover things that you like and how they work.</p>
+<p>So if you like learning, give a CCG a try, though maybe not necessarily <em>Shadowverse</em>. <em>Marvel Snap </em>seems to be popular, and <em>Hearthstone </em>is ever a staple in the market. Even regular video games sometimes have CCGs baked into them like a weirdly-technical turducken: <em>Gwent </em>in the <em>Witcher </em>series comes to mind. It’s even got its own thing going now; you can get <em>Gwent </em>on Steam for free. I might give it a go myself; I’ll never figure out how ‘Portalcraft’ works anyway.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

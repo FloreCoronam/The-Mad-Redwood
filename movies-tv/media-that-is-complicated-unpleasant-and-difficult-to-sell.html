@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media That Is Complicated, Unpleasant, and Difficult to Sell — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Media That Is Complicated, Unpleasant, and Difficult to Sell</h1>
+            <div class="article-meta">
+                Published on July 11, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/media-that-is-complicated-unpleasant-and-difficult-to-sell.jpg" alt="Media That Is Complicated, Unpleasant, and Difficult to Sell" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Miller’s Girl</em> is many things. It’s a movie that I learnt about through a YouTube ad, and which came out in cinemas in early 2024. It stars Jenna Ortega, a.k.a. Wednesday from <em>Wednesday</em>,<em> </em>and Martin Freeman, a.k.a. Bilbo Baggins from <em>The Hobbit</em>. They play an eighteen-year-old high-school senior improbably named Cairo Sweet, and a middle-aged creative writing teacher named Jonathan Miller. Just to be clear, Freeman plays the teacher and Ortega plays the student.</p>
+<p>In all seriousness, you can guess what the film’s about by the title, right? The two develop an inappropriate relationship; Jonathan Miller is easily old enough to be Cairo’s dad. The problem with this film is that it <em>sounds </em>like it’s trying to be the next <em>Twilight </em>but more edgy, or <em>50 Shades </em>for tweens. Both of those concepts are problematic, but plausible as films that may exist in the bleak world we live in. <em>Miller’s Girl </em>is admittedly smarter and more complex than what it sounds like, but more importantly, it’s thoroughly unpleasant to watch throughout. Not because it’s badly written or incompetently directed, or because of whatever other reasons that make bad movies bad, but because the subject matter is so seedy and unpleasant right from the beginning.</p>
+<p>To start with: the characters. Cairo is young and her parents are always working overseas. That leaves her in a tiny Nowheresville-esque town in Tennessee, in a ridiculously lush mansion called Lovell Hill, to do nothing but read great pieces of literature like <em>Finnegan’s Wake </em>and, importantly for later, the often-banned-for-sexual-explicitness works of Henry Miller. It’s not entirely clear if there are staff around the house — there simply <em>must</em> be some since the house isn’t run-down and filthy, but it’s an important detail later that Cairo’s always at her house alone. Anyway, having read all this literature, she’s also taken up writing, and so Mr Miller’s creative writing class is recommended to her by her best friend Winnie.</p>
+<p>Winnie is an odd character. My first impression of her is that she seems to be constantly high, though I don’t think that turns out to be the case (marijuana does not make an appearance in the film, but I just can’t rule it out somehow). Anyway, Winnie is obsessed with the idea of seducing a high school teacher, though not Mr Miller. Instead, she’s got her eye on Coach Fillmore, who’s the coach of the baseball team, but is also a very smart physics teacher who bakes biscuits in his free time. He and Mr Miller are pretty close friends.</p>
+<p>Now we have our four main characters, though there’s one more we have to mention: Miller’s wife, Beatrice. She’s always working and always drinking. There — that’s her personality. Well, that’s not completely true; she’s also quite snippy. It’s unclear if this is because of her drinking. Honestly, she’s the real victim in all of this, but I can’t find too much sympathy for her personally because she can sometimes be quite unnecessarily cruel. But that aside, now we can get to the plot.</p>
+<p><em>Miller’s Girl </em>seems to start with the aforementioned premise: inappropriate relationship between student and teacher. The two actually have to <em>begin </em>a relationship, so what causes it? On Cairo’s side, she wants to just <em>do something</em> — not an uncommon sentiment for kids in small towns. She’s egged on by Winnie’s pursuit of Mr Fillmore, and driven forward by the image she has in her mind of what ‘love’ is. And she really does describe the start of their relationship as ‘falling in love’ — in fact, her narration says that ‘falling in love’ is inadequate as a description. She’s a writer, after all.</p>
+<p>What about Mr Miller? Well, he’s unsatisfied with his marriage. He did love his wife once: the film shows a collection of romance short stories that he wrote previously, dedicated to her. It seems that Beatrice’s constant working is driving him away from her, however. Dates and sex are frequently interrupted by work calls. She does regret all this, but she doesn’t stop it, and she doesn’t really acknowledge any of it as a problem for their relationship. And going back to the unnecessary cruelty mentioned earlier, she completely and casually disregards his thoughts about himself while at dinner with others. It’s pretty rough for them both, and it’s clear that they should’ve separated long ago.</p>
+<p>Is that an excuse for Mr Miller to cheat on Beatrice, though? Of course not. Regardless, he starts talking to Cairo about literature, and they attend a writers’ event together, and they start to sit a little bit too closely together… and they start sharing cigarettes… it gets real weird real fast. Their relationship culminates with Miller visiting Cairo at her mansion to return her mobile phone, having mistakenly brought it home with him in his briefcase. This visit, along with more work on Beatrice’s side and along with some rain, results in the aforementioned cancellation of the Millers’ weekend getaway plans.</p>
+<p>The film leaves some ambiguity as to whether Cairo and Mr Miller actually have sex. Undoubtedly, though, they kiss in the rain. Cue many complications.</p>
+<p>Cairo is inspired by their little tryst, so she writes an erotic story about it as her midterm assignment. Mr Miller receives it in an email later that night, when he and his wife are at home, but he’s alone — Beatrice can’t concentrate with him around, so he goes out into a garden shed and gets on his laptop there. He reads the story and touches himself; it’s unclear whether the story describes what he and Cairo did, or just what Cairo wanted them to go on to do. Naturally, though, Mr Miller can’t accept literary pornography for a school assignment, so he reprimands Cairo for it when they’re back in school.</p>
+<p>This is the point at which it becomes really, really obvious that everyone should have known better about everything. It’s obvious to the audience from reading the premise, of course — at least, I hope — but the story seems to become self-aware at this point. The two argue, and Cairo sends the story to the school’s vice principal in order to get Miller suspended, as revenge. Miller and his wife argue once this all comes out. Miller and Fillmore argue too. Naturally, Miller is suspended — what else was the VP going to do when told that yes, Miller <em>did </em>visit Cairo at her house while she was alone? Cairo and Winnie then fall out because Winnie refuses to get involved with Cairo’s revenge plan to ruin Miller completely.</p>
+<p>The movie ends just before the Board of Education hearing. It’s clear that Miller’s life has fallen apart, though it’s unclear as to what will happen next. Cairo, on the other hand, seems to be riding high: having “grown from the ruins of a madman’s love.” That’s a quote from the ending narration, which is a callback to a line from Miller’s romance short story collection. Well done there, I suppose. At this point, too, I actually found myself appreciating the casting of Martin Freeman — a man who looks very mild-mannered and pleasant — to play the film’s closest approximation of a villain. I think ‘villain’ is a bit reductive, because everyone’s guilty of something or other in this movie, but that’s the word the film uses.</p>
+<p>However, I think that Cairo’s a villain too, frankly, and she admits so herself in the same ending narration mentioned above. Not because she got into the troubling relationship in question, but because her immediate reaction was to tear Mr Miller down so completely and ruthlessly. Equally ruthless is Cairo’s immediate willingness to ruin Winnie as well, just because she won’t go along with the plan; it’s not as if Winnie knew any better about any of this more than Cairo did. The film makes clear that these are emotional reactions, yes, but done with startling and troubling cunning — as if trauma <em>must </em>result in a Machiavellian outlook.</p>
+<p>One last thing about the ending narration: Cairo describes herself as a villain, but also the hero. In the final shot, she sheds a single tear but also smiles. Chilling. I do think it’s odd that the film is so triumphant about Cairo at its end, though, as if the downfall of a villain, flawed or not, is something to necessarily be applauded. Things would feel off to me, personally, if I were to witness an execution and the crowd threw a party afterwards. I certainly would not have any punch or cake. And, as established, Cairo isn’t really better off either — she’s lost who seems to be her only friend, after all.</p>
+<p>I suppose you could say that <em>Miller’s Girl </em>is sort of like <em>50 Shades </em>done less problematically, since the inappropriate relationship <em>does </em>end, and it’s clear that it was bad, and everyone involved does have to deal with the consequences of their actions. But that’s not quite right. For one, <em>Miller’s Girl </em>is written better. Aside from the absence of staff at Lovell Hill, there aren’t any major plotholes. The dialogue is organic for the most part, if a little dramatic. The film certainly has a tone that it sticks to: a sort of dark academia vibe mixed with an edgy vampire romance vibe, with a large splash of whatever vibe literary pornography has (not quite fanfiction-y, but pretty close). And I think that adds to the main issue I have with <em>Miller’s Girl </em>that stops me from saying that it’s a chilling dive into inappropriate relationships, the power dynamics of relationships, and the associated consequences… it’s a little bit too gratuitous, I think. You can’t make a satire that lampoons something while sort of indulging in it and enjoying it, just a little bit. The film really does seem to like its edginess and horniness a bit too much — it’s literary pornography in film form. What I’m saying is that it’s not extremely <em>visually</em> explicit, but if you’re going to watch it, probably watch it alone. And definitely with headphones in.</p>
+<p>Honestly, I wouldn’t bother. I don’t know that this kind of story is ‘necessary’ or ‘brave,’ per se, though I can see points to both arguments, were they to be made. In any case, if there has to be only one extant story on this subject matter, <em>Miller’s Girl </em>is an alright candidate. That said, I do now feel like going for a long walk on my own, and then getting directly into bed and having approximately 15 hours of sleep. It’s just icky.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

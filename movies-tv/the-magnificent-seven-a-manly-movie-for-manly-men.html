@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Magnificent Seven: A Manly Movie for Manly Men? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">The Magnificent Seven: A Manly Movie for Manly Men?</h1>
+            <div class="article-meta">
+                Published on August 29, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/the-magnificent-seven-a-manly-movie-for-manly-men.jpg" alt="The Magnificent Seven: A Manly Movie for Manly Men?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Is that title strictly accurate? I think it might be, but <em>why </em>is that the case? What are the ingredients to a ‘manly’ movie? <em>The Magnificent Seven </em>may hold some answers. It’s a modern Western movie with an impressive cast, and all the Westerny tropes you can shake a stick at. I’ll admit that I haven’t seen the original film it’s based on, or the TV series from the 1990s, or the much-older Kurosawa samurai film they’re all remakes of — I’m only going to be talking about the 2016 film. But I’m sure that the vibe is the same: a group of very different men join forces to repel a great evil. And what a great evil it is. I think that’s the first factor to consider.</p>
+<p>A lot of media that might be described as ‘manly’ involves justice being meted out to those deserving of it. In <em>The Magnificent Seven </em>we have Bartholomew Bogue, a villain through and through. The film begins with the establishment of his character: right away we know that he threatens men, women, and children alike with violence, and is thoroughly self-serving. He’s a gold-mining tycoon who uses anything he likes to justify his greed: morality, God, the forward-march of capitalism, whatever. He shoots innocent people to instil fear into others, and the film begins with him (and his gang of followers) burning down a church and shooting some innocent civilians. All of this is so that he can control the town in which this all takes place, Rose Creek, so that he can further exploit the gold mines there. Well, he’s got to be stopped, right?</p>
+<p>Here&#39;s our second factor, tied to the first: protection of the weak. Rose Creek can’t defend itself; it’s full of regular settler-folk. So if, say, a warrant officer from Wichita, Kansas, can help — a man already acquainted with the trade of tracking, arresting, and sometimes killing violent criminals — why shouldn’t he? And if, say, he could recruit six other men to his cause, forming a sort of Magnificent Seven, in order to defend the innocent town of Rose Creek from obvious evil, the outcome seems clear.</p>
+<p>Here comes the third factor, tied to the first and second: violence. Action. Justice being done in these kinds of stories tends to come via the punishment of the perpetrators of evil, in order to protect the weak and/or innocent. And the most certain and permanent way to stop evil could probably be said to be the death of the evil party. Through that comes conflict, often violent conflict. I Googled a list of ‘manly movies’ and was met with such classics as <em>The Godfather</em>, <em>Rocky</em>, <em>Gladiator</em>, <em>John Wick</em>, and the list goes on. Violence is key, but these three factors are very much intertwined?</p>
+<p>Any more? Well, here’s a fourth: misfit male characters. And further, misfit male characters who don’t get along but sort of do by the end. The dynamic shared by such characters is a huge factor: despite their differences, they must all come to respect one another and yet poke fun at one another. Yes, the latter factor is important too. To demonstrate this, I’m going to go through the Seven. Ask yourself as we go along whether you think they might be described as ‘manly men’ or not. Minor spoilers ahead.</p>
+<p>First we have Sam Chisholm, the aforementioned warrant officer from Wichita, Kansas. He’s a quick shot, a man of few words, and is determined to see justice on behalf of Rose Creek. His motivation for helping the town isn’t revealed until the end of the film, but it’s as honourable as you could expect. He’s the group’s leader: an inspiration to the rest.</p>
+<p>Next up is Joshua Faraday, a classic quick-mouthed huckster-type with an affinity for all kinds of vice. He’s also an impressive shot, and he also does card-magic because he’s quirky like that. A little annoying; there’s always at least one.</p>
+<p>Goodnight Robicheaux is up next, and I reckon also up for a spot on a list of Fantastic Names in Fiction. He’s a former Confederate soldier and sharpshooter — he and Unionist Chisholm have a history — and he’s a little money-hungry himself. He’s quite a bit like Faraday personality-wise, but he also suffers from PTSD and is a little more introspective.</p>
+<p>Jack Horne is an odd one. He’s a sort of bearlike mountain-man who’s gone a little weird out there in the woods by himself. He’s a hunter and tracker, apparently one who used to hunt Native Americans and scalp them for bounty money, and also repeats religious things to himself constantly.</p>
+<p>So it’s a little tension-inducing when Red Harvest is introduced: a Comanche warrior in exile. He’s quiet, stoic, and gets the job done: a classic Western ‘outsider’ archetype. It’s somewhat of a shame that Vasquez — a Mexican outlaw on the run — and Billy Rocks — a Chinese knife-expert who accompanies Robicheaux on his adventures — are also like that. And Jack Horne isn’t too quiet or stoic, but he’s also similarly less important. That’s the way these things go, I suppose, when you have a big cast of main characters.</p>
+<p>Anyway, that’s the cast. They simultaneously get along and don’t. Some have real reason to dislike each other, like Horne and Red Harvest. Vasquez and Faraday quarrel a lot too, since Faraday is just racist. But they all grow to respect each other, which brings me to my fifth and final factor for what makes a ‘manly’ movie: action, in the ‘deeds’ sense, leading to respect. Because the group won’t connect much emotionally or verbally (aside from gibes and jokes) — especially because of their differences and prejudices — they speak loudest to each other through deeds. They do little favours for one another, they help one another work towards their objectives, and most clearly, they save one another’s lives.</p>
+<p>Now, all these factors are probably not surprising to you. Movies aside, these factors sound like ‘manly men’ things that could be attached to various situations/people in real life as well. However, 2016’s <em>The Magnificent Seven</em>, I think, is somewhat aware of its ‘manly’ nature, and so it throws a few curveballs. For starters, one of its main characters is a woman who becomes a sort of honorary eighth member of the group: Emma Cullen, a young widow whose husband was shot during the film’s beginning. She proves herself to be a pretty good sharpshooter herself, even volunteering to take Robicheaux’s place at one point. Besides that, I read that the original 1960s film didn’t have an industrialist tycoon as the villain; he was a bandit leader instead. There was also a romantic subplot in the original, but not in the 2016 version. So there’s a little modern flavour in the latter, as is to be expected, with a different take on the themes of protection, justice, the nature of evil, and even romance involved.</p>
+<p>But further — big spoilers here — Robicheaux’s PTSD kicks in hard at one point, and he can’t bring himself to shoot anyone in fear of dying himself. He then has a heart-to-heart with his old friend, Chisholm. Not long after Robicheaux leaves Rose Creek, Chisholm asks those of the group who remained about their own commitment to the cause. Horne is the most sincere, saying that he’s proud to potentially die with those that he respects and cares for. Therein lies the heart of even a ‘manly’ movie — though sincerity and emotional conversations aren’t typically considered to be ‘manly,’ perhaps they’re more important to the idea of ‘manliness’ than one might think. It’s surely something that other movies like <em>Gladiator </em>and <em>John Wick </em>include. Of course, Robicheaux later returns to join the big climactic gunfight and reunite with his best buddy Billy, and a few of the Seven die by the end of the film.</p>
+<p>Once again, it comes down to deeds to settle things, but some of those deeds wouldn’t have come to pass if those sincere and emotional conversations hadn’t happened. In a regular three-act story structure, there must be a dip at some point — a point at which all seems lost for the hero or heroes. It’s often when the heroes dig deep and discover an important lesson they’ve learnt, one that helps them out of their difficulty. So it is in this film, and I don’t think the film would’ve worked very well without it. It’s clear that the misfit Seven are dysfunctional to begin with, but without this emotional core that sees past the fa&#231;ade of just ‘getting the job done,’ I think the bonds between the members of the group would feel not only distant, but hollow. It’s hard enough to have seven main characters in your story, after all.</p>
+<p>I don’t really have a whole lot to say about the film itself; many large chunks of it are just gunfighting action and the planning for more gunfighting action. As a ‘manly’ movie, it serves its part well, and it has just enough not-stereotypically-manly stuff to make you think twice about it all. Perhaps, too, if you’re a man, there’s something to learn from its emotional core too. What I will say is that it genuinely ends with the narration, “It was… magnificent.” I mean, sure. The Man-gnificent Seven, more like. <em>Yeah</em>.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Words Left Unsaid — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">The Words Left Unsaid</h1>
+            <div class="article-meta">
+                Published on August 08, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/the-words-left-unsaid.jpg" alt="The Words Left Unsaid" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Holdfast: Nations at War </em>is a multiplayer shooting game in which you play soldiers during either the Napoleonic Era or the First World War. You play soldiers of different roles, from frontline infantryman to combat medic to cavalryman to bagpiper (because that was indeed an important role during the Napoleonic Era, yes). <em>Holdfast </em>is most famous for its voice-chat features, with which players roleplay soldiers of the era. You may not find this in every round you play, but there are indeed player captains who strategise, order troops into lines, and tell them when and where to fire full volleys of gunshot — and the timing is important, because it takes what feels like 7 hours to reload every shot of your old-timey musket. And there are those who are bagpipers or fifers, standing by the firing line, tootling away to give their friends boosts, shouting about how great their side is in order to boost real-life morale.</p>
+<p>I started playing <em>Holdfast </em>not long after its WWI update, sometime in February 2022. I last played it in March 2022, having logged only about 16 hours in it. Despite the fun promised by its voice-chat features, I studiously avoided verbal and auditory contact with anyone — I tend to avoid all voice-chat features in all online video games. And indeed, this is a principle that’s served me well for as long as I’ve played online video games; I never chat with strangers. Voice chats are full of trolls or experienced players who’ve seemingly forgotten the struggles of being a newbie, or a combination of the two. Even in communication-forward games like <em>Rainbow Six: Siege X</em>, I have all in-game chats off if I’m in a public lobby.</p>
+<p>The basic reason, I suppose, is because it’s just less stressful for me that way. None of these strangers would be able to ruin my day if I couldn’t listen to them. In the end, a game’s just a game — I don’t need a game to negatively affect my real life. But there’s another reason I don’t feel the need to have voice chat on: sometimes you don’t need words to communicate. <em>Holdfast </em>showed me that.</p>
+<p>It must’ve been late February 2022, I suppose, when I was playing the original Napoleonic-Era-mode. I’d loaded into a desert map — the Al Kimar Pyramids — playing on the side of the British Empire. I’m not very familiar with the history of the early 1800s, so I don’t know if the British were warring in the Middle East by then, but there I was regardless. I don’t remember who I was fighting against, and it didn’t matter to me at the time either, because I’d chosen to be a drummer. My job was to walk alongside allied troops and boost their accuracy by 8% by tapping away on my snare, so I’d never have to fire a single shot.</p>
+<p>The drum is pretty unwieldy, so you always walk slowly while you have it equipped. After all, you can’t drum and run at the same time. So I began drumming and decided to go up to a fellow simply called Strycker: a regular infantryman with a tall feathered hat that matched my own, and a musket. With the aid of my drumming, he seemed to indeed be firing more accurately, racking up a few kills. A few other allies joined us, forming a little group, and before long a fifer joined us too — together we were boosting accuracy by 12%. And then a cannonball bashed straight into our midst, killing us all. No matter. I respawned in a few seconds and began looking for other allies to give a boost to; such is the life of a soldier-musician. Upon respawning I saw a captain who’d already formed a firing line, and so I simply joined them to boost the whole group.</p>
+<p>And then Strycker showed up again to join the line, apparently having respawned nearby. He turned to face me and jumped up and down; it took me a second to realise it was him. I jumped up and down too in recognition. Even as I continued to drum, I sidled up to Strycker’s end of the firing line.</p>
+<p>It continued like this for the rest of the round. When I died and respawned, I’d look for Strycker, and vice versa. And while it was just the two of us looking for firing lines and loose squads to join, we’d cover each other’s back. At one point we both rounded a corner to find a pair of enemies. I have no way of knowing if they were also an impromptu duo like Strycker and I, but one of them was quick to fire at me, injuring me considerably. I backed away around the same corner while Strycker covered my exit, killing one of our assailants. The other ran away, and Strycker came back to me to jump up and down again, this time in victory. I responded with the same. We shared a bond that required no words uttered between us, even if for just a little while, because then the round ended. I sighed aloud as I started another round, hoping that Strycker would still be active.</p>
+<p>And he was! But my heart fell as I found Strycker again on the opposite side of the battle. Quickly I switched teams — the game does allow this early on, before the battle actually begins — and looked for him once again. After a few minutes of running around, I found him: he was manning a cannon, but he jumped up and down once again when he saw me. I did the same as I went over to him. He immediately abandoned the cannon, pulled out his musket, and we were off again to face the world. Somehow, we knew never to switch classes either. I did switch sometimes to a fifer or a bagpiper myself, but I always remained the musician, and he remained a soldier and my bodyguard. I reckon that I played three more rounds with Strycker that night, always on the same side — he would switch to join me, or me to join him, whichever of us was quicker. Sometimes we joined others in brazen charges against the enemy guns, and sometimes we struck out on our own. We always communicated with jumping: one button was all we needed.</p>
+<p>And then eventually, of course, we parted ways. At the start of the next battle, Strycker and I found each other again. He jumped up and down, I jumped up and down, and then he winked out of existence — whoever he was in real life, he felt the need to let me know before he had to sign off. That was the last time I saw Strycker.</p>
+<p>I sometimes do still think about Strycker, just as I go about my day. It’s been over three years since then, but sometimes I wonder who he was. Was he even a he, on the other side of the screen? Where did he live? What did he do for a living? What brought him to <em>Holdfast</em>? I’ll never know, but I learnt that day that human connection, no matter how small, simple, or brief, is special.</p>
+<p>Later on I discovered games like <em>Journey</em> and <em>Wolfenstein: </em><em>Youngblood</em>, both of which made you interact with other real players with a single button, not necessarily involving voice or text chat in any way. In fact, I found out that <em>Youngblood</em> — never having played it myself — had designed its single-button-communication mechanic in order for players to give each other boosts, not for communication at all. You pressed the button and your character would do a thumbs up. Some players found that it was more useful, however, to use that button to communicate their status after a fight: “I’m okay.” That sounded to me a lot like how Strycker and I had communicated, through the medium of jumping. Another game called <em>Nier:Automata </em>(major spoiler here for the end of the game) even asks you if you’re willing to sacrifice your entire save game in order to help another real player in their game — a random person who may or may not appreciate the hours and hours of gameplay you’d have to give up in order to help them. Powerful stuff. Even the notoriously difficult <em>Elden Ring </em>and its <em>Dark Souls </em>forebears has a text system in which you can leave messages for other real players without ever meeting them, and players use it still: both to help and hinder others. It opens a small window into another person’s life, but its ramifications could be massive. Who knows what could happen? But therein lies beauty of it.</p>
+<p>I don’t really have a conclusion for this week’s post, except to remind you, dear reader, that I still remember Strycker fondly all these years later. Perhaps I could’ve had a better time with him through voice chat, had we both activated it, but this is the time that we had: only communicating through a single button-press. That was enough for me, and it remains enough for me now. And I daresay I remember it more poignantly now <em>because </em>our communication was so simple, and so sparse, and so fleeting, and then we went our separate ways like ships passing in the night. If by whatever incredible coincidence you’re reading this, Strycker, do let me know somehow. Jumping may not work right now, but know that I’d jump with you if I could.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

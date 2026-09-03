@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Death is Cheap — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">When Death is Cheap</h1>
+            <div class="article-meta">
+                Published on August 22, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/when-death-is-cheap.jpg" alt="When Death is Cheap" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>Most horror franchises have death quotas, at least in the slasher genre; some people get killed, and that’s just the convention. The <em>Jurassic Park </em>series isn’t a slasher franchise, but it seems to operate by similar principles. It’s a science fiction action series about dinosaurs (of course), the hubris of humanity, corporate greed, and (sometimes) family, but people always die. So if your movie must have some human deaths in it, how do you pick who dies? The obvious answer is that it always depends, and it depends on what the movie is about. Every movie has its themes, and depending on the themes and the characters that might represent different sides of those themes, you’d probably make your choices accordingly.</p>
+<p>Perhaps you want to convey a message in relation to those themes. Character A and B might represent “care for others” and “disregard for others” respectively, for instance. If you wanted “care for others” to be the message, you might decide that Character B should die because they refused to learn a good lesson, while Character A, on the other hand, did. If you don’t have a message, you’d probably just choose whichever death would be more interesting for the rest of the characters or the plot. Maybe Character A should die instead, because it would make Character C <em>question</em> why they should care for others, and Character C is going to be really involved in the upcoming large-scale battle against her old flame, or whatever.</p>
+<p><em>Jurassic World: Rebirth </em>doesn’t seem to have an answer either way. <em>Jurassic World: Rebirth </em>doesn’t seem to care who lives or who dies… except it’s more complicated than that, as you might see in a bit. It’s not that <em>Jurassic World: Rebirth </em>doesn’t want to complete character arcs or convey any messages, it just seems a little confused about what it wants. Spoilers ahead, inevitably.</p>
+<p>The premise goes thusly: Zora Bennett, a mercenary, is hired by a pharmaceutical company to go to an island with dinosaurs on it, in order to retrieve some blood samples from three kinds of dinosaurs. She is recruited by Martin Krebs, a representative of this pharmaceutical company, and together they recruit Dr Henry Loomis, a museum curator with a passion for dinosaurs, to go with them as an advisor. Zora gets in touch with her old crew: Duncan Kincaid, head of that crew, along with three others: Nina, LeClerc, and Atwater. These are the people who head off to the island, except some randos get involved too: a father and his two daughters, as well as his older daughter’s boyfriend. In order, they’re Reuben, Teresa (the older sister), Isabella, and Xavier.</p>
+<p>So that’s the full cast: 11 people in all. We can start theorising about who will die, according to the conventions of horror movies and also of this series. First: Martin Krebs must die at some point, because he’s a money-hungry guy who only cares about himself and his goals, which is generally a no-no for the series but also horror movies in general. Second: Atwater must die at some point, because he’s a jerk who doesn’t want to help the shipwrecked family. It’s similar to the situation with Krebs; horror movies tend to take a sort-of-schadenfreude approach to which characters should die. We’ll discuss that further later.</p>
+<p>Who else? Well, during the recruitment of Dr Loomis, we learn that he’s a dinosaur-exposition machine, and a generally standup guy: he values human kindness, he definitely respects dinosaurs (the usual ‘punishers’ of human hubris in the <em>Jurassic Park</em> series). He represents a foil to Krebs’ self-serving personality, and he’s affable enough. So probably not him. Then we get a short scene where Zora and Duncan set up their arcs: they’re both broken people, they’ve lost people that they love, and they’re trying to be better. So probably not them; they’ve got arcs to go on. At this point in the film — just before the first big dinosaur setpiece — I realised that Nina and LeClerc were not given last names. Hmm.</p>
+<p>Here’s who ended up dying, in order: Bobby Atwater (he apparently <em>was</em> given a first name and I’d missed it, probably because I was <em>sure </em>he was up for the chopping block), Nina, LeClerc, and then Krebs. I was honestly on the fence about the family because I doubted any of them would die; the <em>Jurassic Park </em>series doesn’t really deal with that kind of awful tragedy, because it does (generally) try to adhere to the sort-of-schadenfreude model. But because of this I was a little worried about Xavier, since he was set up to be lazy and largely incompetent. And <em>Rebirth </em>is a little self-aware about this, because there’s a fun little rug-pull scene involving velociraptors where you definitely suspect that Xavier is about to get got, except a Quetzalcoatlus swoops down to interrupt. It turns out that the family + Xavier don’t have any arcs of their own — I guess they were there just to fulfil the <em>Jurassic</em><em>-Park</em>-child-endangerment quota. Whatever; they survive. Good. Isabella looks to be about six years old, after all.</p>
+<p>It&#39;s at this point that I want to introduce the film’s opening scene. It takes place a long time before the rest of the film’s setting, in the research facility on the relevant island Zora’s crew visits, but before everything went wrong. A researcher — Wikipedia tells me that his name is Williams, and I forget if the film actually told me at any point — drops a Snickers wrapper which gets sucked into a vent in a door, which causes the door to malfunction. That’s what causes the initial outbreak of the mutant ‘D-rex,’ and many more deaths. Therefore, there’s a sort of karmic-balance thing going on here: because Williams caused the malfunction, he had to die. So <em>Rebirth </em>sets itself up at the beginning as a movie that will have <em>meaningful </em>deaths, and probably the schadenfreude-type ones. Atwater’s and Krebs’ deaths would seem to reinforce this.</p>
+<p>But what about Nina and LeClerc? Did they do anything to deserve death? Well, no. So that’s where things get tricky. We don’t get much of anything from Nina aside from her name, and the fact that she’s generally competent and helpful throughout the first action setpiece. Same thing with LeClerc, except his death seems even more undeserved — swallowed up by a Quetzalcoatlus while actively trying to help Zora and Dr Loomis in a pretty brave and selfless manner. So what gives?</p>
+<p>This is what I mean by confusion on <em>Rebirth</em>’s part. Aside from setting itself up to have symbolic and meaningful deaths, there wouldn’t really be a reason to have that opening scene. The big-bad-villain D-rex could be set up in many other ways throughout the film after all. Maybe it was just so that they could show off something cool but non-spoilery in the trailer. Herein lies one issue with the weird deaths in this film, certainly: studio interference. Studio interference also meant that Duncan, originally written to have a dramatic, meaningful death, turns out to not be dead for no reason roughly 2 minutes before the film ends. Duncan’s actor and the director fought for the death to go ahead, but they were overruled. But all this is neither here nor there, because Nina and LeClerc’s deaths still remain mysteries in terms of the <em>writers’</em> motives.</p>
+<p>There’s a third option as to how to pick your character deaths that I didn’t mention before — one that I’d argue is significantly less interesting — where deaths just happen at random. But it can certainly work; <em>The Walking Dead </em>basically followed this model, and it worked because it fit the setting. That show wanted to portray the inherent randomness of life sometimes, where sometimes people just die from a random mistake or bad luck, and that was effective for its zombie story. This means that <em>The Walking Dead </em>had a good reason for writing meaningless deaths for its characters, and in turn that made those deaths meaningful to the <em>viewer</em>.</p>
+<p>What about slasher movies, since we mentioned their similarity to the <em>Jurassic </em>franchise before? The <em>Halloween </em>franchise is an interesting one to look at. Its first instalment, just ‘<em>Halloween</em>,’ had plenty of meaningless deaths in it, but as a slasher movie it’s sort of expected. Slasher movies promise one thing only to their audiences: deaths, usually violent. I personally don’t really like that, but from a writing perspective there’s nothing wrong with it — the writing objective is fulfilled. Deaths were promised, deaths were given.</p>
+<p>But other slasher movie franchises exist that <em>are</em> more circumspect: <em>Friday the 13</em><em>th</em>, for example. Its first instalment, just ‘<em>Friday the 13</em><em>th</em>’ (go figure), saw Pamela Voorhies killing teenage summer-camp counsellors whom she perceived to be like the irresponsible ones that indirectly caused her son’s death. There’s a motive to her murders, unlike those from <em>Halloween</em>, and there’s that sort-of-schadenfreude vibe again. So it’s possible to write deaths for the sake of a kill-quota, but one can simultaneously also make them meaningful. Another franchise famous for its deaths, the <em>Saw </em>franchise, comes to mind. Death was very meaningful in the first instalment of <em>Saw</em>, but less so later on. The sequels of these franchises go a bit wild, and before long it’s just death for the sake of death anyway — they all end up in the same place.</p>
+<p>So it goes with <em>Jurassic Park</em>. I think that the first movie had the most interesting deaths. There were four characters who died in that film: Donald Gennaro, a money-hungry lawyer (like Krebs), Dennis Nedry, a disgruntled programmer who causes the park’s malfunctions (like Williams, except Nedry does this intentionally), Ray Arnolds, an engineer, and Robert Muldoon, a game warden. The former two seem to ‘deserve’ their deaths more than the latter two, and in fact the latter two are basically nice and helpful: they just want to complete the plot-relevant objectives, like Nina and LeClerc.</p>
+<p>But Arnolds’ and Muldoon’s deaths are significant. And, interestingly, the owner of <em>Jurassic Park</em>, John Hammond — the character with arguably the most hubris of all in that film — does <em>not </em>die as you might expect, and that’s notable because he <em>does</em> die in the book that the movie was based on. This tips me off to the fact that the original <em>Jurassic Park </em>made intentional choices about its deaths. It wanted to discuss themes in a more well-rounded way, namely that human hubris has consequences for everyone, not just those responsible, and therefore everyone should feel the gravity of hubris. Arnolds and Muldoon were ultimately victims of Hammond, and the film wants you to recognise that — in the end, there’s some narrative <em>purpose</em>.</p>
+<p>It seems that things went downhill from there. <em>The Lost World</em> had less respect for death — many deaths occur just for the sake of it — and it’s the same with <em>Jurassic Park III</em>. 2015’s <em>Jurassic World </em>seemed to emulate the first film in having symbolic deaths connected to the themes, and though I think Zara’s death was a bit much (look it up; it’s awful), it was connected to one of the movie’s themes, at least. Less so in <em>Fallen Kingdom </em>and <em>Dominion</em>. So now we arrive at <em>Rebirth </em>once again.</p>
+<p>So yeah. Nina’s and LeClerc’s deaths serve no purpose but to fulfil <em>Jurassic World: Rebirth</em>’s dinosaur-kill-quota. And I think that’s a shame. To a writer of fiction, death is an incredibly powerful tool — it represents the cessation of choice, and choice is all that fictional characters have to be defined by. Even in a kill-happy movie like <em>Jurassic Park</em><em> </em>or <em>Friday the 13</em><em>th</em>, you <em>can </em>give deaths meaning. But in <em>Rebirth</em>, deaths are cheap: Nina’s, LeClerc’s, even Duncan’s non-death. <em>Rebirth </em>doesn’t see death as the fine-tipped brush of a calligrapher; it sees death as a sledgehammer, except it’s one that can’t even get through the wall.</p>
+<p>Oh, well. We’ll see what the eight <em>Jurassic </em>movie does, I suppose.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

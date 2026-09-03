@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballerina: Writing Priorities and Consequences — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Ballerina: Writing Priorities and Consequences</h1>
+            <div class="article-meta">
+                Published on August 01, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/ballerina-writing-priorities-and-consequences.jpg" alt="Ballerina: Writing Priorities and Consequences" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Ballerina </em>is a 2025 action movie set in the John Wick universe, following the story of a new assassin/bodyguard called Eve Macarro. It’s set either: 1. <em>during </em>the events of <em>John Wick 3: Parabellum </em>and <em>John Wick 4</em>, or 2. during the third movie itself (sources online are unclear, and even having watched <em>Ballerina</em>, I’m still not sure either). Regardless, <em>Ballerina </em>contains all the things that you’d expect from a John Wick movie — innovative (and bloody) action sequences, captivating set design, and various themes of revenge, loyalty, fate, choice, and consequences. As a standalone story, it has an opportunity to be like the first John Wick film, which tied up nicely, at least in theme. Unfortunately, it’s a little messy. Spoilers ahead.</p>
+<p>There’s always <em>some </em>suspension of disbelief with the John Wick universe — after a while you don’t really question how John survives so many car crashes and how there are seemingly assassins everywhere doing things that you’d think would tip off their existence to the rest of the world. Certainly as the series has gone on, things have gotten more complicated: new factions, new organisations, and new odd characters. You don’t tend to question these things because they do tend to be quite cool: a blind assassin, for example, who does seem to still be very effective despite the obvious limitation to his career. But what does <em>Ballerina </em>add or detract from this universe?</p>
+<p>Let’s start with the Ruska Roma, first introduced in <em>John Wick 3</em>. It’s one of the factions involved in the assassin underworld, operating behind the cover of a ballet theatre run by an austere and rather harsh lady simply called ‘the Director.’ Supposedly John Wick was raised by this group; he was excommunicated from this ‘family’ in the third movie too, though it’s never made clear <em>how </em>he joined. Now, in <em>Ballerina</em>, we see the process of recruitment. Eve is recruited as a child into the theatre, training to simultaneously be a ballerina and a bodyguard-type assassin called a ‘Kikimora,’ named after a creature from Slavic folklore. This is one of the parts of the film and universe that I wish the creators had explored more — why do the assassins need to be both assassins <em>and </em>ballerinas? Could the two roles combine in some interesting way? Perhaps a more agile and acrobatic fighting style? It wouldn’t stick too much to the trademark John-Wick-mostly-realistic combat style, but it could still be cool.</p>
+<p>What else? This film introduces a cult: something we haven’t seen in the John Wick universe before. It seems that this cult rallies behind the idea that fate rules everything, and it’s composed of former assassin-underworld people like Eve and John who wanted to leave the life and maybe start a family. They feel that they can never leave a violent life because fate will always bring violence back <em>into</em> their lives — like we see with John — and so they decide to set up a town where only <em>they </em>live, fully at peace with who they once were. That’s an interesting idea, but the idea of ‘fate’ isn’t massively explained, and it doesn’t really seem like the regular people of the town care about fate. We’re only shown the town’s patriarch — a figure known as the Chancellor — and his attendants talking about fate at all. Basically, it doesn’t seem like the cult is a cult at all, because we don’t see enough of the average cult-person’s view of ‘fate,’ which is supposedly the principle tenet of this cult. They don’t seem any different from the various armed assailants we’ve seen in the series so far, who are similarly single-minded about killing their target, whether it’s John or Eve.</p>
+<p>What we <em>do </em>have to go on cult-wise is the fact that everyone in the cult believes that nobody should leave it. That does seem pretty cultish, but then we’re told that the cult was formed as a group of people who wanted to exist <em>outside </em>of the regular faction system that the assassin underworld partakes in, though they still engage with it. This means that their core tenet of fate, which states that they will never escape the violent life of a former assassin, is compatible with the assassin underworld still existing and their taking part in it. So they don’t want to leave the assassin life, but then they still left to form their own secret town? It doesn’t quite add up.</p>
+<p>I’m nitpicking a bit here, because we have to remember that the John Wick universe isn’t veeery concerned about being coherent; it wants to suspend your disbelief just enough that you’ll forgive some odd stuff because it’s cool. Simultaneously, though, this universe likes to innovate. It just seems that the innovation can only happen with the action. And in fairness, that’s what these movies are known for — both impressive fight choreography that utilises the set/environment <em>and</em> subverting audiences’ expectations for action sequences.</p>
+<p>For example, <em>Ballerina </em>features a sequence that begins <em>after </em>a fight is already over: when all the cool action is already over, and Eve is just trying to leave the scene. She steps over all the corpses, occasionally pausing to pick a knife out of someone she’d thrown it into earlier, and takes the lift downstairs. She walks through the crowd downstairs who are none the wiser, and then gets into her car to drive away from the scene. And then a seemingly random vehicle ploughs into her car, prompting a little action that sets the plot off. It’s really out of nowhere when this collision happens, and it’s pretty memorable.</p>
+<p>Also memorable is a scene where Eve is attacked in a gun shop. You’d think that in a gun shop she’d be set to take out the assailants, but she quickly realises that all the guns in the shop are, of course, not loaded. She can’t find any ammunition but she <em>can </em>find a box of grenades, and so that’s how she fights back. Sidebar, it’s absolutely horrifying to see a grenade detonate right next to someone. Very memorable though. It’s something new, and in the action genre, innovation is so important.</p>
+<p>Does this mean that how action is written is fundamentally different from how plots are written? Well, my theory is that the answer is <em>no</em>, because ‘innovation’ just requires creativity and knowledge of the conventions of genre — in this case, the action genre.  To write innovative action scenes, you have to have a knowledge of what action <em>usually</em> looks like, and then do something new. Same thing with plot and character, and indeed all writing. My thinking is just that <em>Ballerina </em>knew what its audience was coming for: action, and also a cameo from John. And it delivers on both, especially reinforcing John Wick’s legendary status in this universe — Eve stands no chance against him when they briefly fight, and even the Chancellor is afraid of him. Again, pretty cool.</p>
+<p>It’s about priority, and <em>Ballerina </em>wanted to prioritise action sequences over plot. This isn’t new, of course — the more recent John Wick movies in general have focused on the action over the plot. I’d just hoped that <em>Ballerina </em>would be different because it was an opportunity to return to what the first John Wick film was: a tightly-told story that could stand on its own, about a person who wants revenge because of a loss they’ve suffered, with interesting characters and compelling snippets of worldbuilding. <em>John Wick</em> had cool and captivating action sequences, but in my opinion, they weren’t the best thing about it. They certainly made their money off of those action sequences, though, and so those sequences became the priority.</p>
+<p>Is that a shame? Not really; different strokes for different folks. I just think it’s something to point out for those who are interested, because I found it interesting myself. I should’ve made that my website slogan: “<em>something to point out for those who are interested, because I found it interesting myself</em>.” I’ll think about it. At the very least, though, I’m grateful that the picture attached to this post could be very straightforward.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
