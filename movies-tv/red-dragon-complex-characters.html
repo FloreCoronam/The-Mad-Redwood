@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dragon: ‘Complex’ Characters — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Red Dragon: ‘Complex’ Characters</h1>
+            <div class="article-meta">
+                Published on May 23, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/red-dragon-complex-characters.jpg" alt="Red Dragon: ‘Complex’ Characters" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>When writing fiction, characters are always tricky. Even in non-fiction, characters are tricky if you’re going for a creative angle on a real person. Much has been said about writing characters that are more than one-dimensional, ie. having layers and motivations. Creating such layers and motivations means that those layers and motivations will bleed into the plot of a story, and that’s crucial for a reader’s or audience’s engagement with said plot. Even if that plot is very engaging, you want equally engaging characters to go along with it.</p>
+<p>Around the time where the movie <em>Oppenheimer </em>came out, there was a lot of discourse about it regarding the ethical questions involved. People were concerned that the movie would glorify the person who invented a weapon of mass destruction (obviously plenty of other people were involved, but he was the leading personality; there aren’t any movies called “Teller” or “Bethe” or “Feynman,” after all). Since the movie was made from Oppenheimer’s perspective, and there was sure to be a big explosion at some point, there was a question about whether it was fair for such a movie to be made. After all, plenty of movies exist that depict the bombings in Japan from the Japanese perspective, which are obviously less charitable to the character (and person) of Oppenheimer. They didn’t particularly care about any personal troubles that Oppenheimer had. The response from the <em>Oppenheimer </em>filmmakers is that they didn’t want to be didactic, and that they didn’t want audiences to come out of theatres thinking of Oppenheimer particularly favourably or unfavourably. Personally, the film lead me to the conclusion that Oppenheimer was both a deeply troubled man and a discovery-led, rather na&#239;ve man, with an implied Machiavellian streak. There were layers and motivations aplenty.</p>
+<p>All this made me think about one of my favourite movies, called <em>Darkest Hour</em>, depicting the life of Winston Churchill leading up to the evacuations of Dunkirk. It focuses on his family and the internal struggles of the British Parliament at the time, in a similar way that <em>Oppenheimer </em>focuses on the titular character’s personal life and his work on the Manhattan Project. And again, there are ethical questions about Churchill: he did some perhaps commendable things, some perhaps great things, and some perhaps awful things. <em>Darkest Hour </em>shows Churchill making difficult decisions, some of which are perhaps even heartwarming, while others are by no means palatable. Concerns might be raised, like with <em>Oppenheimer</em>, that merely telling a story from a certain person’s perspective makes a consumer of said story more sympathetic to that certain person.</p>
+<p>That brings me to <em>Red Dragon</em>, because there are arguably fewer ethical questions about fictional characters than real people that stories are based on. Further, in terms of ethically-challenging characters with layers and motivations, how about two serial killers?</p>
+<p><em>Red Dragon </em>is a 2002 thriller that follows Will Graham, a former detective who is recruited back for ‘one last job’ to catch a serial killer known as the Tooth Fairy. Further, Will needs to get help from his former ‘partner’ on the force: another serial killer called Dr Hannibal Lecter, whom Will was instrumental in arresting after the killer’s gruesome secret was discovered. You may be familiar with this kind of setup from <em>Silence of the Lambs</em>, which this is a prequel to, so if you enjoyed one you’ll enjoy both. I have never seen <em>Silence of the Lambs</em> but have read the book, and as such, I wasn’t prepared for the constant sharp tension of the <em>Red Dragon</em><em> </em>movie. Books don’t come with nerve-racking music, for example. It really is gothic horror on the edge of a knife.</p>
+<p>Why is all this relevant to the writing behind the characters, you might ask? It’s because the film is very full-on; it’s almost constantly tense. There are long, slow, panning shots with threatening music. There are close-ups of faces while characters say ominous things. There are indeed jumpscares, but also slower scares where important plot-relevant information is revealed onscreen — photos, false teeth, paintings, what have you. The writing of the <em>plot </em>is of course also integral to the menace; things need to be constantly moving along, and new information revealed, that shows the power dynamic shifting between the Tooth Fairy, Will and his team, and Dr Lecter. More crucial to that shifting is how these characters are written. The Tooth Fairy, Will, and Dr Lecter all have different motivations which sometimes coincide and sometimes don’t, which keeps the audience uneasy. Further, the three all play on one another’s fears and similarities, some in more self-denial than others. That wouldn’t be possible with one-dimensional characters.</p>
+<p>So we’re back to what ‘complex’ means in terms of character. <em>Red Dragon</em>, I think, does something interesting that could be controversial: it makes efforts to portray the Tooth Fairy as sympathetic, and it makes efforts to portray Dr Lecter as very charming. Let’s start with the latter, because he’s less central in the film. Spoilers ahead.</p>
+<p>Dr Hannibal Lecter — the most famous and central character of the <em>franchise</em>, who’s spawned spinoffs galore — is a forensic psychologist at the beginning of the film, hence the ‘doctor’ part. Dr Lecter is also on a board of concert directors; the opening scenes of the film consist of a classical music concert and a dinner party which Lecter hosts for his fellow board members. It turns out that he is serving the flesh of one of his murdered victims during said dinner, and said victim was chosen as a target because they were an inept member of the orchestra who ‘ruined’ said concert for Lecter. Will Graham then meets Dr Lecter after the dinner, whereupon the doctor’s cannibalism is revealed, and the two fight and defeat each other.</p>
+<p>These scenes portray Lecter in a charitable light, considering his crimes. He’s polite, debonair, and everyone at the dinner is very taken by him. Once Will shows up to discuss a case the two have been working on, it’s clear that the detective respects Dr Lecter immensely. In part, this is done so that there’s a shocking contrast when his crimes are revealed. People — in this case, the audience — are horrified when they find out that someone they like is actually greatly distasteful to them after all. But at the same time, crimes or horrible acts aren’t necessarily an obstacle to audiences’ enjoyment of a character. Oscar Wilde says in <em>Lady Windermere’s Fan </em>that characters are either “charming or tedious,” which might explain why Hannibal Lecter is such a fan favourite. If Lecter is written charmingly enough — ie. interestingly and engagingly enough — audiences will be engaged no matter what he does. Seeing that he’s polite, calm, and collected even while stabbing Will, he’s certainly interesting.</p>
+<p>The Tooth Fairy, then, is a serial killer who is also similarly somewhat highbrow, in that he’s sort of inspired by William Blake paintings. Basically, central to his character is the painting <em>The </em><em>Red Dragon and the Woman Clothed in the Sun</em>, a reference to the biblical book of Revelation. This ‘red dragon’ is the alter ego of (and as perceived by) mild-mannered childhood abuse victim and video-shop manager Francis Dolarhyde, who was named ‘the Tooth Fairy’ by the press after his teethmarks are found on a victim. While Dolarhyde has committed many violent and sexual crimes, the abuse he received as a child from his grandmother is apparently the cause of his mental state. The film shows Dolarhyde even trying to fight the red dragon a few times, simultaneously wanting and not wanting to kill a woman whom he has become close to — he tries to shoot himself with a shotgun, and he even physically consumes the original Blake painting at a museum in an attempt to ‘appease’ the dragon. There’s internal conflict, which always helps with creating a complex character. And there’s some sympathy for Dolarhyde that even Will admits to at one point.</p>
+<p>He doesn’t quite ‘redeem’ himself, though, and I think that that was a good call. It would probably be bad taste to have the killer atone for his crimes, so to speak, given the nature of said crimes and his continued engagement in them. But the willingness of the film to engage with a potentially sympathetic or positive side of such a character is, I think, admirable. Human beings can have, and indeed often have, admirable and horrible qualities. The same goes with characters — those who have multiple sides to them, who may have inconsistent views on various subjects, are more interesting because they feel more real.</p>
+<p>Of course, a one-dimensional character can be fun: a Disney villain, say. But such simple characters only work because they have a purpose — a thematic purpose, for example, or a plot purpose — and they fulfil said purpose ably and concisely. Such characters don’t have much staying power. Such characters don’t get spinoffs and other adaptations… except, maybe, if they were the best thing about the story they’re in. I only say that because I’m thinking about <em>High School Musical</em>’s Sharpay. But again, that comes down to charm. And charm is subjective, sure, but a character’s charm can also be helped along with engagement in the audience’s mind. Such it is with Hannibal Lecter. Such it is, arguably, even with real human beings.</p>
+<p>One last thing.</p>
+<p>Yes, I’m aware that this is a different painting from the one that features in the movie: this is <em>The </em><em><strong>Great</strong></em><em> Red Dragon and the Woman Clothed in the Sun</em>. I just didn’t want to use the same painting because it would feel a bit basic. Make of that what you wish.</p>
+<p>Picture from wikiart.org – public domain.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

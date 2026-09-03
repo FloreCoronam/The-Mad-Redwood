@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangkok Dog and The Raid: Writing Within Budget — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Bangkok Dog and The Raid: Writing Within Budget</h1>
+            <div class="article-meta">
+                Published on May 16, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/bangkok-dog-and-the-raid-writing-within-budget.jpg" alt="Bangkok Dog and The Raid: Writing Within Budget" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Bangkok Dog</em> is a martial arts film. Martial arts films are not known for their writing. They’re known — good ones, anyway — for tightly-choreographed action scenes that are shot in dynamic, interesting ways. You’ve got the <em>John Wick</em> franchise with its wide shots to show off the performers’ talent, putting all the incredible technique and prowess on full display. You’ve got the <em>Ip Man </em>franchise, for that classic Hong-Kong-martial-arts-film-feel with a modern twist, with decades of experience behind each film. Franchises aside, Jackie Chan is known for insane high-spectacle stunts in most, if not all, of his martial arts films.</p>
+<p>Does <em>Bangkok Dog </em>have any of these features? Well, it’s got good fight scenes. The problem with this is that a series of fight scenes aren’t enough to make a <em>film</em>. You need a story for that, and, possibly more importantly, you need some money. I couldn’t find anything online about what its budget was, but it’s clear that <em>Bangkok Dog</em>’s budget wasn’t very high. Of course, that isn’t a mark against it. Despite its budget constraints, it’s got impressive fight scenes, as well as pretty cool sets and filming locations. The wardrobe is alright. The music is fine. The camerawork is solid. But the story is where the film falls down, and I think that’s a little unfortunate.</p>
+<p>It’s not as if low-budget movies are inherently doomed to be bad. In fact, a low-budget martial arts film exists that’s still greatly lauded even over a decade after its release: it’s called <em>The Raid</em> (<em>The Raid: Redemption</em> in the US), set and filmed in Indonesia. It’s about a police squad sent into an apartment block to take down the drug lord hiding out there. It’s simple, brutal, and its plot is honestly quite similar to <em>Bangkok Dog</em>’s, but on a smaller scale. And therein lies the rub. If your budget is a little lower than you’d like, plan and <em>write </em>accordingly.</p>
+<p><em>Bangkok Dog</em>’s plot goes like this: there’s a small, implied-to-be-secret US Government taskforce that wants to take down a notorious Thailand-based drug lord. This taskforce has two field agents: Andrew Kang and Kaitlyn Liu. Andrew is sent to Thailand to be an undercover agent, pretending to be Benz Wu — a low-level enforcer who works for the drug lord outside Thailand (meaning that the two have never met). As such, Andrew is then able to impersonate Benz and infiltrate the main operation in Thailand. Kaitlyn is sent after Andrew to be his contact in the field, and report back to HQ. So far, so basic plot, but there’s nothing wrong with that. Martial arts films tend to benefit from simple plots like this anyway, because that gives more screentime to the fight scenes.</p>
+<p>However, it becomes clear early on that the budget is struggling to hold up the weight of what the plot requires. The taskforce seems to only comprise four people: the two aforementioned agents, a gadget-man in the style of James Bond’s Q, and a supervisor who doesn’t seem to do anything except begrudgingly talk to faceless higher-ups over the phone. The film set they’re shooting on looks fine, albeit uninspired, but the layout and geography feels very constrained. There aren’t any other agents or employees visible, so the whole operation feels a bit weird — like it’s just four rando vigilantes trying to kill a drug lord on their own.</p>
+<p>Once agent Andrew is successfully planted in the gang, things look a little better. He’s paired up with experienced gangster Charn Chai, and the two seem to form their own little enforcer unit, which works fine in the fiction. It makes sense that these enforcer groups might work on their own and report only to their leader, without necessarily working with each other. Besides, there are various goons around here and there, especially when the drug lord’s HQ is shown onscreen, so it doesn’t look like the filmmakers couldn’t pay enough actors. It might very well be that they could indeed only secure so many actors, but again, that isn’t a problem really. There are only so many actors in <em>The Raid</em><em> </em>too.</p>
+<p>The writing is where <em>The Raid </em>succeeds where <em>Bangkok Dog </em>doesn’t. Since <em>The Raid </em>only involves a single unit of police officers that are trapped without reinforcements in an apartment block, it makes sense within the fiction for not many actors to be present. There are plenty of extras: apartment residents, gang members and enforcers, etc., but it all makes sense — a drug lord might indeed have endless waves of goons to send into the building if he wanted, especially if he’s as highly influential as the movie claims he is. The plot in <em>The Raid </em>is written for and operates according to the production’s budget restraints, so you don’t really think about it when you watch the movie. With <em>Bangkok Dog</em>, however, you might catch yourself wondering if they overextended beyond their capabilities. If you can’t afford to convincingly show an international spec-ops operation, you don’t have to. Nobody is saying you have to; an inability to do that due to material constraints doesn’t mean that the movie will automatically be less good.</p>
+<p>Not only does the writing of this film have problems at the conceptual level, but it also suffers from canned dialogue. Partly this comes through because of rather wooden delivery, but I can’t fault the actors for this too much. They’re mostly new actors or martial artists (who, in fairness, are there because they can do cool martial arts moves, not necessarily because they can act). But again, this could have been avoided, or at least not exacerbated. In fact, <em>The Raid </em>does something more interesting: there’s not too much dialogue at all, which easily sidesteps this problem that <em>Bangkok Dog </em>walks into.</p>
+<p>Another problem with the writing is the confusion about its characters. There are clear efforts to give more dimensions to the characters, but they fall a bit flat. The villain is an all-out evil man who gets fingers hacked off, burns people alive for fun, and (spoiler) killed his family without remorse. That isn’t necessarily bad, but there isn’t too much of a catharsis when he finally goes down, because weirdly enough he’s not very prominent. More prominent are the two agents, Andrew and Kaitlyn, both of whom are fairly straightforward characters. Andrew is a maverick; Kaitlyn is more by-the-books. To me, Kaitlyn stands out as a clumsily-written character: she’s by-the-books with most things, but also has a surprisingly John-Wick-esque way of fighting that is at odds with that. She’s a damsel in distress, but also acts tough in that way that faux-strong-female-characters often do (by which I mean those female characters that are written to be ‘<em>strong</em>,’ as in ‘<em>tomboy is my whole </em><em>personality</em>’). And she’s supposed to have a romantic entanglement with Andrew — they get together at the end of the film — but their banter is stilted and their chemistry is disjointed at best.</p>
+<p>I say that the writing is ‘confused’ because I suspect that logistics got in the way of the writing of <em>Bangkok Dog</em>, and that’s why I started with all the budget stuff. It’s not that there necessarily were untalented people behind the wheel; I wouldn’t know either way, since I wasn’t there. But my point with this post, I suppose, is that ambition isn’t always key to success, and especially not when there’s not too much funding to hand. You don’t need to write a <em>Mission Impossible </em>or a <em>James Bond </em>story, or even a <em>John Wick </em>story, to make a good action film.</p>
+<p>The writing stage is where these things can be addressed, and so I just wanted to point that out, because <em>The Raid </em>is fantastic. It was shot on a camcorder, and its star was a deliveryman for a mobile phone company, but it still worked. I think that’s inspiring. I hope you do too, dear reader, because I don’t know what else to say at the end here otherwise.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost in Translation: Outside Looking In — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Lost in Translation: Outside Looking In</h1>
+            <div class="article-meta">
+                Published on May 30, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/lost-in-translation-outside-looking-in" alt="Lost in Translation: Outside Looking In" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Lost in Translation </em>is sad. I don’t know what else to say, so that’s all for this week.</p>
+<p>Really though — it’s hard to describe. My best go would be that it’s about loneliness, isolation, and a quest to find connection. It’s ostensibly a romance movie, but the relationship in question is an extramarital affair for both parties, and it’s difficult to define as romantic because it’s so rooted in lostness. That’s intentional, and very interesting (I find), so I’m going to try and describe what happens in an attempt to show you how it’s so vague yet compelling. I’d warn about spoilers here, but I doubt there’d be much of an effect either way. With any luck, this will compel you to watch the movie yourself and see what you think.</p>
+<p>The two main characters are in Japan, staying at the same hotel in Tokyo. Bob Harris is a washed-up movie star who’s getting on in age, and who’s falling out with his wife. Charlotte is a fresh-out-of-school Yale graduate with a philosophy degree, married to a photographer who doesn’t give her much attention. That’s about all you’re getting about who these characters are, because <em>Lost in Translation </em>does a very good job of following the ‘show don’t tell’ rule of writing. If you’re not familiar, this is a rule that (roughly) states: information must be delivered to the audience/reader in organic, in-universe ways, avoiding blatant exposition where possible. The idea behind this is that this makes your story more immersive and real. There’s always disputes about any writing rules, though, in that you have to do what works for what your objective is. <em>Lost in Translation </em>has one such objective: to be ambiguous about this relationship and show the isolation that forms it, and so while it flirts with occasional ‘telling,’ more often you’re ‘shown’ something and you have to figure out what you make of it.</p>
+<p>Bob doesn’t want to be in Japan at all. He’s there to shoot a whiskey advertisement in a noncommittal effort to revitalise his career, but he immediately finds himself out of his depth. His translator isn’t giving him the instructions that the director wants — hence the title of the film — and he can’t find anything that interests him in Japan. He goes to the bar, he watches TV in his room, and that’s about it. His wife sends him fax messages and calls from time to time, but it’s clear that they’re both unhappy. They both seem bitter, and they both seem to want out of the marriage. There’s even a hint that she’s not entirely staying faithful: she says she’s “spending quality time with the construction crew” that’s working on the family home back in America. Again, showing not telling: that’s fairly ambiguous. And she’s never onscreen, so who knows what she really means?</p>
+<p>On the other side of things, Charlotte’s husband John is onscreen quite a lot, at least for the first half of the film. He’s preoccupied with work though; <em>he’s </em>in Japan for work, and Charlotte’s tagging along, but she might as well not have. John shows no interest in listening to Charlotte’s concerns because he has plenty of his own, yet he seems friendly and personable enough with a former acquaintance that the couple meet in the same hotel by coincidence: Kelly, an action movie star who seems to be all smiles, excitement, and self-confidence. Charlotte feels put out by Kelly and the new environment, and increasingly she feels alone. She listens to self-help CDs and visits shrines, but she’s still unsatisfied.</p>
+<p>There’s a difference between Charlotte and Bob, though, despite their shared feelings of lostness, bewilderment, and resentment for their unfulfilling marriages. Bob is a lot older; he’s been married for 25 years, and so he feels set in his ways. For him, there seems to be no way out. Charlotte, however, is still young, and she’s only been married for two years. She wants to explore the world, and discover more about who she is… which Bob advises her to do, since — paraphrasing his words — that kind of understanding lends one more tolerance for whatever the world throws at them. Charlotte still feels some wonder about Tokyo, and this contrast between her and Bob is shown by a short montage where she’s marvelling at the games at an arcade, and he’s trying to ignore an exercise class at the pool he’s swimming laps in. Even so, it’s almost as if they’re pushing themselves to do these things because they <em>feel </em>they have to.</p>
+<p>Less so once they start meeting more often. Their first meetings are awkward but polite: the dialogue is absolutely the kind of conversation one might have with a stranger at 2AM in a bar. They’re somewhat uncomfortable with each other, but intrigued. Eventually the two go to a club, away from the stifling hotel, and seem to truly enjoy themselves for the first time in a long time. Notably, Charlotte initiates this encounter — John is out of the picture, on a short trip elsewhere in Japan, and she’s curious about Bob, so she does something impulsive: something that Bob probably wouldn’t do. At the end of their night out, Charlotte rests her head on Bob’s shoulder; a clear sign that they’re now close, and that they want something more.</p>
+<p>They start hanging out more often, having meals together and meeting at the lounge. Meanwhile, the two both find new meaning in the everyday — Bob takes up golf, and Charlotte visits the shrines and temples in Kyoto with renewed inspiration. Bob shows Charlotte that he cares about her in a way that John maybe doesn’t: he takes her to a hospital when she injures her foot, he waits for her in the visitor’s lounge, and he gets her a gift. He jokes around; he doesn’t take himself as seriously as John, and Charlotte finds that refreshing. They talk openly and honestly about their marriage troubles. They even end up in the same bed, watching movies.</p>
+<p>They never have sex though. Oddly enough, Bob ends up inviting the jazz singer from the hotel lounge to bed instead, just once. Charlotte is upset by this, and the two have a brief falling-out before they very quickly reconcile and decide never to speak of it again. This, for me, is a big indicator as to the complexity of their relationship and the wider story; it’s an affair, but it’s not <em>simply </em>an affair. Bob especially is conflicted; he still calls his wife, and while these calls are relentlessly passive-aggressive on both sides, he still talks to her. Bob and Charlotte both know what they’re doing, and both know why, because they have the same reason for their affair — they’re lonely, lost, heartbroken, and disillusioned about love. The two visit a strip club at one point but quickly leave: neither is interested in sex. They just want some kind of connection outside of their usual loneliness, and this is the answer they cobble together from their broken dreams. I think the movie sets its stand up as a romance story, but for me it’s a tragedy. It’s not a story about finding true love despite hardships and other ‘false or undestined loves’; it’s about just <em>trying</em> something, anything, and <em>maybe</em> succeeding or failing on the way.</p>
+<p>That’s a big maybe. The film ends with the two parting in a busy street with a hug, a kiss, and whispered words inaudible to the audience. Everything is up for interpretation. Will they meet again? Is that it? Is their time together ‘enough’ for them to go back to their regular lives, taking the secret to their graves? Who knows. <em>That’s </em>the power of ‘showing’ rather than ‘telling,’ because the human mind is complex enough that any wheels turn all manner of other wheels — one connection is enough to light a spark. ‘Showing’ gives power to the audience to really engage with the story. I think that’s exactly what <em>Lost in Translation </em>does, and why it was so widely lauded by all kinds of different people.</p>
+<p>I really have no conclusion here, except that you should watch this film and see what you’re ‘shown.’ Though, if you’re feeling lonelier than usual, maybe wait a while before giving it a go.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
