@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takagi-san and Simple Tension — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Takagi-san and Simple Tension</h1>
+            <div class="article-meta">
+                Published on January 03, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/takagi-san-and-simple-tension.jpg" alt="Takagi-san and Simple Tension" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>First post of 2025, then. I finally got to writing a post that was seasonal and timely around Christmas, and you can see it . So what now? A lot of good movies came out last year, some of which I’d definitely like to cover at some point. In a return-to-form, though, here’s an anime from 2018.</p>
+<p><em>Karakai Jouzu no Takagi-san</em> (there are a few English-translation titles and I don’t know which is more accurate, so I’m not going to bother) is an incredibly simple anime. Here is the entire plot and/or premise: a middle-school boy named Nishikata is relentlessly teased by his classmate Takagi, who likes him though he doesn’t know it, and meanwhile he frequently tries to get back at her via some competition or game, but always fails. It’s pretty cute and wholesome; that’s all.</p>
+<p>Aha, but that’s not quite true. Their relationship develops and all that, and events do occur on the timeline, and there’s more character intrigue, yada yada, but there’s more. It’s a slice-of-life anime, after all, so plot isn’t a massive concern for the author. However, I find that it’s very different from a lot of other slice-of-life shows, so I want to talk about why.</p>
+<p>First of all, the structure: each episode is divided into a few mini-scenarios. These scenarios correspond to how the manga is structured — one scenario per chapter — so each episode essentially shows a few chapters of the manga. Needless to say, these scenarios are really short, and each one depicts a particular instance of teasing, as well as the associated failed revenge attempt. Very simple, very basic.</p>
+<p>Second, the show is basically <em>only</em> about two characters. There’s another trio of side characters that are occasionally followed, but they appear almost always in some scenario related to the main two, Takagi and Nishikata. Also, the trio usually only appears in one of the few mini-scenarios per episode; they’re not a huge presence — though definitely noteworthy — and some people like them a lot (I’m somewhat indifferent, myself). Aside from them, there are of course other side characters, but they’re barely visited. So again, simple and basic: just two characters to worry about.</p>
+<p>Well, those are the two main factors as to the show’s simplicity, and frankly I feel that they’re enough. But if it’s so simple, then, why do I still find it compelling? As the title of this post might suggest, it’s all to do with the show’s understanding of tension, and how it pulls that off despite being so simple.</p>
+<p>Tension, or conflict, is key to any story. It’s what keeps the audience or reader interested and invested. Before that, it must pique people’s interest. In this world plagued by a deluge of all sorts of media of varying qualities, one tends to want to consume something of high quality and pertinent to one’s interests. That just makes sense: if you like spy films, you’ve surely seen at least one James Bond film, or perhaps even read the original Ian Fleming books. Naturally, then, a lot of media is competing for people’s interest and/or investment. After you’ve taken interest in something, the story needs to keep you compelled so that you don’t abandon it for something else more interesting. The way a story keeps an audience invested is by throwing out questions and answering them. You may have heard of Chekhov’s Gun: it’s a literary device where if a gun is introduced in a story, it must have been fired by the end. Essentially, setup and payoff. That’s how you create tension, and that’s why audiences stick around — things are set up, and they want to see the payoff. If there’s no payoff, the audience gets annoyed; why include a gun in your story at all if it’s not important? That’s the vibe.</p>
+<p>What’s the tension with Nishikata and Takagi, then? On the surface it’s simple too: Takagi likes Nishikata, so there’s one setup: maybe she’s going to do something bold. Nishikata doesn’t know this, and he thinks she’s just messing with him. That’s another setup: he’s got to realise what’s up eventually, right? Since the whole show is about these two, the audience knows who to (primarily) care about. Very simple, very basic.</p>
+<p>But wait, there’s more. It becomes clear a few episodes into Season 1 (and there are a whole three delightful seasons) that Takagi teases Nishikata <em>because</em> she wants to spend time with him. She wants to say she likes him, but she doesn’t know how; teasing him instead is apparently her default response. In a way, she’s frustrated with herself because of her inability to do something that seems so simple. That’s internal conflict; more tension.</p>
+<p>Fast forward a bit. Nishikata eventually realises that maybe he likes Takagi too. He doesn’t really mind hanging out with her despite all the teasing, and he finds himself <em>wanting </em>to hang out with her. But he doesn’t know if she likes him (<em>somehow</em>, even though it’s pretty obvious, but then he’s a middle-school boy so we have to cut him some slack). Being a middle-school boy, he also is somewhat in denial about whether these feelings are real. More internal conflict; more tension. Good.</p>
+<p><em>An</em><em>d then</em>, there’s the concept of the mini-scenario structure as well, because Nishikata always tries to get revenge on Takagi in a competition, regardless of his chances of success. There’s usually inherent tension in a competition; that’s why there are so many sports animes. The obvious question is who will win. Here, though, the audience learns pretty quick that Nishikata always fails — but <em>sometimes</em>, just <em>occasionally</em>, there’s a development in their relationship from one of these competitions. Eventually even, Nishikata loses them on purpose because of some reason or other, usually to spare Takagi’s blushes about something; it tends to be very context specific. And she likes when this happens. So there’s some more conflict, more tension; you know Nishikata will lose, but the <em>how </em>is the interesting bit, and you’re hoping also that something will develop out of it.</p>
+<p>I find these layered tensions very interesting. They’re not like the ; those were <em>meta-tensions</em>, interacting with audience expectations for media in general. With <em>Karakai Jouzu</em>, the different levels of tensions are baked into each other — tensions within tensions — and yet the premise and structure remain so simple. The show itself might be said to have little substance, or little subject matter. And for all its attractive qualities (as I’ve made out), the show and manga aren’t that popular. But as a writer, I can’t help but gawp at the folding together of these multiple tensions into one cohesive unit. It’s elegant; admirable, even. I feel like I’m watching a chess master finish a game in five moves.</p>
+<p>All this to say that you don’t need massive scale or complicated character politics in stories to arrive at engaging conflict or tension. I could learn a thing or two from this anime, then, about being simple and elegant. Maybe all this could’ve been gotten across in a few sentences.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

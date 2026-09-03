@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focused Goals in Video Games — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Focused Goals in Video Games</h1>
+            <div class="article-meta">
+                Published on January 10, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/focused-goals-in-video-games.jpg" alt="Focused Goals in Video Games" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>A while ago I wrote about management sims. They’re video games that are designed with one goal in mind: to have the player continually manage things, be they space colonies or theme parks or whole civilisations, while striving to make the process as efficient or grand as possible. These games basically end when you’ve completed what you set out to do. Once you’ve successfully enabled life on Mars, what other worlds are there to conquer?</p>
+<p>Coincidentally, a friend of mine had started playing <em>Fields of Mistria</em> around the time I’d begun writing that post. This game was released in Early Access on Steam sometime in August, and I’d been vaguely aware of it for some time, mostly due to its blatant similarity to another popular management sim game, <em>Stardew Valley</em>. These two belong to a subgroup of management sim games, namely the type that involves farm management. They vary greatly; some are ultra-realistic, and some are less so, like the ones I’ll discuss. <em>Stardew Valley</em> and <em>Fields of Mistria</em> both sport pixel art, charming characters, and fantasy elements like wizards and hostile slime creatures.</p>
+<p>So it’s not just about farming, evidently. In both games, you own a farm that you have to cultivate; there are both crops and livestock to care for. Your farm produces income, which you would use to upgrade it in various ways, both practically and aesthetically. But further, there are mines in both games. These bring income as well in the form of treasure, minerals, and useful resources like coal, which you might need for the further development of your farm. They also, however, feature enemies to combat like the aforementioned slime creatures, which stand in the way of more resources and potentially even better equipment for you to use on your farming and adventuring exploits. Aside from all this, though, there are also the townsfolk to interact with and befriend. There are those that help with the farm business (the blacksmiths, the general store owners, the carpenters) but also others that are just charming to talk to, or possibly pursue romantic entanglements with. There are also story events involving the whole town, bringing you closer to the community. I’ll attempt to describe what the gameplay is like now, and I’ll mention only <em>Stardew Valley</em>, since it’s the only one I’ve played. And hopefully, you’ll begin to see that these games aren’t as simple as just a to-do list: what makes a <em>good </em>farm management game?</p>
+<p>Well, I started with a pretty small farm. That made sense, of course. These games tend to introduce new mechanics as they go on — it’s their version of a traditional difficulty curve, in the place of enemies with bigger HP bars and special abilities. Having been given a few seeds, I dutifully planted them and watered them. At this point, that was all I could do on the farm besides clearing the area of rocks and weeds, which I deemed a long-term project, seeing that I had an energy bar to take care of. I later came to learn that if this bar was depleted completely, I would fall unconscious and lose money from robbers in the night (a departure from the mostly cosy tone), but it was clear already by that point that managing this energy bar was important, so I didn’t want to push it. I then wandered into town, as seemed natural. There I got to know the mayor, Lewis, and the carpenter, Robin, whom I’d already met earlier. I also met the owner of the general store, Pierre, whose stock seemed outrageously expensive at the time. No matter; one day, I was sure, 800 gold would be pocket change.</p>
+<p>I pressed on. Plenty of characters to find and talk to, and it took a few in-game days to meet them all. They were found at all corners of the map: Robin lived on the edge of town to the north, while Elliot lived down by the sea to the south. Meanwhile also, the farm work continued. Wild grass was scythed away, and crops were dutifully watered. By this time I’d met Marnie, a rancher who lived south of my farm, and already I’d begun dreaming about buying chickens and cows from her in order to get eggs and milk, which I could sell or make into other goods. Of course, I didn’t have the money to buy the animals yet, so I hunted around for other ways to increase my income. Also, Pierre’s shop was selling a backpack/inventory upgrade, which I desperately wanted in order to make my general day-to-day business easier, and that cost money too. I was then briefly distracted by a letter from the local wizard, prompting me to visit him at his wizard’s tower in the forest, and to drink a potion that he gave me without fully disclosing what it was. So that was odd. I didn’t find that it had much to do with the game, as such, at the time.</p>
+<p>Then I found the abandoned Community Centre, which Mayor Lewis kindly showed me around, to the north of the main town square. In it were tiny apple-shaped woodland sprites which asked me (not verbally; they sort of jigged around in different rooms in the building) to bring certain items to each room. The items were sorted into collections by room, and when these collections were completed… well, at this point, the reward wasn’t clear. I came to learn later that finishing certain collections unlocked new game features. For instance, finishing the Pantry collection unlocks a greenhouse on your farm, which you can use to grow crops that are out of season. Finishing two collections (any will do) will unlock a minecart railway system that allows you to get around the map quicker, thereby saving time on walking to the mines or to the blacksmith or wherever. It turned out that the wizard’s potion is what enabled all this, because it allowed my character to read the language of the woodland sprites. Fine. Whatever.</p>
+<p>However, there’s an aspect to <em>Stardew Valley</em> that I haven’t mentioned, which isn’t present in <em>Fields of Mistria</em>: its thematic message regarding the opposition to capitalism. The story begins with your character leaving their soul-sucking desk job to go live in Pelican Town on your late grandfather’s farm, and your story then begins. There exists in the town a franchise-owned store called JojaMart, which nobody in town likes. It’s in this store that you can purchase a bunch of things for extortionate prices, such as the greenhouse I mentioned earlier. And in fact, if you purchase a JojaMart membership for not very much money at all, a warehouse will replace the Community Centre completely. You would then be forced to get your upgrades at JojaMart, and the townsfolk will start to resent you a bit if you go down this route. The game wants you to choose the Community Centre over JojaMart — the collections are therefore the main quest. That’s the plot, as far as these kinds of games are concerned.</p>
+<p>It’s interesting that <em>Stardew Valley</em> decides to have a plot, because most management sim games don’t bother with one. And in fact, they work very well regardless. You don’t care about <em>why </em>you’re building a theme park; you just want to make the best damn rollercoaster anyone has ever seen. With any video game, if gameplay is compelling enough, players don’t necessarily want to interact with a story, and any lore at all is optional. <em>Fortnite </em>has lore, but no story that the player regularly interacts with. Neither does <em>Minecraft</em>, or <em>CS:GO</em>, or <em>League of Legends</em>, or arguably even <em>Dark Souls</em>. Lore enriches their worlds, but even if you were entirely unaware of the lore of these games, you could enjoy playing them all the same.</p>
+<p>What if these games shifted priorities, then? I recall playing a card game called <em>Inscryption</em> (mild spoilers ahead) not too long ago which I eventually abandoned because it decided to prioritise the story. I know of many who love the story and consider the game a masterpiece because of how it interweaves this story with changing aesthetics and gameplay. But I know of many others, like myself, who were drawn in by the simple premise and gameplay, and who were somewhat disappointed when Act I ended. The game changes considerably after that, and we weren’t really on board with the direction.</p>
+<p>Of course, game developers can do whatever they want. The makers of <em>Inscryption </em>knew what they wanted to do, and though it wasn’t for some, it is a widely-lauded game regardless. I wonder, then, what the makers of <em>Stardew Valley</em> wanted to achieve, because I found the Community Centre gruelling. I hated it. I didn’t particularly care for the upgrades that completing collections unlocked; I was doing fine without them, as far as I was concerned. And I didn’t like descending into the mines either. I was perfectly happy to simply work my farm and interact with the townsfolk — for me, the townsfolk were the main draw. They were fun to talk to, I was making friends, and I was enjoying developing my relationship with a woman called Penny, whom I’d set my heart on.</p>
+<p>But it turned out that it was this affection for the townsfolk that kept me going back to the Community Centre, because if I’d lost my patience with it and just gone to JojaMart for the upgrades, I would’ve been cast out of the community as a pariah. I remember often talking to Shane, Marnie’s nephew, who was welcome enough at town events, but never mingled. The other townsfolk didn’t think much of him, and that’s because he worked at JojaMart. His goddaughter Jas, though, was widely loved. And one gets the sense that Shane is depressed and lonely, and only works at JojaMart because he has to make a living. And I didn’t want to become like Shane, so I dutifully slogged over to the Community Center with turnips and apples, trying not to complain. The farm and the townsfolk meant that I <em>had</em> to engage with all the other stuff, as well as a looming deadline: the game encourages you to finish the Community Centre collections within three in-game years. This is purely a story-based limit: this is apparently what your late grandfather would’ve wanted (which is, annoyingly, rather vague). With Mayor Lewis’ fondness for your grandfather, though — Lewis being a representative of the townsfolk that <em>you’re</em> fond of — how could you let him, and by extension the whole community, down?</p>
+<p>I wasn’t invested in the anti-capitalist story either, and I think that was because of the mixed signals. Despite the community of Pelican Town being close-knit, friendly, and quite anti-capitalist for those reasons (community before competition, and all that), there were outcasts like Shane, as well as Linus — a homeless man who is forced to rummage in bins for food. Neither had done anything wrong, but neither was particularly cared for by the community, besides a kind few. Also, I found it hard to reconcile that the very nature of the game itself is quite capitalist in terms of mechanics: you work on the farm to increase your income, which allows you access to more goods and services, which increase your income, which allows you access to more goods and services. It’s not as if you’re sustaining the town with your produce either — your goods just get shipped off in a nondescript box, and you get money for them in a menu after you go to bed each day — so you’re not contributing to the town as much as you might feel you are.</p>
+<p>I think that’s why I stopped playing <em>Stardew Valley</em>. I felt somewhat like I was being taken hostage by the Community Centre questline (as well as the mining and supernatural stuff that I wasn’t into); if I didn’t do all that, the stuff that I <em>was </em>invested in would be negatively affected. It’s said about these games that there isn’t any stress, aside from stress the player imposes on themselves. But as you can see, that might not necessarily be true. These are implicit sources of stress, sure, and depending on who you are, you may or may not care about these things at all. You might decide that you just want to farm and talk to the townsfolk, and that’s that. It turns out that <em>Stardew Valley</em> doesn’t actually really punish you at all for not reaching the three-year deadline, but the player can’t know that while they’re playing it. But they might then fear they’re missing out on content with the things they <em>are </em>invested in. They might then look it up online.</p>
+<p>Thus is introduced the meta-element of management sims: are you <em>playing the game</em> as efficiently as possible? Perhaps a walkthrough might help? But then, is following a walkthrough really <em>playing</em>? Some would say following a walkthrough defeats the purposes of playing any game at all, but might that still be said of a gamer who simply doesn’t have much time or energy to devote to games (perhaps they have a demanding job, or young children to take care of)? This is a debate that crops up every now and then on the Internet, and it’s an unresolved one — I’m certainly not going to try to resolve it myself, because I feel that that would be an inefficient use of my limited time on earth. I could be playing <em>Stardew Valley</em> instead, for example. But I’ve brought the debate up because its existence begs the question regarding another, more pertinent, debate: is there any ‘right’ way to play any game? And the answer to that, contrary to what some people will tell you, is no, because video games are a form of art and entertainment. And if you think that there’s only one correct way to engage with art or entertainment — or even just a few correct ways for that matter — there’s a totally different issue that you have to resolve.</p>
+<p>I eventually stopped playing <em>Stardew Valley</em>, but it was nobody’s fault. We just didn’t get on well together, so we fell out. It reminds me a lot of my , oddly enough. Different games click with different people, and that’s just how things are.</p>
+<p>Some friends have pointed out that <em>Animal Crossing: New Horizons</em><em> </em>might then be more my thing, since its main draws are interacting with your island community and managing the property on your island. And I would agree, except that I know Tom Nook exists in that game: the capitalist raccoon-dog and mastermind businessman who’s behind all the <em>Animal Crossing </em>games. And I know that K.K. Slider exists in that game as well: the bohemian rockstar dog who seems opposed to all that Tom Nook would seem to stand for. And then it all starts to sound a bit familiar.</p>
+<p>But who knows. Maybe the day will come where I play <em>Animal Crossing</em>, and I’ll find out then if my friends were right. You don’t have to jump off a cliff to know you can’t fly, but sometimes, you can only know if you like a game by trying it out.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

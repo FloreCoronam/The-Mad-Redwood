@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What on Earth is a Hot Frosty? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">What on Earth is a Hot Frosty?</h1>
+            <div class="article-meta">
+                Published on December 20, 2026
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/what-on-earth-is-a-hot-frosty.jpg" alt="What on Earth is a Hot Frosty?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p><em>Hot Frosty</em> is a 2024 Netflix Christmas movie starring Lacey Chabert and Dustin Milligan, where Milligan plays a sexy snowman come to life. We’re going to park that insane premise for now. Note that I haven’t called it a romcom like Wikipedia has, or labelled it with any other genre title, because I don’t know what to call it really, and that’s what this post is about. On the bright side, though, I’m finally on time with a topical, seasonally-appropriate piece of media! Hooray!</p>
+<p>You probably recognise Lacey Chabert. She played Gretchen Wieners in <em>Mean Girls</em>; there’s even a <em>Mean Girls </em>reference in the film. On the other hand, Milligan is probably most famous for being in <em>Schitt’s Creek</em>, and also apparently appeared in a Demi Lovato music video about a decade ago (among other things). I mention all this only because I don’t really remember the last time I watched a TV movie of this kind, and I’ve also never watched a Hallmark-y Christmas movie of this kind. And I mention all <em>that </em>because there seems to be an inexplicable energy that films of this kind possess (that I guess I’m only discovering now). TV movies seem to involve certain kinds of actors, certain kinds of premises, and certain kinds of templates. And if <em>Hot </em><em>Frosty </em>follows such a template, I want to know what on earth anyone was thinking when the first of its ilk appeared, presumably many moons ago.</p>
+<p>Okay, back to the premise. I’m vaguely aware of a few movies with this kind of premise, where a female protagonist will meet some sexy male character at Christmas. <em>A Christmas Prince </em>and its sequels come to mind: a reporter meets a prince, and romance (sort of) ensues.<em> Hot Frosty </em>even references the prince’s kingdom of Aldovia at some point, so well done everyone. <em>A Very Nutty Christmas </em>is a bit closer to what <em>Hot Frosty </em>is, where a nutcracker comes to life and is passingly sexy towards Melissa Joan-Hart. Weirdly, for films that are supposed to be sort of sexy, they’re extremely chaste — the most you’ll get is a kiss, which, y’know, is fine. Having been told that these kinds of movies are supposed to be sexy though, I’m now confused. <em>Hot Frosty</em>, for one, is decidedly unsexy (not to mention the awful name; the joke is sort of there-but-not-there).</p>
+<p>There’s just so much going on, but we’ll start with the unsexiness since I’ve already mentioned it. We simply must acknowledge and agree, frankly, as a global civilisation, that the concept of a snowman-human hybrid is not at all attractive, regardless of how absolutely ripped he is. Fair play to Mr Milligan for putting in the work, I suppose, but he is so distractingly vascular that I can’t help but wonder how the snowman functions. By the way, he’s called Jack in the film, and is listed in the credits as Jack Snowman, so let’s go with Jack while we lay down some points about him.</p>
+<p>We’ll begin with physiology. Jack’s body temperature is below -30&#176;F (this is explicitly mentioned), and he starts to sweat and go clammy when his surroundings approach a normal temperature (wow, I’m struggling to contain my loins already). Seeing that he’s very vascular, he must have a heart and a circulatory system. In a similar vein (ha!), he’s seen blowing balloons up, so he must have lungs and a respiratory system as well. He also eats pizza at one point, so he must have a digestive system — which, in turn, implies he must have an excretory system (also he sweats, proving that further). Already you can see the conceptual nightmare that this is, but let’s gloss over that for now.</p>
+<p>On to his mind. Uh… he can draw pretty well. He can speak and write in English from the get-go, and seems to innately understand some basic concepts like ‘friend,’ but not ‘love.’ Similarly, he understands what ‘clothes’ are, but not how to wear them or the necessity of wearing them in public. He also understands the concept of ‘credit card,’ but not the concept of money or its uses. He seems to have a selective kind of hyperintelligence, whereby he can learn (extremely quickly) how to do things by simply watching tutorials on TV or online, even when they are as complex as repairing a roof. However, he must have simpler concepts explained to him, and understands nothing of social conventions. These social conventions must be repeated a few times before he grasps them. In short, while he somehow understands a few things innately, <em>he has the mind of a child</em>. One might call this a significant, and further, impassable, barrier to any kind of romance with Chabert’s character (her name is Kathy), who is a grown woman.</p>
+<p>Obviously, the film doesn’t acknowledge any of this; why would it? That would get in the way of the premise itself. “Let’s just have fun with this silly premise,” the film seems to say, and as I watched it, I could get on board with that (I guess). It’s clearly not the kind of film you’re meant to read into in this way, I thought, so I then I wondered what kind of film it was specifically meant to be. That lead me to wonder who it was made to appeal to. This kind of film must appeal to <em>some</em> kind of audience; otherwise, they wouldn’t be made so often. So who is it, then?</p>
+<p>We come back to the ‘romcom’ label here. It’s got a comedy duo of policemen — who are, in fairness, pretty funny (and musically talented, might I add) — so it’s a comedy, perhaps. The jokes are plenty, and while they vary in quality, can be pretty solid. Comedies appeal to everyone, so let’s narrow it further: the ‘rom’ part. While I’d like to instantly kick out thinking about that part because, again, the hot male lead <em>has the mind of a child</em>, it does involve some romantic aspects. With those aspects come some attempts at sexiness, so let’s talk about that.</p>
+<p>This movie is rated PG. While it’s very chaste, it then involves some scenes where muscular Jack is shirtless and doing repairwork around the house, and involves many scenes where he’s being openly ogled by most of the town’s populace (especially, weirdly, senior ones). I’m thinking of a particular scene around the halfway point where an older lady crashes her car because she’s distracted by Jack’s rock-hard abs. She then gawks as he helps her push her car back onto the road, gasping as he pushes and thrusts against the car, muscles bulging with the effort. I’m just saying that this movie should probably list a little higher than PG on the rating scale. And yet, while this lady openly pervs on him, Jack is all smiles and eager to be helpful — in the kind of way that a child might be if you asked them to help you with the laundry, and promised them candy for when it was done.</p>
+<p>So, as we see, the film does <em>try </em>to be sexy, but fails. In many ways that we’ve already discussed, it’s very unsexy. It then also seems to <em>try </em>to be unsexy. As a minor thing, Jack is frequently sweaty — not like, hot-and-heavy sweaty, just clammy in a way that makes it look like he’s feverishly ill. Again, for the umpteenth time, not sexy. A more major effort on the unsexiness front is that occasionally, for reasons that we’ll try to unpack in a bit, the film gets quite sad. Kathy is a widow whose husband passed away from cancer, and she’s still struggling with her grief as the movie begins. It’s clear from the start that she’s not quite over it all, but she does her best to put on a brave face. Jack finds out about this past not too far into the movie, and asks her what cancer is.</p>
+<p>So do you want to be sexy or not, <em>Hot Frosty</em>? Or are you going to have this Fabio-alike stand in a kitchen, making pizza with childlike glee, while he asks about cancer and this distraught widow’s grieving process? What is the goal? I don’t want to be thinking about dire medical conditions, or whether snowmen can bleed, or the mountain of grief that Kathy has yet to climb, or any of these things that they’re implying, while this adonis flirts with this lady.</p>
+<p>I figure that this scene is an effort put into the sappy-romantic side of things. “It doesn’t all have to be about sexy times,” the film seems to say. “It’s about these people making a connection.” Alright, let’s go with that then. Putting aside that, again, this man <em>has the mind of a child</em>, the film is quite sweet. For our two leads, it seems that the premise most serves to enhance this sappiness angle — two people who are pretty different connecting through some quirky circumstances is a classic romcom template. They start to get along, they misunderstand each other, they have a fight, then they make up, and some final event really brings them together. <em>Hot Frosty</em><em> </em>does okay with all this: Jack and Kathy have some fun interactions at work, at home, and then it all falls apart somewhat because the final Big Event is a middle-school Christmas dance. Remember, these two are adults (at least, in body). I will say that romcoms aren’t usually the best indicators of actual romance, so we’ll let this slide I guess. Let’s just move on.</p>
+<p>I’d also like to know what the budget for this film was. On one hand, the props can’t have been cheap — there’s a whole fully-decorated party scene. There’s also a good amount of CGI involved — Jack’s pre-dance gift to Kathy is some kind of glowing snowflake-rune necklace, and of course there’s lots of snow. On the other hand, there don’t seem to be enough extras, all the snowmen look extremely fake, at one point it’s snowing inside a car, and the volume of snow really messes with the bitrate. Yet they’ve licensed Rob Orbison’s <em>Oh, Pretty Woman </em>and Coldplay’s <em>feelslikeimfallinginlove</em>, so it can’t have been that low, could it?</p>
+<p>But finally, I’m done whinging, and it’s time to get to the point. What is this kind of film for, and why Christmas, and why anything? I think it has something to do with the silliness more than the romance or general jankiness. Perhaps there’s just something about the holiday season — when one wants to put work aside and spend time with loved ones — that makes one desire some silly fun, some giddiness, some outrageous form of entertainment that’s still sort of cosy and pleasant and safe. It’s not about the details; it’s about floating through a haze of glee, giggling and a bit frothy inside. I think the romance genre lends itself well to that feeling, hence the prevalence of this kind of Christmas romcom. And since these films are cranked out at alarming speed, there’s bound to be some issues with premise, plot, characters, theme, continuity, budget, or literally any other aspect of filmmaking. So they all turn out to be a little wonky, but that’s part of the fun.</p>
+<p>I really enjoyed <em>Hot Frosty</em>. It was manic, strange, and incoherent, but I had a great time. And I think it’s that extra wonkiness that really sells it. A few weeks ago I wrote  that ended with a similar kind of conclusion: things that are a little weird in a fun way can be more entertaining than they’re maybe meant to be. Who are these films for, in the end? I guess my answer is something I already mentioned earlier: everyone likes a good laugh. In the end, the Christmas romcom is its own little genre, so I suppose Wikipedia was right.</p>
+<p>There’s an artistry to the wonkiness: neither too much, nor too little. I think <em>Hot Frosty </em>hits the sweet spot. If only it didn’t have such a horrible name; I’d be more willing to endorse it otherwise.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

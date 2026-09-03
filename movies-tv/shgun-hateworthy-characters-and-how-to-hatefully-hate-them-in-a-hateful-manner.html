@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shōgun: Hateworthy Characters and How to Hatefully Hate Them (in a Hateful Manner) — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Shōgun: Hateworthy Characters and How to Hatefully Hate Them (in a Hateful Manner)</h1>
+            <div class="article-meta">
+                Published on January 17, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/shgun-hateworthy-characters-and-how-to-hatefully-hate-them-in-a-hateful-manner" alt="Shōgun: Hateworthy Characters and How to Hatefully Hate Them (in a Hateful Manner)" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>You’re probably detecting some aggression through the title. Well, you’d be right to, so well done. I’ve , mostly praising it for its good writing and enjoying the character Usami Fuji. However, <em>Shōgun</em> continues to write characters well, in that the writers tried to create a character that I really could not muster any enthusiasm for, and they did that really well too. I really had no time for this man whatsoever. Not that they were writing this character <em>for </em>me.</p>
+<p>Anyway. We all know that some characters are created to be hated. Often they’re fun to hate for their cartoonish evil and you’re eagerly awaiting their comeuppance, like Shakespeare’s Richard III. Or you’re just waiting for their comeuppance for other reasons and it feels great when it happens. In that case, usually they’re just unpleasant, annoying, not at all charming, or incompetent, and you don’t want to see them anymore, like… not Richard III after all, I guess. Dolores Umbridge? Joffrey Baratheon? Mileage varies depending on the viewer, of course.</p>
+<p>But I realised when watching <em>Shōgun</em> that there’s another kind of hateworthy character: one who is unpleasant, annoying, not at all charming, incompetent, BUT it’s important for them to be that way, and actually they’re supposed to be written that way. What then? It might feel unfair to hate them then, since that’s what they’re in the story <em>for</em>, and they’re doing their job (ie. being hateworthy) very well. Some minor spoilers ahead.</p>
+<p>For me, that was Nagakado. He’s the son of Lord Toranaga Yoshii — a very competent and clever warlord who knows exactly what he wants, how to get what he wants, and how to go about getting what he wants. Nagakado is exactly the opposite of these things, but how could he not be? He’s got massive shoes to fill, so naturally he would probably be inferior to his father, and he certainly feels that way. At the same time though, he still wishes to be helpful to his father and his clan. His character arc consists of maintaining a balancing act between his desire to do something for himself and his desire to assist his father. So, you know, that’s something in his favour — he’s thinking about people other than himself.</p>
+<p>However. Because this inferiority must come across to the audience, Nagakado was written to contrast with his father and other characters. Instead of being rational and cool-headed like his father, he’s rash and quite arrogant. Instead of being cleverly cunning like Yabushige and Omi, he’s easily led along by their schemes. He’s not necessarily written to be hated, but he’s written in a way that makes him easily hateworthy; he sort of floats around being annoying here and there, and you can’t help but frown disapprovingly as he goes along. Perhaps the show is trying to make us relate to his father more? I dunno.</p>
+<p>In terms of characters, audiences tend to like competence, proactivity, and affability (in relation with other characters). You can usually find at least two of these qualities in well-written characters, but rarely all three, since that starts to venture into Mary-Sue-ish territory. Naturally, also, the quality of affability gets quite subjective person-to-person, but popular characters will usually abide by a certain standard of what’s considered affable (ie. Probably along the lines of general social standards). So in the case of, say, Dolores Umbridge, we have a character who is absolutely detestable to most other characters in <em>Harry Potter and the Order of the Phoenix</em>. Notably, there are characters that we <em>do </em>like in that story, and those characters probably hate Ms Umbridge as well, so that factors in too. Of course, this is all a bit simplistic; these things do vary story to story, and it depends on many factors within the story.</p>
+<p>Going back to Nagakado: let’s consider his brashness and carelessness. These are generally considered to be annoying qualities, but I can think of some brash and careless characters who are still charming, and therefore not generally hated. Ash from Pok&#233;mon could be said to fit that bill (as always, though, mileage varies — I personally can’t stand the little git). <em>Shōgun</em>, though, is clearly a very different show from the <em>Pok&#233;mon</em> anime. It’s very serious tonally, and requires the audience to keep up with political intrigue. You’re not invested in it the same way as you’re invested in the freedom of a Butterfree. <em>Shōgun</em>, then, requires more from its characters, especially in terms of competence in strategic sociopolitical acumen — if you screw up, you’re dead. Thus, Nagakado’s brashness and carelessness are weaknesses that viewers of the show are primed to furrow their brows at, especially in contrast to the other characters in Nagakado’s company.</p>
+<p>I should add here that they’re weaknesses one might expect to be overcome. That’s what character arcs are about — the plot of a conventional story involves characters learning things in order to overcome their weaknesses. Or they might not overcome them, instead making their arc a tragedy. However, Nagakado’s case is interesting because he doesn’t contribute much to the plot (besides <em>one</em> colossal cockup; if you’ve watched the show, you know the one) and learns nothing from it. He continues being who he is until he very abruptly leaves the show. That makes his relationship with the audience boil down to either “not-much-is-happening” or “this-guy’s-kinda-dumb”. But even with that being the case, Nagakado <em>has </em>fulfilled the purpose of his character — to essentially be the foil of everyone else. What’s more interesting is that his leaving the story is a huge plot point too, which does end up being helpful to the protagonists. So in the end, there <em>is </em>a mark of competence on his record (though it wasn’t really his intention), while his link to the audience is unceremoniously severed.</p>
+<p>Poor Nagakado, is all I can think. He did a thankless job very ably, but will regardless remain unthanked. I’d <em>like</em> to thank him here, but frankly I cannot bring myself to do it, because when I was watching the show I wondered to myself: would the show be better if Nagakado didn’t exist in it? And I think that there are good arguments for either side. If he weren’t there, we would lose some marvelous character moments between him and his father, uncovering facets of both characters, and frankly there’d be a significantly different plot towards the end. How might that have turned out? But on the other hand, with him <em>in </em>the show, he remains the only character from the show that I dislike, and I wonder if a different kind of character could’ve accomplished the same purpose that he did without being insufferable.</p>
+<p>But then I asked myself a different question: would I have <em>enjoyed </em>the show more if Nagakado didn’t exist in it? I think the answer there might be yes, and so here he is, being judged by myself and many others as hateworthy. But he at least did his job well. I’ll commend him, but can’t thank him. Not that he can accept the thanks anyway; he’s dead.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Apocalyptic HR (and Other Simulator Games) — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Post-Apocalyptic HR (and Other Simulator Games)</h1>
+            <div class="article-meta">
+                Published on December 27, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/post-apocalyptic-hr-and-other-simulator-games.jpg" alt="Post-Apocalyptic HR (and Other Simulator Games)" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>The holiday season has led me to reflect on tradition, or rather, the seemingly random deployment of tradition despite, perhaps, the getting-tired of said tradition. One might conclude that one isn’t tired of said tradition after all, since it continues to be perpetuated. Needless to say, that led me to think about zombies.</p>
+<p>I hear often that people are tired of zombies, but I think that just isn’t true. I think that people are tired of the generic mould of zombie fiction, ie. a story following the exploits of a group of survivors of some cataclysmic, apocalyptic event. I think this particularly applies to the American zombie story — if someone were to make a zombie movie set in 17th-century French India, or if hit video game <em>Cyberpunk 2077</em> released a zombie-themed DLC, I imagine those wouldn’t be received apathetically. In fact, on that last note, ask <em>Red Dead Redemption</em> fans if they want another Undead Nightmare DLC, and prepare yourself to nod along as they begin to gush. Zombies are a spice to stories, not the main dish. Zombies provide opportunities to discuss interpersonal and group politics, man’s relationships with his fellow man, as well as all manner of other themes. I don’t imagine that these themes will ever go away.</p>
+<p>So then I thought about State of Decay 2, a video game that I played a few years ago. I’d really enjoyed it. As most zombie-focused video games do more recently, it put a different spin on the generic zombie by making them ‘afflicted with Blood Plague,’ a pathogen that could also be spread through the air, which meant that you had to avoid certain plague-ridden areas. And as most zombie-focused video games are, it was focused on survival — stay alive and destroy all the Plague Hearts that radiate the plague — but it wasn’t focused on just you, the player. This game required the player to manage a survivor base consisting of a few individuals, all of whom had relationships with one another which could sweeten or sour as events transpired, and you were in charge of hopefully helping everyone get along. You’d have to take care of food supply, ammo and fuel shortages, power generation (quite often involving said fuel), water usage, and other such— hang on, isn’t this just management/HR work?! Why’s this a video game? It’s like those ludicrous simulation games that have gotten so popular lately, some of which are charming and successful, and some of which are just the opposite. For every <em>PowerWash Simulator</em><em> </em>or <em>American Truck Simulator</em>, there’s a <em>Professional Farmer 2017 </em>and a <em>World Ship Simulator</em>. And an even larger number as just sort of okay.</p>
+<p>Except such games are meant to be, for lack of a better word, therapeutic. In essence, the monotony of simple tasks can help one relax, seeing as the objective and means to achieving that objective are clear. In the case of <em>PowerWash Simulator</em>, you know what your goal is and how to get there: for instance, get rid of the muck on this lovely white-marble wall by using this high-pressure hose. Drag the cursor over stuff, and after a while, the lovely white-marble wall is lovely and white and marbly. One’s mileage with each of these kinds of games can vary, because even though <em>American Truck Simulator </em>is very popular, you might just not be into driving trucks down the I-94. Perhaps you’re more into driving down the Autobahn, in which case <em>Euro Truck Simulator </em>or its sequel may be more your speed (thank you very much; I’m here all week).</p>
+<p>In a way, <em>State of Decay 2</em> is similar: you need food, so you consult your map, get in your car, and go get it. Quite a lot of the gameplay boils down to that kind of mission. Except it’s more complex than that, because you might find zombies in the way. Or you might get to the abandoned grocery store or whatever and start rummaging around, and <em>then </em>zombies get in the way because you were rummaging too loud and a bunch of canned beans went clattering across the mildewy floor tiles. Or the ideal area might be contaminated with Blood Plague, in which case you may want to consider going somewhere else even if that petrol station is <em>clearly </em>a treasure trove for fuel. Or maybe since you’re heading to destroy the Plague Heart that’s causing such a contamination, you might decide to add the petrol station onto your to-do list for the drive back to base. It’s about checklists and management, but it’s not just purely that — it’s fitting the blocks together to find the most efficient way of achieving a goal. That, most people would say, is satisfying.</p>
+<p>There are other video games like this. Management sims, they’re called. They’re like the simulators from before, but less hands-on. Often they involve numbers and many menus to which the numbers belong. <em>Oxygen Not Included </em>is one such game: it tasks the player with managing a few human colonists in space, and the objective of this management is to make the hostile world liveable. Harmful gases are converted into breathable ones, and granite is carved away to make room for toilets and bedrooms. When all that’s done, you’ve turned the cold, lifeless planet into the Palace of Versailles, and then it’s off to the next cold, lifeless planet. One could say that with these games, it’s all about the journey and not the goal. The fun comes from the management, hence the name of the genre. They cover all sorts of settings: <em>Eve Online </em>is another such space-y one; it tends to become more about economics, but you can go around smuggling cargo or raiding other cargo ships like a space-Blackbeard. <em>Jurassic World Evolution </em>and <em>Rollercoaster Tycoon</em> are about managing theme parks, balancing profits with safety and excitement, and hoping that the rollercoasters don’t cause too many people to purge their bowels all at once, and/or hoping that the dinosaurs don’t escape and eat little Timmy as he goes to buy a corn dog from Dino Delicatessen or whatever. <em>The Sims </em>franchise would belong in this category too, as the name suggests.</p>
+<p>Though that last example is pertinent; it’s the most similar to <em>State of Decay</em><em> </em>that I’ve mentioned so far, in that you control individual people. Yet in <em>T</em><em>he </em><em>Sims</em>, you don’t assume full control in a third-person way like you do in <em>State of Decay </em>or <em>Mount &amp; Blade II: Bannerlord</em>. All involve management and simulations, but the last two make <em>you </em>go out to kill zombies or lead cavalry charges across desert landscapes. You don’t just stay in the sky and oversee things like you do in <em>The Sims</em>, even if you are still directly choosing your Sims’ actions.</p>
+<p>Lots of games vary in their direct-control perspectives and how that affects gameplay. Something like <em>State of Decay </em>tries to go beyond pure simulation, and that’s because of what it tries to achieve. Namely, it’s the character system that benefits most from this perspective, since being in-person to get to know your characters as they mill about the base means you get attached to them. It’s even sadder, then, if they get the Blood Plague and need to be exiled or… put down. So as you took control of different characters, not only did you get invested in them, but also the people you interacted with <em>as </em>them. And in the same way, you might interact with a character you were previously controlling with a different one later on. Besides all that, sometimes it’s fun to put down the zombies yourself; the peril you feel on a food-supply-run is then more palpable. Again, more investment.</p>
+<p>It&#39;s all down to what the developers are trying to achieve, and what kind of gameplay is most conducive to it. And somehow, we as a species have decided that management can be fun, but sometimes we want to get a little more personal with things. If you don’t find management games fun, perhaps <em>State of Decay </em>and other games like it are a good gateway if you decided you wanted to have a go at finding the appeal. You never know what you’re going to like, so every now and then, one has to buck tradition. Wahey, we’ve come full circle.</p>
+<p>Holidays and zombies, then; a strange combination, much like the many blends of management, simulator, and action/adventure games. It’s not a very strong connection, I’ll admit — it was simply a train of thought that I followed. But I suppose I do often feel as if I’m in a state of decay after Christmas dinner.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
