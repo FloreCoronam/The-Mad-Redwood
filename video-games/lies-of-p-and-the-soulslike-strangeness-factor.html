@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lies of P and the Soulslike Strangeness Factor — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Lies of P and the Soulslike Strangeness Factor</h1>
+            <div class="article-meta">
+                Published on April 04, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/lies-of-p-and-the-soulslike-strangeness-factor.jpg" alt="Lies of P and the Soulslike Strangeness Factor" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>It’s difficult and potentially unhelpful to continue comparing the Soulsborne/Soulslike genre to FromSoftware games. Yes, FromSoftware pioneered this genre of third-person action role-playing games, characterised by their difficulty, emphasis on indirect storytelling, and enemy-respawning/checkpoint mechanics, but surely things can’t stay like this forever, right? If you’re unfamiliar, it doesn’t really matter, because all you need to know is that these games have a really strange legacy: they’re very challenging, frequently unforgiving, and have really strange lore. This kind of strangeness is very, very particular to FromSoftware, and often Soulslike games —games that have attempted to follow the FromSoftware formula — don’t really hit the mark when they try to emulate it, or just don’t try. And that’s fair enough; it’s a very esoteric kind of strangeness, and it’s a very distinct flavour that wouldn’t work for many games. So it’s perhaps for the best that, say, <em>Fortnite </em>doesn’t go down that route.</p>
+<p>But I want to name a few things that happen in FromSoftware Soulslike games, to get this point across.</p>
+<p>In <em>Demons’ Souls</em>, you fight against a group of slime monsters with shields and spears that have formed up into a big goopy mess. You also fight a flying, shrieking manta ray, a knife-wielding ogre-thing with a knife stuck in its belly and a squealing bird stuck in its head, and last but not least, a horrible writhing mass of leeches that shoots bees out of a leech-made arm-cannon.</p>
+<p>It’s not just about enemies and boss fights, though. What about in <em>Dark Souls</em>, the first one, in which when you want to get back to an older area in the game, you have to curl up like an egg in a giant nest, at which point a giant crow picks you up by the arms and carries you there? That’s pretty weird. Then there’s also the Primordial Serpents: giant fleshy hand-puppet-looking snakes with fleshy moustache-like tendrils that spew ominous warnings at you. Though in terms of enemies, there are of course weird ones too, like the nude half-spider woman, or the talking mushroom woman, and… the woman with a bag over her head and a huge human-sized knife in her hands. I mean, there are very strange men too, but then we’d be here all day.</p>
+<p><em>Dark Souls 2</em>? Speaking about genders, you can get in a coffin that will give you a sex change. There’s talking rats that you can be, shall we say, employed by. There’s a singing frog with a horrible skull face in its mouth. There’s a tree that repairs your equipment if you whip it a bit (not too much, or it’ll die, because it’s got very specific tastes).</p>
+<p><em>Bloodborne</em>: huge Cthulhu-faced monsters with axes made of bells. Giant spindly-armed prune-headed monsters that transport you to other areas, but are invisible until you get enough of a certain resource, and may or may not shoot lasers depending on where they are. Scholars made of slime, and different scholars that wear 4-foot-tall cages on their heads. A sentient doll that has the soul of a long-dead hunter in it, or something like that anyway. Also the doll allegedly loves you.</p>
+<p><em>Dark Souls 3</em>: pilgrims with no faces swaddled in rags. A half-dragon man with an invisible dragon baby that he just carries around before slamming it into the ground in a blind rage. A mass of slime that eats gods alive and then puppets them around, using them to cast moon magic. Entire pools of giant faeces that you <em>have </em>to walk through, in order to come across larval slug people with wizard staves (and also some that just wriggle and lunge at you).</p>
+<p><em>Sekiro</em>: monkeys wearing glasses, and also an invisible monkey that you’re supposed to intuit the existence of. Headless ghost-ogres, sometimes underwater. A man who desperately wants to become a catfish, and then actually does (with your help). A man whose dead grandfather climbs out of his shoulder. One of your main pieces of combat equipment is an umbrella. Also monkeys with guns. There’s a lot of monkeys in this one.</p>
+<p><em>Elden Ring</em>: monsters that are just hands with too many fingers. A man who gives birth to such hand-monsters. A sword that’s just the spine of a giant. Flame-shooting chariots in the shape of a human head, driven around by tiny impish murderers. Bat creatures that sing in Latin. A kindly tortoise pope. Sheep that roll around like millipedes and crackle with lightning.</p>
+<p>That’s just the individual games. There’s plenty of strange things that these games all share, like frog-monsters that vomit instant-killing gas, and a bald man who always screws you over, and a weird amount of women’s bare feet. Hopefully by now, though, you have a sense of the weirdness of these games, because there’s a quality to them that’s inextricable from the genre. It’s a weirdness that I really like, and we’ll get into it later, though I’m not so much a fan of the feet thing. But now that we’ve established all that, now, finally, why is <em>Lies of P</em><em> </em>in the title of this post? It&#39;s a strange game, for sure. Nobody in the gaming community expected a video game adaptation of the fairy tale <em>Pinocchio</em>, though of course, it had something to do with copyright and free-use restrictions on the story ending. Nobody expected either that it could be any good. Regardless, it’s a strange idea, so that’s a start to its strangeness. But is it FromSoftware-strangeness?</p>
+<p><em>Lies of P</em> is, I thought, a pretty good game. In fact, I daresay it’s the best non-FromSoftware-made Soulslike out there, and possibly the Soulslike that most tries to <em>be </em>a FromSoftware-made Soulslike. It really captures the spirit, and the combat is slick and interesting in new ways that the genre hasn’t seen before. Fans of this genre have really latched onto it, praising the developers — Neowiz and Round8 Studio, neither of which were really famous for much before <em>Lies of P</em> — for their fantastic new game. Now, this may just be because it’s very similar to the traditional FromSoftware games, and the Soulslike-liking community are very particular about these things. But it’s about capturing the quality of those games, and by quality I don’t mean how good they are, because that’s well-documented already. I mean the features of it, especially the strangeness, as you might have guessed.</p>
+<p>In many aspects, it tries to do new things. For instance, it tries to tell a more direct narrative, and that works very well since it’s a retelling of a fairy tale. The combat is interesting because you can customise your weapon to an absurd degree, and that’s a refresher for the genre. It does the more traditional Soulslike things pretty well too: it improves on the respawning system by placing the death-cache outside boss rooms when you die inside them (if you’ve played the games, you’ll know exactly what that means). And it certainly has strange areas and enemies — uncanny and jittery puppets, large hard-hitting puppets in the shape of clowns and policemen, and horrible tendril-laden slimy monsters. It’s mostly puppets and monsters, but hey, it’s about Pinocchio.</p>
+<p>But the strange factor is where <em>Lies of P</em> falls down a bit, I think. And I think that’s best shown by one thing that we haven’t talked about yet: the dialogue.</p>
+<p>In the FromSoftware games (except <em>Sekiro</em>), you get very dark-fantasy-type dialogue because of the setting. However, there’s an uncanny aspect to them, and everyone tends to giggle hysterically and/or sinisterly at the end of everything they say. Here are some samples I’ve picked out.</p>
+<p>Dark Souls: “<em>The dragons shall never be forgotten… the dragons teased out our dearest emotions …thou will understand, one day. At thy twilight, old thoughts return, in great waves of nostalgia…</em>”</p>
+<p>Bloodborne: “<em>Good hunter, have you seen the thread of light?</em><em> </em><em>Just a hair, a fleeting thing, yet I clung to it, steeped as I was in the stench of blood and beasts.</em><em> </em><em>I never wanted to know, what it really was. Really, I didn&#39;t.</em>”</p>
+<p>Dark Souls 3: “<em>Ahh, you ignorant slaves. Finally taken notice have you? Of the power of my beloved Ocelotte, child of dragons. Well, I will not give him up. For he is all that I have</em>.”</p>
+<p>I’m going to leave out <em>Sekiro</em>, for one important reason: regardless of the content of the dialogue, it’s all delivered in Japanese, and the art of Japanese line-delivery is a very particular and different one from English line-delivery. You’d probably notice this if you watch any anime, even in an English dub. This isn’t a value judgement, to be clear. I’m just not talking about Japanese line-delivery in this particular post.</p>
+<p>All those lines listed above are just the content. Unfortunately, I can’t get across the style of delivery to you, since this isn’t an aural medium. But you get a semblance of the vibe, yes? It’s dark. It’s menacing. It makes you feel unwelcome, because nobody talks like that really. In essence: it makes clear that the world doesn’t revolve around you even though you’re the player, and that particular atmosphere is a key component of FromSoftware games. This is an unfamiliar, alien world, and you are but a traveller passing through, like a ship in the night. You may or may not have business dealing with this world, but it cares nothing for you while you try and do it.</p>
+<p>In theory, <em>Lies of P</em> is a similar world. It’s full of puppets who may or may not be becoming sentient, and you’re the living proof of this change. Everything is falling apart around you, and nobody understands what’s going on. You set out to fix things, but you mess up, or you’re misled, and you’re trying to work with a ragtag group who are equally clueless, some without hope. It’s a bad time. So, what might the dialogue be like? I’ve picked lines from boss fights, since they’re supposed to be grand and threatening, and very hostile to you, the player.</p>
+<p>From a two-faced tongue-lashing monster: <em>I’m a one-winged angel! Only I can sense the presence of God</em><em>… </em><em>I’m not the only one who was greedy for gold</em><em>…</em><em> </em><em>w</em><em>hy am I the only one like this?</em></p>
+<p>From a cutthroat gangster: <em>So this is Ge</em><em>p</em><em>petto’s puppet, huh. Gotta admit: he knows what he’s doing.</em></p>
+<p>From a hulking hammer-wielding ogre of a man: <em>Distilled immorality, and a key that opens a world with no lies. Give thanks! Ergo is a gift from me, Simon Manus, who will transgress even God.</em><em> </em></p>
+<p>Isn’t the vibe very different? That last one is a bit closer to the antiquated dialogue of an alien FromSoftware world, but it’s not quite there — the guy says his name, for crying out loud. Note, more importantly, the contractions like “I’m” and “gotta.” It’s too familiar. It’s too normal, too casual.</p>
+<p>Something’s missing, or rather, something’s too prominent. <em>You</em><em> </em>are the special real boy. Daddy Geppetto is here, being very clear about what needs to be done, and then there’s that quirky inventor Venigni, who’s trying to figure out what’s wrong with the puppets. There’s Eugenie the weaponsmith, who stands at her desk all day and <em>is </em>charming, yes, but doesn’t do much. It’s almost as if none of these people have anything else to do <em>outside </em>of the story. They don’t feel real, as if they have no lives to return to — no motivations of their own. But they do; at least, the game tells you they do. They each want things, and they try to achieve the goals they have. But <em>you </em>are the catalyst to those things, and <em>you </em>achieve those things for you. Everything in the game flows through you.</p>
+<p>None of this is a fault, really, for games as a whole. These things don’t take away from the success <em>Lies of </em><em>P </em>has enjoyed, of course, despite its odd name. The DLC is on the way now, in fact, and I’m looking forward to it because I’m sure it’ll be good and enjoyable. But I do wish it was more unwelcoming, weirdly enough, because that’s what shows me the uniqueness of FromSoftware and Soulslike worlds, and these worlds are clearly the kind of worlds <em>Lies of P </em>wants to build for itself. An organic world must<em> </em>have strange aspects about it, and I daresay must be just a little uncaring; there <em>must </em>be incongruous things about it that have nothing to do with one’s perception of it. One is simply thrown into the real world, after all, without a say in the matter, and that parallel was what made Lordran, and Yharnam, and the Lands Between seem so alive.</p>
+<p>And so <em>that’s </em>what I want most from the DLC, or whatever Neowiz and Round8 come up with next. Show me a living world, show me a smoking gun fired long ago, and show me strangeness.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

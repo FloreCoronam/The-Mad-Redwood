@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Game Sense? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">What is Game Sense?</h1>
+            <div class="article-meta">
+                Published on April 11, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/what-is-game-sense.jpg" alt="What is Game Sense?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>It was only about three years ago when I first heard the term ‘game sense.’ It was when I had started playing first-person shooters for the first time on PC, and I had started with the game <em>Valorant</em>, because it had just come out a year earlier, and a bunch of my friends were playing it. Having just bought a new gaming laptop, and not having played many PC games before, I decided to give <em>Valorant </em>a go. So this was my first introduction to online gaming culture, and all that entailed.</p>
+<p>‘Game sense’ was an odd term to me. It refers to — paraphrasing the way my friend put it at the time — a kind of sense or sensation that gamers get which help them predict things in game, based on conventions that video games in general share. It’s especially an edge in online multiplayer games like <em>Valorant </em>because with this sense of experience-based foresight, one can outwit an opponent by predicting their actions. It’s sort of like how good chess players have a knowledge of many openings and gambits, which is added to the skill that they already possess. In many disciplines, how good you are at such a discipline is often measured by a combination of skill and knowledge, like with chess — and I suppose video gaming is like that too.</p>
+<p>Why it’s confused me is that I’ve never experienced ‘game sense,’ even though I’ve been playing video games for years and years. I’ve experienced the basic components of it: I’m familiar with health bars, and map markers, and things like that, but I never really get a <em>feel </em>for this legendary instinctual grasp of video games. In theory, ‘game sense’ should come from practice with attention to mistakes: the more practice one gets at something, the more problems one is exposed to in terms of that something. Thus, more mistakes might occur, and the more one learns. Even if you’re not trying very hard to absorb knowledge and learn from your mistakes in games, you <em>must </em>be able to pick some stuff up after a while. If you learn 3 things per 50 games of <em>Valorant</em>, say, you’ll still have learnt 15 if you play 250 games. And over a few years of playing, 250 games aren’t that many. In theory, the more you play, the more you might learn about playing. That’s straightforward enough, isn’t it?</p>
+<p>I searched a bit for a better definition of ‘game sense,’ but none of my friends have been able to describe it very well. I asked a different friend about what it was very recently; his answer was that the first definition I gave above was basically spot on. Urban Dictionary would seem to agree too: it even adds that ‘game sense’ might be built up “because of predictable, long-standing game cliches.” I’d broadly agree with that assessment, if not for my experience with <em>Valorant</em>: these online games tend to change and update, with new maps and new features added from time to time. I’ve observed that this instinctual grasp of things remains in these cases. In fact, I’ve observed a player of one game move to a different one (like from <em>Devil May Cry</em> to <em>Minecraft</em>) and still display something like ‘game sense.’ I’m inclined to conclude, then, that it <em>is </em>indeed some kind of <em>sense</em>: not just reactions drawn from multiple permutations of game-related experiences, but also a state of being of some sort. The ‘instinctual grasp’ element must be important.</p>
+<p>That led me to thinking about proprioception. I’m no expert in the subject, nor of the broader subjects of neurosciences and cognitive sciences, but basically it’s a sense that bodies have which gives one a sense of motion and of the space one occupies. Proprioception combines with other senses like sight and touch to help you feel where you are: sitting on a chair, driving a car, and other things like that. You don’t need to think about where your hands are: your body has a way of automatically perceiving and processing that information. If your hand is hovering over a table, for instance, you don’t need to think: “I can’t move my hand downwards, or it’ll hit the table.” Your body just <em>knows </em>that already.</p>
+<p>I’m thinking about Maurice Merleau-Ponty as well: a French philosopher, phenomenologist and possessor of much knowledge regarding neuroscience and psychology. He basically argued that all human perception of the world around us <em>has </em>to come through our bodies. In order for us to experience anything, we <em>must </em>have a body. That may seem self-evident, but it’s interesting because he extended consciousness beyond what one might think counts as a ‘self.’ He didn’t even think it was right to say that his hand was next to the ashtray on his desk, because the hand was part of him, and therefore part of his experiencing the world. His hand existed in a different way to the ashtray and the desk, because neither ashtray nor desk were part of any body. Consciousness, to him, <em>had </em>to be perceptual through a body. Without bodily perception, there is no consciousness.</p>
+<p>This is all oversimplified, but you get the gist. I’m sure phenomenologists and scholars of Merleau-Ponty’s work could find these sweeping, summarising statements I’ve made completely wrong and missing the nuance that Merleau-Ponty himself would’ve pointed out, were he alive and present to read this blog post about video games. But the important things is that his work has been used to develop many schools of thought about consciousness and perception, like how to treat sufferers of phantom limbs, and finding connections between physical and mental health, so he was definitely on to something. If you’ve ever driven a big car through a small space, you might start to feel what Merleau-Ponty was talking about: you feel cramped, even though your body is comfortable in your big car, possibly even with ample elbow room. Conversely, if you’re in a big empty warehouse, you might get a sense of unease at the openness of the space. In Merleau-Ponty’s terms, you’ve “embodied” the car or the warehouse: all your senses come together to give you a perception of where you are. The idea is that human beings have an innate sense of how to perceive existence, even if we don’t know any theory about the subject. We automatically have a grasp on how our bodies are separate from the world, for example.</p>
+<p>Then there’s Andy Clark and David Chalmers, more recent philosophers who talked about what counts as a cyborg, and redefined what human cognition could be. To them, one’s phone might already be said to be part of one’s cognition: it can be used to take notes or keep a calendar. Technology can be an extension as to one’s perception: we integrate larger systems like our computers and phones, which might have more computational power than we do, to achieve higher forms of cognition that we couldn’t otherwise. We use 3D models to better plan building construction, or use telephones to interact with other human beings far away. That allows our consciousnesses to extend. In fact, in terms of taking notes or keeping a calendar, a simple notebook could be said to be an extension of human cognition. Functionally, there’s no reason that human cognition must necessarily be attached to the human, because any number of objects can be used to bring human intentions to fruition.</p>
+<p>So, bringing all this into what ‘game sense’ is: I think there may be more to the word ‘sense’ than I’d thought when I’d first heard about it. Perhaps it’s an embodiment, to use Merleau-Ponty’s terminology, of an extended kind of consciousness that one can attach to a video game, given enough exposure to it — and, of course, given enough willingness to cooperate with its rules and understand its mechanics.</p>
+<p>I’ve been playing <em>REPO</em> recently; it’s a loot-horror game in the vein of <em>Lethal Company</em>, where you have to collect treasure and escape before something gets you. Part of the tension of <em>REPO </em>is that you have to individually pick up items, some of which are too heavy for a single person to lift, and the value of an item decreases the more you knock it around. Heaven forfend that you break something. While playing <em>REPO</em>, I’ve found that I keep judging distances wrong and accidentally breaking things against cupboards and the floor and whatever else. None of my other friends seem to have this problem.</p>
+<p>Perhaps, then, I simply can’t ‘embody’ a video game like others can. My first suspicion is that it’s because I’m not generally a fan of : I just want to have fun in whatever form suits my fancy at any particular moment. This hypothesis presupposes, though, that <em>anyone </em>can achieve ‘game sense’; that it’s something that one learns to acquire. I don’t see any reason as to why this wouldn’t be true, but then, who knows? I’m trying pretty hard to carry stuff around carefully in <em>REPO</em>, and yet I can’t. Like with that car-in-a-tight-space analogy, I just don’t get that feeling of knowing exactly where the item I’m carrying <em>is</em>. So maybe ‘game sense’ is like a natural talent; you either have it or you don’t, and I don’t.</p>
+<p>In any case, I just find this an interesting avenue to walk down. Hopefully my investigation will lead to less smashed crockery.</p>
+<p>Sources:</p>
+<p>Maurice Merleau-Ponty — “Phenomenology of Perception”</p>
+<p>Andy Clark and David Chalmers — “The Extended Mind”</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
