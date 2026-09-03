@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humankind: More than Meets the Eye — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">Humankind: More than Meets the Eye</h1>
+            <div class="article-meta">
+                Published on March 07, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/humankind-more-than-meets-the-eye.jpg" alt="Humankind: More than Meets the Eye" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I’d played <em>Sid Meier’s Civili</em><em>z</em><em>ation VI</em> a long time ago, and I hadn’t liked it. In fairness, I hadn’t played it for very long. But because of that, it was hard to figure out <em>why </em>I hadn’t liked it. All I could conclude was that it was too different from a strategy game series that I really enjoy: the <em>Total War </em>series. I did, and still do know, why I like <em>that</em> series. But now, years later, I decided to try playing <em>Humankind — </em>basically exactly <em>Civilization</em>, but from a different developer<em> — </em>on a friend’s recommendation. It turns out that, in the end, it’s complicated. Maybe I’ll change my Facebook relationship status with it to reflect that. But I want to talk about <em>Humankind </em>now, because I actually finished a full campaign in it, and it went alright.</p>
+<p>It’s not a fault for <em>Humankind </em>to be different from <em>Total War</em>, of course. They’re both strategy games, but they’re different kinds of strategy games from different developers that were aiming for different goals, so I’m not going to compare the two too much. <em>Humankind</em> has to figure out how you can start from scratch in the Neolithic era, and more clearly, it’s not completely focused on war. <em>Humankind</em> is more about the management of resources, and how that’s then important for developing a civilisation over centuries, and <em>then</em>, inevitably, how to handle a war. So that’s already completely different design-wise, and they’ve done pretty well with the direction that they went for.</p>
+<p>As mentioned, you begin in the Neolithic era. You eventually claim territory and build some cities, while developing new innovations like writing and aqueduct construction. You can form religions or adopt others, which may or may not affect how the civilisation is run. You can enact civics and reform them, shaping how your civilisation grows culturally. Other civilisations are developing around you, and you interact with them: perhaps forming alliances or setting up trade. You build more cities, you build railroads to connect them, you explore the seas to find other continents and possibly more civilisations, and you just keep going until someone meets the win condition: reaching the modern age, or exploring space, or a number of other ones.</p>
+<p>But look. This is a strategy game that contains inevitable wars and skirmishes in each campaign. So you’re going to have to figure out the combat eventually, since it’s going to become important — if not while you’re inventing the wheel, then later when you’ve built the Mausoleum of Halicarnassus. Because what is human nature but destructive, to itself or its surroundings? And while this crucial aspect of humankind is captured by the developers of <em>Humankind </em>— war has been given plenty of significance, after all — I feel that it falls short somewhat in the execution. Conflicts are too simplistic; it’s more about the pure numbers or stats of your units rather than any strategy involved in battle.</p>
+<p>This is, of course, something that the <em>Total War </em>games do very well. You can absolutely win a battle despite being outnumbered and outgunned. It’s about strategically utilising your terrain, and you can’t quite do that in <em>Humankind</em>, because there are no actual RTS-style zoomed-in battles. Battles are fought on the actual campaign map, and <em>Humankind </em>follows <em>Civilization</em>’s hexagonal-grid-style map too. Yes, there are mountains and valleys that you can use as chokepoints and things like that to trap your enemies, but I want more. I want to send my cavalry in to brush against an archer unit to cause panic and routing. More importantly in the context of <em>Humankind</em>, I want my mounted-ballista elephants to still do some damage against a garden-variety musketeer unit, or at least for the ballistae to fire from further away, whittling down the enemy until the actual clash. It shouldn’t <em>just </em>be about numbers.</p>
+<p>On the subject of the gridded map: that’s about numbers. I’ll give <em>Humankind </em>(and <em>Civilization</em>) some credit here, because it’s fun to find a strategic location to establish a city and build it yourself. <em>Total War </em>games tend to have already-established towns and cities that you can then develop, and even then, not like this. With <em>Humankind</em>, each city grows a personality of sorts. City 1 over there, say, has extremely strong fortifications, which is nice, but oh, City 2 on the other side of the continent has a thriving marketplace and fisheries, and also that one’s connected to that barracks building on the hill for quick troop deployment to the border, should that be needed. Ah, and City 3 on that island is where I build my first aerodrome, and also I built Big Ben there, overlooking the Cambodian barays I built there ages ago. My, how time flies. But again, it hobbles strategy in other ways: the way in which armies move across the hexagons isn’t always clear. When you click on a grid to send a unit there, the game works out what the most efficient route there might be, and since everything’s on a grid anyway, it can be hard to tell what’s a mountain and what’s not at first glance. And since the mountainous regions (and others) are harder to traverse, it can be frustrating to waste a turn when you send your troops through a weird route like that.</p>
+<p>Further, on the actual development of your civilisation: the religion and civics systems are underwhelming. You get to choose what tenets your state religion holds, for example, and you get to choose the civics which would appear to be of mind-blowing importance: do your armies comprise professional soldiers, or use forced conscripts? Are you all for freedom of the press, or propaganda? Are you going with communal land or inherited land? Those would seem to be huge decisions, but all civics amount to in practice is some numbers changing. It doesn’t affect what problems your society might face in the future that much. Some tensions might arise when other civilisations do things differently, thus affecting your citizens’ beliefs… but again, not by much. And if your state religion loses popularity worldwide, and everyone is converting to a neighbouring religion, just switching over to that one doesn’t seem to be a huge deal. No riots, no protests… not even a loss in productivity in a more conservative city. As long as you keep your main numbers in check — food, productivity, money, science, and stability — you’re golden. I ended up with an authoritarian, communist police-state, but nothing seemed that different materially between my civilisation and my neighbours, who’d done things very differently.</p>
+<p>And what happened when those differences got out of control? Well, war, and whichever side wins gets to impose reparations on the other. But how long does a war last? At what point do the people say that enough is enough? This is measured by a “war support” status bar that goes up or down depending on your citizens’ support for an ongoing war. If it’s full, they’re champing at the bit to destroy the offending nation, and if it’s low, they’ll hate the idea of war. And that’s where I found the ineffectiveness of religion and civics extra annoying, because my religion and culture were developed around resilience. I would’ve thought that the citizens of such a nation would want to stand no matter what, to fight on the beaches and landing grounds until the very last man lay choking in his own blood upon the ground. No such luck. Conversely, at the end of a war in which you will clearly emerge as the victor, you will be forced to force a surrender on the other side. No total annihilation, even though earlier in the game — ie. when civilisations are just starting out and are thus still small enough to be steamrolled by a big army or two — it’s hard to stamp them out entirely. It’s doable, but not as simply as you might think. Because even when you’re winning and your war support levels are fine, your cities’ stabilities will go down, even if they’re nowhere near the frontlines or contributing to the war effort in any way. Whatever.</p>
+<p>You might capture an enemy city during a war, say, in order to drop their war support even more, and gain control of the city in order to utilise its resources. Well, the game says no, because until the war is over, the city still isn’t yours. But that’s sort of how it works in real life, right? Not really, and certainly not during the Classical Age, for example; things weren’t so organised then. If my army has taken and furthermore surrounded a city, it is effectively mine — what is a law if it cannot be enforced? And why could I not then use its production for my war effort? <em>That </em>is the kind of thing that happens in real life. If there’s a bullet factory in the city you conquer, you bet you’re going to want to claim it for your use.</p>
+<p>Either way, what also happens when a city is occupied (but not taken) is that the game assumes this city must now be radically and universally reformed in the conqueror’s image, and therefore cultures must be immediately clashing, and so civil unrest grows and grows. Yes, needless to say, civil unrest grows during any conflict, but there should be an option to just let the city exist as it already was. Maybe new laws and things could be enacted later, once things calm down. Any conqueror with half a brain knows that. I’d argue that this shouldn’t be a mechanic at all, <em>unless </em>you can gain control over the city before the war is over. But no, since civics are universally upheld throughout your civilisation, and the game wants to calculate factors in this way, you get the worst of both worlds.</p>
+<p>One might argue here that the game is making a point; everyone suffers in a war, including the conqueror’s side. Fine, if that’s the case. But then there’s the narrator, who veers around so wildly in tone that it’s jarring. He talks about the construction of the Statue of Liberty and egregious acts of tyranny with the same laconic, slightly smug tone, and it really gets on my nerves. <em>Humankind </em>has a narrator because <em>Civilization </em>has one, so I can’t blame the developers for this decision too much. But either way, to me, this quirky narrator is emblematic of the gripes I have with this game: a sugarcoating of the power fantasy that any player would play this kind of game for. That’s what these games are about: controlling nations and doing ‘great’ things — significant things. It’s a power trip, and nothing more. It’s not a humanist look at the great things <em>homo sapiens </em>have achieved throughout our history; the appeal of the game is based in the balancing act between the rises and falls of different civilisations. Ultimately, you want <em>your </em>civilisation to do great things. You want <em>your </em>civilisation to succeed. <em>You </em>are playing the game, after all, so <em>you </em>want to do well. But here, you have to listen to this guy prattle on about what great things you’re achieving, while you feel hampered by the multiple mechanics I’ve mentioned.</p>
+<p>It&#39;s too much about the numbers. In other words, it’s not enough about humankind. Human beings are messy and complicated, and while the developers naturally had to pick and choose the things they wanted to focus on with their game, it’s left very sophisticated and impressive in some ways, but very frustratingly simplified in others. And besides, if the game believed in humanity that much, why is it basically impossible for a medieval-age knight unit to beat an equally-sized unit of musketeers? Is it basically impossible to imagine these knights outwitting their opponents, like they might have in real life? Is it basically impossible to believe in the power of the human mind that innovates and creates — the cause of the civilisations that the game seems to admire?</p>
+<p>But maybe there’s a method to the madness. I read an interview a while ago that was conducted with some of the developers for Formula One games. Those games clearly put a lot of stock into realistic simulation as well, but there’s stuff that they avoid, like mechanical failures. Why? It’s realistic, but it just isn’t fun — for something that’s as intricate and strategic as Formula One, you kinda want your plans to pay off if you’ve planned well. That’s a big thing about games: setup and payoff. And mechanical failures are realistic, sure, but they’re random, so at the point where you’ve been racing for an hour (and if you’ve got a full setup with pedals and a wheel, it’s absolutely exhausting as well) you don’t want some random failure to put an end to all your efforts.</p>
+<p>Why I’ve brought this up in relation to <em>Humankind </em>is that in the design of a game that tackles such a complex system, with such a wide scope, what is there to do but accept some imperfections? I’m being fussy with my problems with this game, anyway; I did still have some fun. Perhaps its complexities are lost on me, and a zooming in on the scope is what I need — admittedly, it’s hard to reduce such a complex game into the context of what I like in a game. I mean, it wasn’t made for me, after all. Everyone has to be fussy in some way too.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Didn’t Like Batman: Arkham Asylum — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">I Didn’t Like Batman: Arkham Asylum</h1>
+            <div class="article-meta">
+                Published on March 21, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/i-didnt-like-batman-arkham-asylum.jpg" alt="I Didn’t Like Batman: Arkham Asylum" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I really like Batman as a character. I think he embodies a lot of things about human beings that I like to see in various forms of fiction: our fears, our responses to those fears, a fairly serious tone, a certain exhaustion with existence, but also some humour, because a fully-grown man wearing a bat suit is inherently at least a little bit funny. Naturally, plenty of Batman games have been made, and have tried to play with different aspects of the character and setting.</p>
+<p><em>Batman: Arkham Asylum</em> was the first in the Arkham games series, followed by sequels <em>Arkham City </em>and <em>Arkham Knight</em>, as well as the spinoff <em>Arkham Origins</em> coming along the way, made by a different studio. These games are lauded as some of the best Batman video games to exist, and they’re probably going to stay on that pedestal for a while, since the developers behind the main trilogy — Rocksteady Studios — was recently tasked with kicking out the subpar live-service Suicide Squad game. If you aren’t familiar with the term ‘live-service’ in relation to video games, it’s a game-development model that goes roughly like this:</p>
+<p>Step 1: develop game</p>
+<p>Step 2: release most of that game at full-purchase price</p>
+<p>Step 3: continue to develop game while releasing new content every so often</p>
+<p>Step 4: release but NOT explicitly encourage microtransactions — additional payments <em>after </em>the game has been purchased — for new content, usually cosmetics or upgrades (VERY IMPORTANT that you don’t explicitly encourage these)</p>
+<p>As you can see, it’s not a very popular kind of game model, though it’s gaining popularity and becoming more acceptable for games that are free to begin with, which is another can of worms that I’ll probably get to another time. But yes, Rocksteady at least is going to have a hard time making a better Batman game to follow the Arkham ones, unless they’re closed down. Other studios have had a crack at Batman games, of course: Telltale Games, famous for cinematic games less focused on gameplay and more focused on story, had an okay go. More recently, a VR Batman game did alright too. But again, the Arkham games stand at the top for a lot of people.</p>
+<p>So when the Arkham trilogy was on a discount, and I was in the middle of a COVID lockdown, I was keen to have a try for myself. That started, of course, with the first game in the series: <em>Arkham Asylum</em>. And honestly… it didn’t do it for me, so I want to compare it to two other Batman games that I really liked: its sequel, <em>Arkham City</em>, and a PS2 tie-in game for the 2005 Christopher Nolan Batman movie, <em>Batman Begins</em>. Yes, I’m being serious. We’ll get into why in a bit.</p>
+<p><em>Arkham Asylum</em> is a conceptually simple game. You’re Batman, obviously, and you explore the titular asylum full of popular Batman villains (and assorted goons) because Joker has wrested control of the place and locked you in. He’s also planted hidden bombs all over Gotham City, allegedly, so that nobody can enter the building to help you (though, honestly, I didn’t care so much about this threat, because you’re in the Asylum for the whole game, and therefore never see the actual threat of these bombs). More pressing for you is that your friend, Commissioner Gordon, has been kidnapped, so that’s a good incentive to beat Joker: saving him. And, y’know, being able to escape the place afterwards would be pretty good too, but I’d say it’s mostly about saving your bro.</p>
+<p>The story is alright, is what I’m saying. I didn’t think it was very mindblowing, but then the game came out in 2009, and I played it in 2020. The gaming industry had moved on and improved upon somewhat from stories like this (so we’d like to believe, anyway, considering the aforementioned Suicide Squad game). Not that the story is bad, to be clear. The writing overall was pretty solid, and it was nice to see Mark Hamill come back as the Joker. It just wasn’t very exciting — again, odd and disappointing, considering you’re playing as a fully-grown man in a bat suit. That should be exciting, right? Interesting, at the very least?</p>
+<p>But my main issue was that the gameplay was a little underwhelming too, and that made me not really want to continue playing it. What being Batman amounted to, as this game would have me believe, was walking around corridors and spraying explosives on walls, scanning various items of some interest, occasionally having a punch-up with a bunch of rando inmates, and then moving on to the next boss fight while unlocking gadgets. Yeah, for arbitrary game design reasons, your gadgets have to be unlocked one by one, and that annoyed me. What’s the reason for that, Batman? Has their shine worn off a bit? Do we need to try and impose extra challenges just to feel something again?</p>
+<p>Because you’re in the same building the whole time, things get samey real quick. The level design does change now and then: while you’re looking for 9-foot-tall lizard monster Killer Croc, for example, you’re in the sewers. While you’re looking for ecoterrorist and botany enthusiast Poison Ivy, you’re surrounded by greenery and many many windows. And speaking of them, the boss fights were fine too — Mr Freeze in particular stands out for how he forces you to use new tricks while fighting him. Again, probably a product of time, but it was underwhelming for me.</p>
+<p>Compare that to <em>Batman: Arkham City</em>. You’re still technically trapped by a villain in a designated area, except the area is much larger than the asylum was — it’s an open world game, after all. As you’d expect from the name, it’s a mini-city inside Gotham, supposedly designed for putting criminals in… and so it’s not <em>completely</em> open, but open enough. There are high walls surrounding the city, but otherwise, you have free rein. Odd ideas aside, you’re now zipping from rooftop to rooftop, investigating murders, and also taking down goons, but one crucial thing has changed: you have more freedom as the character of Batman.</p>
+<p>I found <em>Asylum </em>Batman to be too passive. He sort of just let the story happen to him, and more than that — he let the game happen to him. The gadget unlocking system is emblematic of that; it was for game-design purposes, not in-fiction purposes. <em>City </em>Batman, on the other hand, decided what he was going to do next, and then went to do it. That’s one reason for why I like the latter game more.</p>
+<p>But there’s another reason. What’s another thing synonymous with Batman? Being rich, I suppose, but there’s plenty of indications of that in basically all Batman games. At the very least, his butler Alfred must come up at some point, and Wayne Tower and/or Wayne Manor often get a mention. What else… dead parents, I guess? Also appear very often, but aren’t terribly engaging gameplay-wise.</p>
+<p>It’s the wielding of fear — that’s what I’m looking for. Fear and shadows, or some combination. Batman needs to emerge from the darkness and be edgy. There really wasn’t much of this in <em>Asylum</em>, though there was certainly stealth. But now it’s time to introduce you to <em>Batman Begins</em>, the PS2 tie-in game for the 2005 Christopher Nolan Batman movie that I mentioned earlier. Was it worth the wait? Let me know.</p>
+<p>The Nolan Batman films attempted to inject gritty realism into Batman movies again, because the ones before them really leaned into the absurdity and ridiculousness of the fiction built around this fully-grown man wearing a bat suit. To achieve their gritty goal, the Nolan films got darker and grimmer in all aspects, including the lighting. And with that came the emphasis on Batman’s supposedly greatest weapon: fear. He appeared out of the darkness, and criminals disappeared. So inevitably, when the tie-in video game was made, it had to make stealth takedowns a crucial mechanic.</p>
+<p>The game wasn’t that good; not many movie-tie-in games are. In fact, they couldn’t even get Gary Oldman to come back and voice his fairly-central character for it. It wasn’t very intuitive, and the controls were fairly clunky, and the all-important stealth-takedowns often required foreknowledge of things that the game didn’t tell you about. But there was a huge emphasis on creeping up on your enemies to <em>get </em>them, or using the environment to terrify them. And that, it turned out, was really fun — to me, at least. Knockouts down from the ceiling! Setting off bursting steam pipes! Shouting “SWEAR TO ME!!!!” in your enemies’ faces. That last bit is in the movie, though not the game, unfortunately — Batman just growls it instead. It breaks my heart to remember my disappointment at that.</p>
+<p>But genuinely, that fear aspect was fun. And while it was rather artificially set up in this 2005 game, it was also presented more organically in <em>Arkham City</em>. Essentially, that usually meant you, Batman, would swoop down from the sky like a bird of prey and cave some thug’s head in. Or, by using all the gadgets at your disposal, you could come up with some crazy way to take them down instead. You were the predator that stalked your prey, and you were in control. Prep time is Batman’s whole thing.</p>
+<p>So, I’m sorry about it, <em>Batman: Arkham Asylum</em>. I didn’t like the railroady corridor and air vent simulator with occasional punching, and with the odd 9-foot tall crocodile man I had to hide from for a bit too long. Not my thing, and I imagine probably not Batman’s thing either. You’ve got to feel for the guy; he doesn’t ask for much. He just wants to dress up, get out there and punch people while striking terror into their hearts. And in video game terms, that’s all you need for a weird, fun time.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

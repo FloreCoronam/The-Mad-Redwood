@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Video Game) Romance: Connection vs Conquest — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">(Video Game) Romance: Connection vs Conquest</h1>
+            <div class="article-meta">
+                Published on March 14, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/video-game-romance-connection-vs-conquest.jpg" alt="(Video Game) Romance: Connection vs Conquest" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I wrote recently about <em>Fire Emblem: Awakening</em>’s romance options. If you missed that, , but basically it was about a fun romance system. However, it was a pretty lacking romance system really; it was fun in the context of what the game was doing with characters that worked with the narrative and mechanics <em>in that game particularly</em>. If you actually wanted romance in your romance system, if you want a little emotion and passion in your story and character work… it was rather lacklustre. It was difficult for me to imagine any of these characters caring about each other enough to marry.</p>
+<p>For example (again, I’ve linked the other post, but if you don’t want to check that out, I shall try to get the gist of it over with quickly), take Robin, your player character in that game. He/she (you get to choose) is the master tactician of the game’s combat unit, which you as the player act as when you play this strategy game. He/she is a player <em>character</em>, and, as such, is eligible for romance. And, indeed, it’s fairly significant to the story that Robin has a child, for reasons we don’t have to get into here, and who will appear at a certain point of the game. So, you’re supposed to find a character that you fancy, so that your Robin’s child will appear. Interestingly (and perhaps clunkily), the introduction of this second-generation character — as they’re called in the game — depends on your playing and completing a mission, and the game doesn’t really tell you that. It’s possible to just not ever bother either; the child is significant, but not really necessary for the plot to chug along. Tough luck, kid.</p>
+<p>The point is that you’re going to have to pick your beau pretty soon if you want to see this kid show up in the game. You can always put off the mission that makes them appear, but, if you’re like me, you’re afraid of missing out on content. What if you just forget about this mission? What if you reach the endgame of a game without realising? Games aren’t cheap, after all. So <em>my </em>Robin quickly chose a character called Cordelia to marry and produce a child with, and that was that, but at that point in the game — it must be said — I hadn’t yet met all the recruitable characters. Perhaps I would’ve liked a character that appeared later in the game more, and thus might want to romance <em>them </em>instead.</p>
+<p>Now, that’s not necessarily the game’s fault, since I could’ve just put the child-producing mission off till I’d definitely met all the recruitable characters (that’s <em>the-mission-where-Robin’s-child-appears</em>, and not the alternative; there’s no smut in this game, I assure you). I could’ve looked up how to approach these missions, perhaps. But should a game <em>force </em>you to look things up in this way? And would that really be forcing, since the entire thing is unnecessary? In which case, what parameters should a game uphold when it comes to player choice? We’ll come back to this question later, so keep it in your mind-palace.</p>
+<p>I think it’s unfortunate that I felt nothing for Cordelia as a character. Sure, she isn’t the most interesting character anyway, but the gripe I have is that the driving factor behind this romance in the first place was a game-mechanic-related pragmaticism — a practical reason for the presence of the romance system in the game existed, and therefore I wanted to engage with it. In short, there was no passion to this romance. There wasn’t even a romance to this romance. It was a kind of conquest, not a connection, and I found that sad.</p>
+<p>But now we arrive at a different question: why have video game romances at all? Why feel anything about them at all? Is it silly? None of it is real anyway. Is it a good thing to be so engaged in these things?</p>
+<p>These are complicated questions. I don’t want to comment on whether this view of romance is in any way healthy, or realistic, or whatever. Some view such a view of romance as overly idealistic, because people aren’t perfect, and therefore, neither can relationships be. Some would argue that it’s even harmful to think of romance in such a starry-eyed way — even if it <em>is </em>just fictional — because it clouds one’s expectations for a real-life relationship, and may lead to disappointment. But at this point, I’d like to bring up the point that video games <em>are </em>fantasy — they exist so that we human beings can participate in feats that we could never dream of doing. The same goes for all fiction, or poetry, or even philosophy, and indeed many, if not all, the arts. You pick how much you want to engage with the medium you’re engaging with. Video games allow a person to be <em>active </em>in that engagement — more viscerally so than with, say, reading a book (though mileage varies) — but because of this, video games allow one to more intimately engage with one’s fantasy, so to speak.</p>
+<p>And these fantasies, when one digs deep enough, easily seem to become problematic. What are strategy war games for, if not to indulge fantasies of dominion over one’s fellow man? What are multiplayer online first-person-shooters for, if not for the same? What is an exploration-survival game, if not to indulge fantasies of overcoming, despite the odds being stacked against you? What are management and simulation games for, if not to indulge fantasies of ruthless efficiency and control over one’s environment? And what is a romance-visual-novel for, if not to indulge fantasies of finding that idealistic perfect someone, or even to quell the fear of never finding that someone? These are all efforts to seize control of the unknown, to forge one’s own path, and to discover the unthinkable. These are all very human desires, and to ignore or refuse to acknowledge them as part of oneself is to omit an essential part of the human experience. We hold onto the institutions that create us for dear life, and so these primal aspects of humanity should be ignored, we think, in favour of being more ‘civilised.’ But we can’t ignore them, surely? Couldn’t one strike a balance? Couldn’t one engage in both, such that one tames the Id while cultivating and refining the rest of the soul? I’d say yes, or at least, that one can always try. So why couldn’t I romance Shadowheart, dammit?</p>
+<p>I’m kidding. But seriously — to get back to video games — at the same time, I did finish <em>Baldur’s Gate 3</em> utterly romance-less. If you’ve never heard of this game, it’s likely that you don’t play video games very often. Which is fine; I just didn’t think that you might be reading this in that case, but if you are, thank you very much.</p>
+<p><em>Baldur’s Gate 3 </em>is an extremely expansive and immersive role-playing video game. What that means is that you create a character of your own, design them as you like (both in appearance and gameplay-mechanic-related attributes), and then go out into the game world to explore. This game in particular has been widely praised for its attention to detail, especially in terms of player choice. Moral grey areas appear around every corner. You can choose to kill (or at least, try to kill) an extremely powerful devil, if you want. You can choose to say no to a god’s face, though they’ll kill you immediately for it. And you can choose to kiss a monster with tentacles for a mouth. Guess how that last one goes; I’m not going to tell you.</p>
+<p>You’d think that <em>Baldur’s Gate 3</em>, then, one of the most (if not <em>the </em>most) detailed and player-centred video games ever created, would be able to bring one closer to this kind of romance fantasy that I’ve brought up. It stood a chance to deliver a very compelling and satisfying video game romance, not just arbitrarily for player satisfaction, but in a way that enriched the story greatly. And to many, it <em>did </em>deliver. I knew about the game’s reputation from the beginning, ie. giving the player plenty of freedom in general, but also in terms of romance — squid-faced monsters notwithstanding, you can even ‘have relations’ with a bear if you want — so I was interested to see how crazy the options really were. It turns out that, to me, <em>BG3 </em>fell into the same trap that <em>Fire Emblem: Awakening </em>did. And I found that odd, because of the gulf between them: a big difference in time, for one, but also in the design. I found that it requires you to ‘choose’ a romance target very early on, even before you start the game, if you want any kind of romance. And I use the word “target” there intentionally, because it very much feels (to me) that the game sees its romance options that way, much like <em>Awakening </em>did. So I’ll tell you what happened with me, and maybe you’ll see what I mean. Spoilers ahead.</p>
+<p>We begin on the Nautiloid, an alien ship full of these squid-faced monsters — we’re not getting into why, and we’re not considering any of them as romance options. Moving along; we immediately meet Lae’zel, a warrior lady, and then soon after, Shadowheart, a gothy cleric. Others follow in quick succession: for me it was then Astarion the rogue, then Gale the wizard, and a little later Wyll the fencer/warlock, and then Karlach… another warrior lady, but more buff. That’s all for Act 1, though you do meet Minthara the Machiavellian elf and Halsin the druid here, so there’s time to get attached to them too. Fine.</p>
+<p>You’d expect, first of all, that you’d have a higher chance of getting attached to characters you meet early on, since you spend more net time with them. But all the while, I was keeping my options open: I’d gone into the game without knowing anything about any character, so as to carry out my romance experiment as fairly as possible. I just wanted to get to know the characters, and if I felt that I wanted to then engage in a video game romance with them, I then would try, without looking anything up. After all, the option was open to just not engage with the romance at all. That’s the one I ended up with.</p>
+<p>The cutoff point for any romance with the aforementioned characters is — and there is debate about this online because of the game’s lattice of details and complicated nature, but at least the general consensus is this — near the end of the first arc in Act I. There are three acts in <em>Baldur’s Gate 3</em>, and estimates vary based on the average total playtime for each player, but from what I find, it’s also generally agreed that the third act is the longest. The first act comes second, and is perhaps half the length of the third. In my playthrough, this romance-cutoff point occurred when I was about a quarter-way through with the game. That’s a ludicrous ratio, as I see it, for me to make a romance decision so early on. I’d only just discovered Astarion’s vampirism (officially, anyway). I’d only just met Karlach; I’d barely talked to her, though I’d definitely taken every opportunity I’d had to do so. And I hadn’t discovered Shadowheart’s past at that point, because she’d pointedly and directly requested that I didn’t pry. Thus, at the bonfire celebration on the fateful romance-cutoff night, I’d felt that it was too soon to pursue anything with these people, let alone any sort of partnership. So I didn’t act.</p>
+<p>There wasn’t a lack of opportunity, so to speak. The very fact that it’s possible to romance these characters at all is proof of that. I expect that my personality is a large part of why I didn’t act in the end, but there’s another part to it: I would’ve probably had to look something up online. I would’ve had to type “How to romance Shadowheart” into Google, and read up on it. What that indicates is that the romancing process isn’t clear. And at this point, we have to get a little deeper, because yes — Shadowheart <em>is</em> one of the more difficult characters to romance in <em>Baldur’s Gate 3</em>. This is because of the thing I mentioned earlier: she doesn’t want to get close to people. She directly requests that you leave her be, and she only warms to you later on. She’s a complicated character, and once you’ve finished the game you might conclude, as I did, that it makes sense for her to be obtuse like this.</p>
+<p>However. This is a video game, and as such, it had to be designed. Choices had to be made regarding how to present this information to the player. And my feeling is that not enough was done in that regard, or, more accurately, not enough time was given to the player. Because if the player had more time to form a relationship with Little Miss Edgy, with a larger window of romance opportunity, they might then be able to do so more intuitively. That way, it would be more of a romance and less of a conquest. My feeling is that it should take a little longer to romance at least Shadowheart, if not any of the others. Having to look up something online about how to do something in a game generally indicates that it’s not clear enough; just ask the FromSoftware folks. They’ll tell you, or rather, they won’t tell you, because they’ll make you travel to Japan to hold a specific pose in front of the Tokyo Tower for a solid minute, whereupon a mysterious figure will press a wax-sealed letter into your hand before disappearing into the crowd.</p>
+<p>Now, of course, it’s a little unfair to <em>Baldur’s Gate 3 </em>to condemn it in this way. There are plenty of other romance options after all, most of which are ‘easier,’ so to speak, if you view these romances as conquests (as many do). But it remains that the points I’ve highlighted above <em>are </em>about player choice and game design, and how that affects a player’s experience. These romance systems felt like, again, <em>conquests</em> rather than connections, and connections are just more interesting. Even <em>p</em><em>erceived</em> emotional connections are more interesting than systems like this, and it’d help the game’s quality. It might just be that a vivid and natural character romance could bring you back to a game in ten years, to experience it again having hopefully grown as a human being, while the game remained static. Maybe that’d be an interesting experiment too.</p>
+<p>I don’t particularly regret having missed out on all the romance in <em>Baldur’s Gate 3</em>, but it’s also a huge chunk of the game that I did indeed miss out on, and I think that’s a shame. Ah, well. Maybe I should’ve just settled for the tall, bloodthirsty, green Gollum that wanted to sniff me all over.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

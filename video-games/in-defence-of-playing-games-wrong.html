@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Defence of Playing Games Wrong — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link active">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">video games</span>
+            <h1 class="article-title">In Defence of Playing Games Wrong</h1>
+            <div class="article-meta">
+                Published on March 28, 2025
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/video-games/in-defence-of-playing-games-wrong" alt="In Defence of Playing Games Wrong" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>I played <em>Dark Souls III</em> during the COVID lockdowns. I’d figured that, since I’d had a lot of time on my hands suddenly and <em>had </em>to stay home, it was a good time to investigate the appeal of Soulsborne games that I’d heard so much about. They were really tough, I’d heard. They demanded a lot of patience, I’d heard, and it was because of that they delivered great satisfaction upon one’s victory over them. And I did end up becoming a Soulsborne fan as a consequence, though I told myself as the credits rolled that I would never buy <em>Bloodborne</em>. I then proceeded to buy and play <em>Bloodborne</em><em> </em>(as well as its DLC)<em> </em>the next year, when the lockdowns didn’t let up. Of course, after that came <em>Elden Ring</em>, and <em>Lies of P</em>. I even tried <em>CODE VEIN </em>at one point. Dark times.</p>
+<p>Little did I know at the time that <em>Dark Souls III</em> would change the way I played games forever, not necessarily because of anything that the game tried to do. Yes, I admired the slick design: the way it was very intentional about enemy placement, and every move the enemies made. I admired that this slick design aided all the gameplay, including the boss fights, taking into account the boss-fight environments and overall difficulty. Everything seemed to be tuned such that all felt impossible at first, but enough leeway would be left so that the player could push through. I feel like it would be so easy to move the sliders just a fraction of an inch away, and that would make the games completely impossible. But on the whole, the sweet spot is maintained.</p>
+<p>However. Because I’d heard that <em>Dark Souls III </em>would be hard, I was very afraid when approaching it. When I saw the stats and level-up screen, I didn’t quite understand what was what. But I did understand that one stat would increase my health, and another one would increase my stamina — and that really was the limit of my understanding. I could’ve looked it up, but for some reason that is beyond me even now, I decided to doggedly <em>only </em>level up in health and stamina.</p>
+<p>And that was how I played the whole game, start to finish. I reached the credits screen having not increased any of my strength or magic stats at all. Of course, I understand now that these weird parameters that I’d set for myself had probably made the game a little harder than it could’ve been, and yet I beat it. It took me around 30 tries to beat the Nameless King, but I did it. Another 30 tries to beat the Twin Princes, and another 30 to beat the final boss. Though there was some difficulty, I got through it. Besides, there would’ve been difficulty no matter what; I’m not really that good at any video game, I think.</p>
+<p>But then I realised that I did the same kind of thing with so many games that I play — potentially all of them. I did it when I used to play <em>House Flipper</em>, when I mainly designed nice houses to keep rather than flipping them to make a profit. I did it with <em>Forza Horizon 4</em>, just decorating cars with various liveries: some ridiculous, some actually aesthetically pleasing. And I do it with most multiplayer shooters like <em>Valorant</em>, playing them just for the experience of playing them, rather than to win; with the objective of winning and experiencing, but not caring really whatever the outcome was. Bonus points if I played with friends.</p>
+<p>It&#39;s really the playing with friends that crystallised this thought: that really, we all make our own fun with games. In fact, we make our own fun when doing anything. We have our own goals when we engage in any activity, which aren’t necessarily disconnected from each other, and might even be contradictory. One can hate <em>and </em>simultaneously love something — any <em>League of Legends </em>player will tell you that. But any <em>League </em>player can also know <em>why </em>they play it, given a little time to think. What are the objectives? Satisfaction from winning? Enjoying banter with friends? Perfecting the playing of a particular champion, or even just perfecting the execution of a single ability? There’s always something, big or small, and often nested in other things, that speaks to the complexity of what human beings call ‘fun.’</p>
+<p>But then, games are designed. Games still have to be made in a coherent way, with a design philosophy in mind. Even a mad game like <em>Goat Simulator </em>was designed with a purpose in mind: it just happened to be the case that that purpose was chaos. Most of my posts on this website are about aspects of this design process, and why or why not they’re good or not, after all. So if we make our own fun, what’s all this design stuff about, then?</p>
+<p>It&#39;s like storytelling. I read (or possibly heard) somewhere that a good storyteller must act as a good magician might. They must guide the audience or reader through an experience, but leave enough wiggle room for the audience or reader to make their own conclusions about things. And it’s the same with games, or any other piece of media. That’s why bad movies can still be fun, whether enjoyed ironically or not. The human mind is too complex to be directed so simply with any design philosophy, in the world of video games or elsewhere.</p>
+<p>I just want to advocate for finding one’s own fun, because quite often, I don’t see it happening. Rather, I see gatekeeping in myriad forms appear. “No, that’s not how the game is supposed to be played.” Or “no, that defeats the whole point of the game.”</p>
+<p>Who decides that? The player, and the player alone. There may be more to discuss when multiple players are involved, but even in such a case, each individual player gets to choose why they play a game. They have to decided first and foremost, after all, whether they want to play it at all, before theorising as to what makes it enjoyable to them, and it’s likely that whatever the answer is differs from person to person. Probably not even just ‘likely,’ but rather ‘near inevitable.’</p>
+<p>Because a game, whether designed well or not, is a collection of zeroes and ones. It <em>must </em>bow to the player, a sentient being. You can decide: Caesar or nothing. The game will have to listen to <em>you</em>, and comply with what <em>you </em>decide to do with it. So make your ridiculous <em>Elden Ring </em>character builds, and make your <em>Minecraft </em>houses in the shape of a hotdog, and extravagantly blow up your targets in whatever <em>Hitman </em>level you please. Go forth, and wreak havoc, and find what you want from the video game world, and grasp it with both hands. But do also remember to go outside and get some sun.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
