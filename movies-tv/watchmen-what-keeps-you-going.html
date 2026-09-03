@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchmen: What Keeps You Going? — The Mad Redwood</title>
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #fbfbfb;
+            --bg-card: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-body: #27272a;
+            --brand-accent: #9a1e1e;
+            --brand-light: #fef2f2;
+            --border-color: #e4e4e7;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(251, 251, 251, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.925rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--brand-accent);
+            background-color: var(--brand-light);
+            font-weight: 600;
+        }
+
+        /* Layout Container */
+        .article-container {
+            max-width: 1080px;
+            margin: 3rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Meta */
+        .article-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-accent);
+            background: var(--brand-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            margin-bottom: 2.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Body Typography - Pure Editorial Layout */
+        .article-content {
+            max-width: 960px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .article-content p {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.0rem;
+            line-height: 1.85;
+            color: var(--text-body);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.003em;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">The Mad Redwood</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/video-games" class="nav-link">Video Games</a></li>
+                <li><a href="/movies-tv" class="nav-link active">Movies/TV</a></li>
+                <li><a href="/literature" class="nav-link">Literature</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="article-container">
+        <header class="article-header">
+            <span class="category-badge">movies tv</span>
+            <h1 class="article-title">Watchmen: What Keeps You Going?</h1>
+            <div class="article-meta">
+                Published on April 18, 2024
+            </div>
+        </header>
+
+        <div class="hero-image-wrapper">
+    <img src="/movies-tv/watchmen-what-keeps-you-going" alt="Watchmen: What Keeps You Going?" class="hero-image" loading="lazy" />
+</div>
+
+        <article class="article-content">
+            <p>For the uninitiated, <em>Watchmen </em>is a comic about superheroes, but as they might appear in real life. That means criminal violence, drugs, trauma, fear about nuclear weapons (it’s set during the Cold War after all) and the lot of it. It’s grittier and darker than you’d have thought with most superhero stories, at least, as they might have first appeared. I’m sure plenty of people today would be familiar with superhero media, for better or worse, and might even be familiar with it as a medium through which all kinds of stories are told. Much like cartoons, or anime, or video games, or whatever other kinds of media that are associated with particular tropes, comic books are used to tell all kinds of stories. You can use whatever medium you want to tell whatever kind of story you want. <em>Real Steel </em>and <em>Big Fish </em>are both stories about fatherhood, and they’re clearly really different.</p>
+<p><em>Watchmen </em>is a pretty old piece of media at this stage of history. I wasn’t yet alive when it came to be — it was released periodically, starting in 1986 and finishing the next year. Incidentally, 1987 is the year that Rick Astley’s <em>Never Gonna Give You Up </em>was released, so that give you some perspective. I’d always thought about reading <em>Watchmen</em>. I’d heard snippets about it: about Pagliacci the Clown, and about looking upon certain works and despairing. I’d heard that it’s a striking dissection of human nature, political movements, and above all, that the plot was just really good, with complicated and interesting characters. Its legacy is what got me to want to read it, and that got me thinking.</p>
+<p>How does one usually decide whether one wants to consume media? That’s part of a larger question: what makes one want to let something, anything, into their life? You are what you eat, after all, so what should you eat? What do you <em>want </em>to eat? One easy answer is that we <em>want </em>to consume what we already <em>like</em>. If I like zombie stories, sure, I’ll give <em>The Last of Us </em>a try. But wait, more complications, because like I mentioned above, there are plenty of mediums that tell plenty of stories. Maybe I don’t really like video games, but I still like zombie stuff, so how about watching <em>The Walking Dead</em>? Although, hm, maybe I don’t like things being so depressing, so how about I watch <em>Zombieland </em>instead?</p>
+<p>This is the instinct that led me to seeking out <em>Watchmen</em>. I like striking dissections of human nature and political movements, and I like compelling plots and characters. But further, I like the kinds of stories that make me sit down and breathe a sigh of utter defeat — the ones that knock me over and wonder about why and how I live and exist. And that’s the other main answer I can see, for why one chooses to consume a particular piece of media: to gain something from it in terms of their <em>being</em> (or indeed <em>Being</em>, if you’re familiar with metaphysics or phenomenology, or are pretentious about dipping your toe into those things, like I am).</p>
+<p>However, I happen to hold the belief that a piece of media I consume should engage me. In essence, if it fails to do so for whatever reason, and I can’t bring myself to finish it, it is worse (at least, to me). I doubt that this is a particularly hot take. Human beings tend to stop participating in things that they don’t like. My further thinking is that there are so many other movies and books and video games that I could consume instead of the one that isn’t engaging me, and I might like those better, so why stick with this one if I’ve got limited time on Planet Earth? I find that the second main answer above — where one wants to gain something from consuming some media — supplies more retaining power than the first, so to speak. For example, I tried getting into K-dramas a while ago since people around me seemed to be enjoying them, and so I picked up <em>Descendants of the Sun</em>: a classic of the genre. By episode 3 I hated it, but I persevered until episode 7, because I still wanted to know what people found appealing about the genre. I still don’t know the answer to <em>that </em>question, but then my sample size has been small. I’ve been recommended <em>Crash Landing on You </em>since then, so we’ll see how that goes one day, maybe.</p>
+<p>The reason I dropped <em>Descendants of the Sun </em>was a single character: Captain Yoo Si-jin. I found him thoroughly unpleasant, though not so much at the beginning. However, not long into the show, he tricks his love interest into pretending she’s going to die because she’s stepped on a landmine, and he finds it hilarious, and I found it off-putting. His image, in my mind, never recovered. He did unpleasant thing after unpleasant thing, and after I while, I was just done. I heard somewhere once that a good character needs to be two of three things: likeable, competent, or proactive in the plot. Unfortunately, Yoo Si-jin wasn’t competent, he wasn’t all that proactive, and he absolutely wasn’t likeable, but he was one of the two main leads and therefore appeared very often. So that’s why I dropped that show. I still listen to the music from it though, from time to time.</p>
+<p>What’s all this got to do with <em>Watchmen</em>, then?</p>
+<p><em>Watchmen</em> happens to be full of thoroughly unpleasant characters. You’ve got rapists, murderers, mass murderers, cheaters/adulterers, fringe far-rightists, and the list goes on and on. Among these are your protagonists. Among these are your superheroes, mostly-retired crimefighters of the 1940s-60s. The story goes through their lives — up until the in-universe present, sometime in 1985 — all the horrible things they did, all the secrets they had to keep, and how they felt about one another through it all. Most of them don’t actually have superpowers, but one of them has unimaginable powers, and they all have to deal with that. How do you cope when a god is on your team, and you’re just some guy who has a gun and dresses up as an owl?</p>
+<p>It&#39;s not that all the characters in <em>Watchmen </em>are unlikeable, but I can’t think of one I liked at all. However, I was <em>interested </em>in all of them, because they all so clearly have flaws — some more disagreeable than others. That made them interesting. Characters can be both brilliant and confused, can have unimaginable power but refuse to use it, and can think they’re more capable than they are while thinking they’re worth nothing. They had <em>layers</em>, like an ogre. It wasn’t like Yoo Si-jin, because he had nothing to go for him — he didn’t seem to be motivated by much, or be worried by much. <em>Watchmen</em>’s characters had plenty to be motivated and worried by.</p>
+<p>At the same time, just as I was told, the plot was brilliant. It was woven through with so many interconnected threads, combining plot, theme, and character masterfully; it’s the kind of plot that makes you wonder how many drafts were involved in the story’s creation. There are twelve issues of <em>Watchmen</em>. Most of them are dedicated to telling one character’s story: from the insecure Nite Owl, to the trigger-happy Comedian (recently deceased), to the paranoid and cynical Rorschach, to the lost but determined Silk Spectre, to the ‘most intelligent man on earth’ Ozymandias, and to the man-made god himself, Doctor Manhattan. But while the plot revolves around these characters, side-stories unfold at the same time that are thematically connected: there’s a full pirate narrative happening throughout, and there’s the stories of other minor characters that are linked to the pirate and main stories. I find the pirate story particularly interesting because it <em>is </em>definitely important to the overall narrative, but it really keeps you guessing as to <em>why</em>, up until the end. In my case, definitely after the end as well, as I went to put some soup to boil in the kitchen and stirred it round, wondering what it all meant. Not to overhype this story that many people have praised since its released already, but the ending simultaneously gave me chills and had me nodding along with a grin.</p>
+<p>I’ve written on a similar subject before in relation to : what makes one continue? What’s the tipping point for being too annoyed to continue? Well, with games, you’re very directly involved, and with movies or TV or books, you’re a passive observer. And yet, even as observers, we still get invested and enraptured. I don’t know by how much the direct-involvement factor should be weighed, but it seems that in terms of narrative alone, that it’s not really relevant. Video games have the actual gameplay to worry about — the minute-to-minute manifestation of the direct-involvement factor — and that’s not what we’re talking about. What’s more important is the engagement that a story elicits from its consumer.</p>
+<p>It&#39;s clear to me that passion went into <em>Watchmen</em>, so much so that its creators didn’t really feel like further sequels or prequels were necessary. After an acrimonious split from DC Comics, the two didn’t want the IP to be used for anything else, but here in 2025, we can see that they were ignored. That’s a shame, I think, though I’ve not seen any of the adaptations or spinoffs. I suspect, though, that the creators knew best, because what more is there to elaborate on in a story that studies the human condition so intently and intentionally? Could you write sequels to <em>The Iliad</em>, or <em>The Abencerraje</em>, or <em>Heart </em><em>of Darkness</em>, or <em>Mrs Dalloway</em>? Probably, but for what reason? These stories were crafted for particular reasons, for particular purposes. In other words, there was a vision, or at least they had <em>something to say</em>. The reader, then, gets to reflect on themselves while they engage with the piece, and thus engage with it more deeply.</p>
+<p><em>Descendants of the Sun </em>doesn’t bother. Neither does <em>Far Cry 5</em>. It’s not that all stories <em>should </em>have some kind of higher purpose, but it appears that the stories with legacies do, and it’s likely that you didn’t have to read this post to know that. To revisit the beginning: we tend to want to consume what we already like, and while we may not necessarily like reflecting on ourselves as human beings, we like to wonder about ourselves.</p>
+<p>What keeps us reading, or watching, or playing? Ourselves.</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 - 2026 The Mad Redwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
